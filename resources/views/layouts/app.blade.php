@@ -84,16 +84,6 @@
         @yield('content')
     </main>
 </div>
-<footer class="app-footer">
-    <div>
-        <a href="https://infyom.com">InfyOm </a>
-        <span>&copy; 2019 InfyOmLabs.</span>
-    </div>
-    <div class="ml-auto">
-        <span>Powered by</span>
-        <a href="https://coreui.io">CoreUI</a>
-    </div>
-</footer>
 </body>
 <!-- jQuery 3.1.1 -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
