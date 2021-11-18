@@ -1,6 +1,6 @@
 <!-- Name Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('name', 'Name:') !!}
+    {!! Form::label('Nombre', 'Name:') !!}
     {!! Form::text('name', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
 </div>
 
@@ -12,7 +12,7 @@
 
 <!-- Role Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('role', 'Role:') !!}
+    {!! Form::label('rol', 'Role:') !!}
     {!! Form::text('role', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -39,7 +39,7 @@
 
 <!-- Password Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('password', 'Password:') !!}
+    {!! Form::label('contraseña, 'Password:') !!}
     {!! Form::password('password', ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
 </div>
 

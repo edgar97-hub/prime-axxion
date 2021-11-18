@@ -5,10 +5,10 @@
 <table class="table table-striped" >
  <tr>
   
-   <th>Name</th>
+   <th>Nombre</th>
    <th>Email</th>
    <th>Roles</th>
-   <th width="280px">Action</th>
+   <th width="280px">acción</th>
  </tr>
  @foreach ($users as $user)
   <tr>

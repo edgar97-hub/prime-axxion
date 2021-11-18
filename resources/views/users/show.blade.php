@@ -5,7 +5,7 @@
             <li class="breadcrumb-item">
                 <a href="{{ route('users.index') }}">User</a>
             </li>
-            <li class="breadcrumb-item active">Detail</li>
+            <li class="breadcrumb-item active">Detalle</li>
      </ol>
      <div class="container-fluid">
           <div class="animated fadeIn">
@@ -15,7 +15,7 @@
                          <div class="card">
                              <div class="card-header">
                                  <strong>Details</strong>
-                                  <a href="{{ route('users.index') }}" class="btn btn-light">Back</a>
+                                  <a href="{{ route('users.index') }}" class="btn btn-light">Atras</a>
                              </div>
                              <div class="card-body">
                                  @include('users.show_fields')

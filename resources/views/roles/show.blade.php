@@ -17,7 +17,7 @@
                          <div class="card">
                              <div class="card-header">
                                  <strong>Details</strong>
-                                  <a href="{{ route('roles.index') }}" class="btn btn-light">Back</a>
+                                  <a href="{{ route('roles.index') }}" class="btn btn-light">Atras</a>
                              </div>
                              <div class="card-body">
                              <strong>{{$role->name}}</strong>
