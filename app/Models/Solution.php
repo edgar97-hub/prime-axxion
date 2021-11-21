@@ -7,35 +7,32 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Class Banner
+ * Class Solution
  * @package App\Models
- * @version November 17, 2021, 11:20 pm UTC
+ * @version November 21, 2021, 4:34 pm UTC
  *
+ * @property string $title
  * @property string $titulolight
  * @property string $titulonegrita
- * @property string $textogeneral
  * @property string $img
  */
-class Banner extends Model
+class Solution extends Model
 {
-    //use SoftDeletes;
+    use SoftDeletes;
 
     use HasFactory;
 
-    public $table = 'banners';
+    public $table = 'solutions';
     
 
     protected $dates = ['deleted_at'];
 
 
-    public function getPathImg()
-    {
-      return \Storage::url($this->path);
-    }
+
     public $fillable = [
+        'title',
         'titulolight',
         'titulonegrita',
-        'textogeneral',
         'img'
     ];
 
@@ -45,9 +42,11 @@ class Banner extends Model
      * @var array
      */
     protected $casts = [
+        'title' => 'string',
         'titulolight' => 'string',
         'titulonegrita' => 'string',
-        'textogeneral' => 'string'
+  
+
     ];
 
     /**
@@ -56,11 +55,12 @@ class Banner extends Model
      * @var array
      */
     public static $rules = [
-    
-        'titulolight' => 'required|string|max:255',
-        'titulonegrita' => 'required|string|max:255',
-        'textogeneral' => 'required|string|max:255',
+        'title' =>  'required',
+        'titulolight' =>  'required',
+        'titulonegrita' => 'required',
         'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+       
+          
     ];
 
     

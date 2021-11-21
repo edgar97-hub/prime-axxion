@@ -77,6 +77,8 @@ class BannerAPIController extends AppBaseController
     {
         /** @var User $user */
         $banner = $this->bannerRepository->find($id);
+        $banner['img'] = url('/'.$banner['img']);
+
 
         if (empty($banner)) {
             return $this->sendError('banner not found');
