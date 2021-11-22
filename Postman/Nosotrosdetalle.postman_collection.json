@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "34a1f1ae-2673-4380-b9f4-e703cca6370d",
+		"name": "Nosotrosdetalle",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "store",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "nosotros_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "w",
+							"type": "text"
+						},
+						{
+							"key": "textcolumn1",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "textcolumn2",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "textitle",
+							"value": "w",
+							"type": "text"
+						},
+						{
+							"key": "img",
+							"type": "file",
+							"src": "/home/edgar/Downloads/2021-08-10_14-03.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/nosotros/detalles",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"nosotros",
+						"detalles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "_method",
+							"value": "PUT",
+							"type": "text"
+						},
+						{
+							"key": "textitle",
+							"value": "ww",
+							"type": "text"
+						},
+						{
+							"key": "img",
+							"type": "file",
+							"src": "/home/edgar/Downloads/2021-08-10_17-15.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/nosotros/detalles/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"nosotros",
+						"detalles",
+						"4"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/nosotros/detalles/5",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"nosotros",
+						"detalles",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

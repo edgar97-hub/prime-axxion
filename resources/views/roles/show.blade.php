@@ -5,9 +5,9 @@
 
 <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{{ route('roles.index') }}">Role</a>
+                <a href="{{ route('roles.index') }}">Rol</a>
             </li>
-            <li class="breadcrumb-item active">Detail</li>
+            <li class="breadcrumb-item active">detalle</li>
      </ol>
      <div class="container-fluid">
           <div class="animated fadeIn">
@@ -16,7 +16,7 @@
                      <div class="col-lg-12">
                          <div class="card">
                              <div class="card-header">
-                                 <strong>Details</strong>
+                                 <strong>detalle</strong>
                                   <a href="{{ route('roles.index') }}" class="btn btn-light">Atras</a>
                              </div>
                              <div class="card-body">
