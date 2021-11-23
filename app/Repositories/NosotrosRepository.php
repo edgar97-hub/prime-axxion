@@ -46,7 +46,7 @@ class NosotrosRepository extends BaseRepository
           ->get(['nosotrosdetalles.*']);
           foreach ($Nosotrosdetalles as $data) 
           {
-            $data['img'] = url('/'.$data['img']);
+            $data['img'] = url('/storage/'.$data['img']);
 
           }
           $value['content'] = $Nosotrosdetalles;
@@ -62,7 +62,7 @@ class NosotrosRepository extends BaseRepository
         ->get(['nosotrosdetalles.*']);
         foreach ($Nosotrosdetalles as $data) 
         {
-          $data['img'] = url('/'.$data['img']);
+          $data['img'] = url('/storage/'.$data['img']);
 
         }
         $nosotros['content'] = $Nosotrosdetalles;
