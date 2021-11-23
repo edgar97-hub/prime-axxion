@@ -9,6 +9,7 @@ use App\Repositories\NosotrosdetalleRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use Response;
+use App\Repositories\MakeImg;
 
 /**
  * Class NosotrosdetalleController
@@ -20,6 +21,7 @@ class NosotrosdetalleAPIController extends AppBaseController
     /** @var  NosotrosdetalleRepository */
     private $nosotrosdetalleRepository;
 
+    use MakeImg;
     public function __construct(NosotrosdetalleRepository $nosotrosdetalleRepo)
     {
         $this->nosotrosdetalleRepository = $nosotrosdetalleRepo;
@@ -56,7 +58,7 @@ class NosotrosdetalleAPIController extends AppBaseController
         //$input = $request->all();
         //$nosotrosdetalle = $this->nosotrosdetalleRepository->create($input);
         $nosotrosdetalle = $this->nosotrosdetalleRepository->createUs($request);
-        $nosotrosdetalle['img'] = url('/'.$nosotrosdetalle['img']);
+        $nosotrosdetalle['img'] = url('/storage/'.$nosotrosdetalle['img']);
 
         return $this->sendResponse($nosotrosdetalle->toArray(), 'Nosotrosdetalle saved successfully');
     }
@@ -103,10 +105,10 @@ class NosotrosdetalleAPIController extends AppBaseController
 
         //$nosotrosdetalle = $this->nosotrosdetalleRepository->update($input, $id);
         $nosotrosdetalle = $this->nosotrosdetalleRepository->updateUs($id,$request);
-        $nosotrosdetalle['img'] = url('/'.$nosotrosdetalle['img']);
+        $nosotrosdetalle['img'] = url('/storage/'.$nosotrosdetalle['img']);
 
 
-        return $this->sendResponse($nosotrosdetalle->toArray(), 'Nosotrosdetalle updated successfully');
+        return $this->sendResponse($nosotrosdetalle, 'Nosotrosdetalle updated successfully');
     }
 
     /**
@@ -127,7 +129,8 @@ class NosotrosdetalleAPIController extends AppBaseController
         if (empty($nosotrosdetalle)) {
             return $this->sendError('Nosotrosdetalle not found');
         }
-
+        $filePath = 'img/nosotrosdetalles/';
+        $this->deleteImg($filePath,$nosotrosdetalle);
         $nosotrosdetalle->delete();
 
         return $this->sendSuccess('Nosotrosdetalle deleted successfully');

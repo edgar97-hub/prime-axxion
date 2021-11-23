@@ -4,23 +4,24 @@ namespace App\Repositories;
 
 use App\Models\Nosotrosdetalle;
 use App\Repositories\BaseRepository;
-
-
 use App\Http\Requests\API\CreateNosotrosdetalleAPIRequest;
 use App\Http\Requests\API\UpdateNosotrosdetalleAPIRequest;
 use Intervention\Image\Facades\Image;
-
+use App\Repositories\MakeImg;
+ 
 /**
  * Class NosotrosdetalleRepository
  * @package App\Repositories
  * @version November 22, 2021, 2:17 am UTC
 */
 
-class NosotrosdetalleRepository extends BaseRepository
+class NosotrosdetalleRepository extends BaseRepository 
 {
     /**
      * @var array
      */
+
+    use MakeImg;
     protected $fieldSearchable = [
         'title',
         'textcolumn1',
@@ -49,26 +50,17 @@ class NosotrosdetalleRepository extends BaseRepository
     }
     public function createUs(CreateNosotrosdetalleAPIRequest $request)
     {
-      $input = $request->all();
-      $file = $request->file('img');
-      $extension = $file->getClientOriginalExtension();
-      $path ='storage'.uniqid().'.'.$extension;
-      $img = Image::make($request->file('img')->getRealPath());
-      $img->save(public_path($path));
-      $input['img'] = $path;
-
+      $filePath = 'img/nosotrosdetalles/';
+      $input = $this->makeImg($request,$filePath);
       return $this->create($input);
+      
     }
     public function updateUs($id,UpdateNosotrosdetalleAPIRequest $request)
     {
-      $input = $request->all();
-      $file = $request->file('img');
-      $extension = $file->getClientOriginalExtension();
-      $path ='storage'.uniqid().'.'.$extension;
-      $img = Image::make($request->file('img')->getRealPath());
-      $img->save(public_path($path));
-      $input['img'] = $path;
-      
+
+      $filePath = 'img/nosotrosdetalles/';
+      $nosotrosdetalle = $this->find($id);
+      $input = $this->updateImg($request,$filePath,$nosotrosdetalle);
       return $this->update($input, $id);
     }
 }

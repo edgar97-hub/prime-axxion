@@ -8,6 +8,7 @@ use App\Repositories\BaseRepository;
 use App\Http\Requests\API\CreateSolutionAPIRequest;
 use App\Http\Requests\API\UpdateSolutionAPIRequest;
 use Intervention\Image\Facades\Image;
+use App\Repositories\MakeImg;
 /**
  * Class SolutionRepository
  * @package App\Repositories
@@ -19,6 +20,8 @@ class SolutionRepository extends BaseRepository
     /**
      * @var array
      */
+
+    use MakeImg;
     protected $fieldSearchable = [
         'title',
         'titulolight',
@@ -45,27 +48,16 @@ class SolutionRepository extends BaseRepository
     }
     public function createT(CreateSolutionAPIRequest $request)
     {
-      $input = $request->all();
-      $file = $request->file('img');
-      $extension = $file->getClientOriginalExtension();
-      $path ='storage'.uniqid().'.'.$extension;
-      $img = Image::make($request->file('img')->getRealPath());
-      $img->save(public_path($path));
-      $input['img'] = $path;
+      $filePath = 'img/solution/';
+      $input = $this->makeImg($request,$filePath);
 
       return $this->create($input);
     }
     public function updateT($id,UpdateSolutionAPIRequest $request)
     {
-      $input = $request->all();
-      $file = $request->file('img');
-     
-      $extension = $file->getClientOriginalExtension();
-      $path ='storage'.uniqid().'.'.$extension;
-      $img = Image::make($request->file('img')->getRealPath());
-      $img->save(public_path($path));
-      $input['img'] = $path;
-      
+      $filePath = 'img/solution/';
+      $nosotrosdetalle = $this->find($id);
+      $input = $this->updateImg($request,$filePath,$nosotrosdetalle);
       return $this->update($input, $id);
     }
 }

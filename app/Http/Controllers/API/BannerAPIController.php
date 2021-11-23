@@ -9,7 +9,7 @@ use App\Repositories\BannerRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use Response;
-
+use App\Repositories\MakeImg;
 /**
  * Class UserController
  * @package App\Http\Controllers\API
@@ -19,7 +19,7 @@ class BannerAPIController extends AppBaseController
 {
     /** @var  UserRepository */
     private $bannerRepository;
-
+    use MakeImg;
     public function __construct(BannerRepository $bannerRepo)
     {
         $this->bannerRepository = $bannerRepo;
@@ -41,7 +41,7 @@ class BannerAPIController extends AppBaseController
         );
         foreach ($banner as $value) 
         {
-          $value['img'] = url('/'.$value['img']);
+          $value['img'] = url('/storage/'.$value['img']);
 
         }
  
@@ -60,9 +60,9 @@ class BannerAPIController extends AppBaseController
     {
 
         $banner = $this->bannerRepository->createBanner($request);
-        $banner['img'] = url('/'.$banner['img']);
+        $banner['img'] = url('/storage/'.$banner['img']);
 
-        return $this->sendResponse($banner->toArray(), 'banner saved successfully');
+        return $this->sendResponse($banner, 'banner saved successfully');
     }
 
     /**
@@ -77,12 +77,12 @@ class BannerAPIController extends AppBaseController
     {
         /** @var User $user */
         $banner = $this->bannerRepository->find($id);
-        $banner['img'] = url('/'.$banner['img']);
 
 
         if (empty($banner)) {
             return $this->sendError('banner not found');
         }
+        $banner['img'] = url('/storage/'.$banner['img']);
 
         return $this->sendResponse($banner->toArray(), 'banner retrieved successfully');
     }
@@ -109,7 +109,7 @@ class BannerAPIController extends AppBaseController
 
         //$banner = $this->bannerRepository->update($input, $id);
         $banner = $this->bannerRepository->updateBanner($id,$request);
-        $banner['img'] = url('/'.$banner['img']);
+        $banner['img'] = url('/storage/'.$banner['img']);
 
 
         return $this->sendResponse($banner->toArray(), 'banner updated successfully');
@@ -134,8 +134,10 @@ class BannerAPIController extends AppBaseController
             return $this->sendError('banner not found');
         }
 
+        $filePath = 'img/banner/';
+        $this->deleteImg($filePath,$banner);
         $banner->delete();
-
+  
         return $this->sendSuccess('banner deleted successfully');
     }
 }
