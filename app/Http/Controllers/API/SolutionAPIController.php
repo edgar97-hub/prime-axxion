@@ -9,7 +9,7 @@ use App\Repositories\SolutionRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use Response;
-
+use App\Repositories\MakeImg;
 /**
  * Class SolutionController
  * @package App\Http\Controllers\API
@@ -19,7 +19,7 @@ class SolutionAPIController extends AppBaseController
 {
     /** @var  SolutionRepository */
     private $solutionRepository;
-
+    use MakeImg;
     public function __construct(SolutionRepository $solutionRepo)
     {
         $this->solutionRepository = $solutionRepo;
@@ -60,7 +60,7 @@ class SolutionAPIController extends AppBaseController
 
 
       $solution = $this->solutionRepository->createT($request);
-      $solution['img'] = url('/'.$solution['img']);
+      $solution['img'] = url('/storage/'.$solution['img']);
 
         return $this->sendResponse($solution->toArray(), 'Solution saved successfully');
     }
@@ -77,11 +77,11 @@ class SolutionAPIController extends AppBaseController
     {
         /** @var Solution $solution */
         $solution = $this->solutionRepository->find($id);
-        $solution['img'] = url('/'.$solution['img']);
 
         if (empty($solution)) {
             return $this->sendError('Solution not found');
         }
+        $solution['img'] = url('/storage/'.$solution['img']);
 
         return $this->sendResponse($solution->toArray(), 'Solution retrieved successfully');
     }
@@ -110,7 +110,7 @@ class SolutionAPIController extends AppBaseController
 
         //$solution = $this->solutionRepository->update($input, $id);
         $solution = $this->solutionRepository->updateT($id,$request);
-        $solution['img'] = url('/'.$solution['img']);
+        $solution['img'] = url('/storage/'.$solution['img']);
 
         return $this->sendResponse($solution->toArray(), 'Solution updated successfully');
     }
@@ -134,6 +134,8 @@ class SolutionAPIController extends AppBaseController
             return $this->sendError('Solution not found');
         }
 
+        $filePath = 'img/solution/';
+        $this->deleteImg($filePath,$solution);
         $solution->delete();
 
         return $this->sendSuccess('Solution deleted successfully');

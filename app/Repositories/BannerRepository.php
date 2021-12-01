@@ -7,7 +7,8 @@ use App\Http\Requests\API\UpdateBannerAPIRequest;
 use App\Models\Banner;
 use App\Repositories\BaseRepository;
 use Intervention\Image\Facades\Image;
-
+use Illuminate\Support\Facades\Storage;
+use App\Repositories\MakeImg;
 /**
  * Class BannerRepository
  * @package App\Repositories
@@ -19,6 +20,8 @@ class BannerRepository extends BaseRepository
     /**
      * @var array
      */
+
+    use MakeImg;
     protected $fieldSearchable = [
         'titulolight',
         'titulonegrita',
@@ -38,25 +41,17 @@ class BannerRepository extends BaseRepository
 
     public function createBanner(CreateBannerAPIRequest $request)
     {
-      $input = $request->all();
-      $file = $request->file('img');
-      $extension = $file->getClientOriginalExtension();
-      $path ='storage'.uniqid().'.'.$extension;
-      $img = Image::make($request->file('img')->getRealPath());
-      $img->save(public_path($path));
-      $input['img'] = $path;
 
+      $filePath = 'img/banner/';
+      $input = $this->makeImg($request,$filePath);
       return $this->create($input);
+      
     }
     public function updateBanner($id,UpdateBannerAPIRequest $request)
     {
-      $input = $request->all();
-      $file = $request->file('img');
-      $extension = $file->getClientOriginalExtension();
-      $path ='storage'.uniqid().'.'.$extension;
-      $img = Image::make($request->file('img')->getRealPath());
-      $img->save(public_path($path));
-      $input['img'] = $path;
+      $filePath = 'img/banner/';
+      $nosotrosdetalle = $this->find($id);
+      $input = $this->updateImg($request,$filePath,$nosotrosdetalle);
       
       return $this->update($input, $id);
     }

@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\BannerAPIController;
 use App\Http\Controllers\API\UserAPIController;
 use App\Http\Controllers\API\SolutionAPIController;
+use App\Http\Controllers\API\NosotrosdetalleAPIController;
+use App\Http\Controllers\API\NosotrosAPIController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,5 +39,21 @@ Route::put('/solutions/{id}',[SolutionAPIController::class,'update']);
 Route::delete('/solutions/{id}',[SolutionAPIController::class,'delete']);
 
 
+Route::get('/nosotros', [NosotrosAPIController::class, 'index']);
+Route::get('/nosotros/{id}', [NosotrosAPIController::class, 'show']);
+Route::post('/nosotros',[NosotrosAPIController::class,'store']);
+Route::put('/nosotros/{id}',[NosotrosAPIController::class,'update']);
+Route::delete('/nosotros/{id}',[NosotrosAPIController::class,'delete']);
+
+Route::post('/nosotros/detalles',[NosotrosdetalleAPIController::class,'store']);
+Route::put('/nosotros/detalles/{id}',[NosotrosdetalleAPIController::class,'update']);
+Route::delete('/nosotros/detalles/{id}',[NosotrosdetalleAPIController::class,'delete']);
 
 
+
+
+
+//Route::resource('nosotros', App\Http\Controllers\API\NosotrosAPIController::class);
+
+
+//Route::resource('nosotrosdetalles',App\Http\Controllers\API\NosotrosdetalleAPIController::class);

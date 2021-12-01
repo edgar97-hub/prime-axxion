@@ -2,20 +2,20 @@
 
 namespace App\Repositories;
 
-use App\Models\Solution;
+use App\Models\Nosotrosdetalle;
 use App\Repositories\BaseRepository;
-
-use App\Http\Requests\API\CreateSolutionAPIRequest;
-use App\Http\Requests\API\UpdateSolutionAPIRequest;
+use App\Http\Requests\API\CreateNosotrosdetalleAPIRequest;
+use App\Http\Requests\API\UpdateNosotrosdetalleAPIRequest;
 use Intervention\Image\Facades\Image;
 use App\Repositories\MakeImg;
+ 
 /**
- * Class SolutionRepository
+ * Class NosotrosdetalleRepository
  * @package App\Repositories
- * @version November 21, 2021, 4:34 pm UTC
+ * @version November 22, 2021, 2:17 am UTC
 */
 
-class SolutionRepository extends BaseRepository
+class NosotrosdetalleRepository extends BaseRepository 
 {
     /**
      * @var array
@@ -24,9 +24,11 @@ class SolutionRepository extends BaseRepository
     use MakeImg;
     protected $fieldSearchable = [
         'title',
-        'titulolight',
-        'titulonegrita',
-        'img'
+        'textcolumn1',
+        'textcolumn2',
+        'textitle',
+        'img',
+        'nosotros_id'
     ];
 
     /**
@@ -44,18 +46,19 @@ class SolutionRepository extends BaseRepository
      **/
     public function model()
     {
-        return Solution::class;
+        return Nosotrosdetalle::class;
     }
-    public function createT(CreateSolutionAPIRequest $request)
+    public function createUs(CreateNosotrosdetalleAPIRequest $request)
     {
-      $filePath = 'img/solution/';
+      $filePath = 'img/nosotrosdetalles/';
       $input = $this->makeImg($request,$filePath);
-
       return $this->create($input);
+      
     }
-    public function updateT($id,UpdateSolutionAPIRequest $request)
+    public function updateUs($id,UpdateNosotrosdetalleAPIRequest $request)
     {
-      $filePath = 'img/solution/';
+
+      $filePath = 'img/nosotrosdetalles/';
       $nosotrosdetalle = $this->find($id);
       $input = $this->updateImg($request,$filePath,$nosotrosdetalle);
       return $this->update($input, $id);
