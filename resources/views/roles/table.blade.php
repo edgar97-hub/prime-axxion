@@ -4,17 +4,17 @@
 <table class="table table-striped">
   <tr>
  
-     <th>Name</th>
-     <th width="280px">Action</th>
+     <th>Nombre</th>
+     <th width="280px">acción</th>
   </tr>
     @foreach ($roles as $key => $role)
     <tr>
     
         <td>{{ $role->name }}</td>
         <td>
-            <a class="btn btn-info" href="{{ route('roles.show',$role->id) }}">Show</a>
+            <a class="btn btn-info" href="{{ route('roles.show',$role->id) }}">Mostrar</a>
          
-                <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Edit</a>
+                <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Editar</a>
            
        
                 {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
