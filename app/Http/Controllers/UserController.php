@@ -36,8 +36,7 @@ class UserController extends AppBaseController
     {
         $users = $this->userRepository->all();
 
-        return view('users.index')
-            ->with('users', $users);
+        return view('users.index')->with('users', $users);
     }
 
     /**
@@ -63,7 +62,9 @@ class UserController extends AppBaseController
     {
          
         $users = $this->userRepository->createUser($request);
+
         Flash::success('Usuario creado con éxito.');
+        
         return redirect()->route('users.index');
     }
 
