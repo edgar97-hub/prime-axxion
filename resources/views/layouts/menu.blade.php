@@ -26,3 +26,9 @@
         <span>Take Axxions</span>
     </a>
 </li>
+<li class="nav-item {{ Request::is('ayudas*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('ayudas.index') }}">
+        <i class="nav-icon icon-cursor"></i>
+        <span>Ayudas</span>
+    </a>
+</li>

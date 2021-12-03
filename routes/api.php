@@ -9,6 +9,8 @@ use App\Http\Controllers\API\NosotrosdetalleAPIController;
 use App\Http\Controllers\API\NosotrosAPIController;
 use App\Http\Controllers\API\CalltoActionAPIController;
 use App\Http\Controllers\API\TakeAxxionAPIController;
+use App\Http\Controllers\API\AyudaAPIController;
+
 
 
 
@@ -64,10 +66,14 @@ Route::post('/take_axxions',[TakeAxxionAPIController::class,'store']);
 Route::put('/take_axxions/{id}',[TakeAxxionAPIController::class,'update']);
 Route::delete('/take_axxions/{id}',[TakeAxxionAPIController::class,'delete']);
 
+Route::get('/ayudas', [AyudaAPIController::class, 'index']);
+Route::get('/ayudas/{id}', [AyudaAPIController::class, 'show']);
+Route::post('/ayudas',[AyudaAPIController::class,'store']);
+Route::put('/ayudas/{id}',[AyudaAPIController::class,'update']);
+Route::delete('/ayudas/{id}',[AyudaAPIController::class,'delete']);
+
 //Route::resource('nosotros', App\Http\Controllers\API\NosotrosAPIController::class);
 //Route::resource('nosotrosdetalles',App\Http\Controllers\API\NosotrosdetalleAPIController::class);
 //Route::resource('callto_actions', App\Http\Controllers\API\CalltoActionAPIController::class);
 //Route::resource('take_axxions', App\Http\Controllers\API\TakeAxxionAPIController::class);
-
-
-
+//Route::resource('ayudas', App\Http\Controllers\API\AyudaAPIController::class);

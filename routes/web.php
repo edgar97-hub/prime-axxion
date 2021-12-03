@@ -39,3 +39,4 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::resource('calltoActions', App\Http\Controllers\CalltoActionController::class);
 Route::resource('takeAxxions', App\Http\Controllers\TakeAxxionController::class);
+Route::resource('ayudas', App\Http\Controllers\AyudaController::class);
