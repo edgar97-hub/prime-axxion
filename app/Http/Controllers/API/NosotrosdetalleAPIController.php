@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use Response;
 use App\Repositories\MakeImg;
+use DB;
+
 
 /**
  * Class NosotrosdetalleController
@@ -125,13 +127,14 @@ class NosotrosdetalleAPIController extends AppBaseController
     {
         /** @var Nosotrosdetalle $nosotrosdetalle */
         $nosotrosdetalle = $this->nosotrosdetalleRepository->find($id);
-
+        
         if (empty($nosotrosdetalle)) {
             return $this->sendError('Nosotrosdetalle not found');
         }
         $filePath = 'img/nosotrosdetalles/';
         $this->deleteImg($filePath,$nosotrosdetalle);
         $nosotrosdetalle->delete();
+        //DB::delete('DELETE FROM nosotrosdetalles WHERE id = '.$id);
 
         return $this->sendSuccess('Nosotrosdetalle deleted successfully');
     }

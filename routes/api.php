@@ -7,6 +7,8 @@ use App\Http\Controllers\API\UserAPIController;
 use App\Http\Controllers\API\SolutionAPIController;
 use App\Http\Controllers\API\NosotrosdetalleAPIController;
 use App\Http\Controllers\API\NosotrosAPIController;
+use App\Http\Controllers\API\CalltoActionAPIController;
+
 
 
 /*
@@ -49,11 +51,12 @@ Route::post('/nosotros/detalles',[NosotrosdetalleAPIController::class,'store']);
 Route::put('/nosotros/detalles/{id}',[NosotrosdetalleAPIController::class,'update']);
 Route::delete('/nosotros/detalles/{id}',[NosotrosdetalleAPIController::class,'delete']);
 
-
-
-
+Route::get('/callto_actions', [CalltoActionAPIController::class, 'index']);
+Route::get('/callto_actions/{id}', [CalltoActionAPIController::class, 'show']);
+Route::post('/callto_actions',[CalltoActionAPIController::class,'store']);
+Route::put('/callto_actions/{id}',[CalltoActionAPIController::class,'update']);
+Route::delete('/callto_actions/{id}',[CalltoActionAPIController::class,'delete']);
 
 //Route::resource('nosotros', App\Http\Controllers\API\NosotrosAPIController::class);
-
-
 //Route::resource('nosotrosdetalles',App\Http\Controllers\API\NosotrosdetalleAPIController::class);
+//Route::resource('callto_actions', App\Http\Controllers\API\CalltoActionAPIController::class);
