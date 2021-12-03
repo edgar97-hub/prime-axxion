@@ -5,7 +5,7 @@
             <li class="breadcrumb-item">
                 <a href="{{ route('ayudas.index') }}">Ayuda</a>
             </li>
-            <li class="breadcrumb-item active">Detail</li>
+            <li class="breadcrumb-item active">Detalle</li>
      </ol>
      <div class="container-fluid">
           <div class="animated fadeIn">
@@ -14,8 +14,8 @@
                      <div class="col-lg-12">
                          <div class="card">
                              <div class="card-header">
-                                 <strong>Details</strong>
-                                  <a href="{{ route('ayudas.index') }}" class="btn btn-light">Back</a>
+                                 <strong>Detalle</strong>
+                                  <a href="{{ route('ayudas.index') }}" class="btn btn-light">atrás</a>
                              </div>
                              <div class="card-body">
                                  @include('ayudas.show_fields')
