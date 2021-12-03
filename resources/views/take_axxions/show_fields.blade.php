@@ -2,13 +2,13 @@
 
 <!-- Title Field -->
 <div class="form-group">
-    {!! Form::label('title', 'Title:') !!}
+    {!! Form::label('title', 'Título:') !!}
     <p>{{ $takeAxxion->title }}</p>
 </div>
 
 <!-- Description Field -->
 <div class="form-group">
-    {!! Form::label('description', 'Description:') !!}
+    {!! Form::label('description', 'Descripción:') !!}
     <p>{{ $takeAxxion->description }}</p>
 </div>
 

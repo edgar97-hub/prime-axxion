@@ -2,8 +2,8 @@
     <table class="table table-striped" id="takeAxxions-table">
         <thead>
             <tr>
-                <th>Title </th>
-        <th>Description</th>
+                <th>Título </th>
+        <th>Descripción</th>
         <th>Img </th>
                 <th colspan="3">Action</th>
             </tr>

@@ -5,7 +5,7 @@
             <li class="breadcrumb-item">
                 <a href="{{ route('takeAxxions.index') }}">Take Axxion</a>
             </li>
-            <li class="breadcrumb-item active">Detail</li>
+            <li class="breadcrumb-item active">detalles</li>
      </ol>
      <div class="container-fluid">
           <div class="animated fadeIn">
@@ -15,7 +15,7 @@
                          <div class="card">
                              <div class="card-header">
                                  <strong>Details</strong>
-                                  <a href="{{ route('takeAxxions.index') }}" class="btn btn-light">Back</a>
+                                  <a href="{{ route('takeAxxions.index') }}" class="btn btn-light">atrás</a>
                              </div>
                              <div class="card-body">
                                  @include('take_axxions.show_fields')
