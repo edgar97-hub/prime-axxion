@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "5d8a5219-02d0-4ac6-a948-05f08848de5d",
+		"name": "takeAxxion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8001/api/take_axxions",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"take_axxions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "store",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "w",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "w",
+							"type": "text"
+						},
+						{
+							"key": "img",
+							"type": "file",
+							"src": "/home/edgar/Downloads/2021-08-10_17-15.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8001/api/take_axxions",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"take_axxions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "_method",
+							"value": "PUT",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "ww",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "ww",
+							"type": "text"
+						},
+						{
+							"key": "img",
+							"type": "file",
+							"src": "/home/edgar/Downloads/2021-08-10_14-04_1.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8001/api/take_axxions/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"take_axxions",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8001/api/take_axxions/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"take_axxions",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

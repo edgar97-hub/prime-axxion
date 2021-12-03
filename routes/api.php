@@ -8,6 +8,7 @@ use App\Http\Controllers\API\SolutionAPIController;
 use App\Http\Controllers\API\NosotrosdetalleAPIController;
 use App\Http\Controllers\API\NosotrosAPIController;
 use App\Http\Controllers\API\CalltoActionAPIController;
+use App\Http\Controllers\API\TakeAxxionAPIController;
 
 
 
@@ -57,6 +58,16 @@ Route::post('/callto_actions',[CalltoActionAPIController::class,'store']);
 Route::put('/callto_actions/{id}',[CalltoActionAPIController::class,'update']);
 Route::delete('/callto_actions/{id}',[CalltoActionAPIController::class,'delete']);
 
+Route::get('/take_axxions', [TakeAxxionAPIController::class, 'index']);
+Route::get('/take_axxions/{id}', [TakeAxxionAPIController::class, 'show']);
+Route::post('/take_axxions',[TakeAxxionAPIController::class,'store']);
+Route::put('/take_axxions/{id}',[TakeAxxionAPIController::class,'update']);
+Route::delete('/take_axxions/{id}',[TakeAxxionAPIController::class,'delete']);
+
 //Route::resource('nosotros', App\Http\Controllers\API\NosotrosAPIController::class);
 //Route::resource('nosotrosdetalles',App\Http\Controllers\API\NosotrosdetalleAPIController::class);
 //Route::resource('callto_actions', App\Http\Controllers\API\CalltoActionAPIController::class);
+//Route::resource('take_axxions', App\Http\Controllers\API\TakeAxxionAPIController::class);
+
+
+
