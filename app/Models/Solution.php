@@ -56,9 +56,9 @@ class Solution extends Model
      */
     public static $rules = [
         'title' =>  'required',
-        'titulolight' =>  'required',
-        'titulonegrita' => 'required',
-        'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        //'titulolight' =>  'required',
+        //'titulonegrita' => 'required',
+        //'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
        
           
     ];

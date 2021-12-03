@@ -14,6 +14,22 @@
     </a>
 </li>
 @endcan
+
+<li class="nav-item {{ Request::is('banners*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('banners.index') }}">
+        <i class="nav-icon icon-cursor"></i>
+        <span>Banners</span>
+    </a>
+</li>
+
+<li class="nav-item {{ Request::is('solutions*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('solutions.index') }}">
+        <i class="nav-icon icon-cursor"></i>
+        <span>Solution</span>
+    </a>
+</li>
+
+
 <li class="nav-item {{ Request::is('calltoActions*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('calltoActions.index') }}">
         <i class="nav-icon icon-cursor"></i>
