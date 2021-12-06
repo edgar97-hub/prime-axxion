@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Nosotros;
 use App\Repositories\BaseRepository;
-
+use Illuminate\Http\Request;
 /**
  * Class NosotrosRepository
  * @package App\Repositories
@@ -70,4 +70,25 @@ class NosotrosRepository extends BaseRepository
       }
       return $nosotros;
     }
+    public function searchSection(Request $request, $vendor){
+
+      $output = '';
+      if($request->ajax()) {
+          $data = Nosotros::where('seccion', 'LIKE', '%'.$vendor.'%')
+              ->get();
+          if (count($data)>0) {
+              $output = '<ul class="list-group" style="display: block; position: relative; z-index: 1">';
+              foreach ($data as $row){
+                  $output .= '<li  data-id="'.$row->id.'"  class="list-group-item">'.$row->seccion.'</li>';
+
+              }
+              $output .= '</ul>';
+          }
+          else {
+              $output .= '<li class="list-group-item">'.'No results'.'</li>';
+          }
+      }
+      return $output;
+
+  }
 }

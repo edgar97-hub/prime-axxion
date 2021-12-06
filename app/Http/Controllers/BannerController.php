@@ -61,7 +61,7 @@ class BannerController extends AppBaseController
           $filePath = 'img/banner/';
            $input = $this->makeImg($request,$filePath);
         }
-        Flash::success('banners saved successfullsssy.');
+        Flash::success('banners saved successfully.');
         
         $this->BannerRepository->create($input);
      

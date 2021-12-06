@@ -65,7 +65,7 @@ class Nosotrosdetalle extends Model
         //'textcolumn2' => 'requerid',
         //'textitle' => 'requerid',
         //'img' => 'requerid',
-        //'nosotros_id' => 'requerid'
+       // 'nosotros_id' => 'requerid'
     ];
 
     

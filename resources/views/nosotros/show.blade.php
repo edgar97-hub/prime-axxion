@@ -3,9 +3,9 @@
 @section('content')
      <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{{ route('banners.index') }}">Banners</a>
+                <a href="{{ route('nosotros.index') }}">Nosotros</a>
             </li>
-            <li class="breadcrumb-item active">Detalle</li>
+            <li class="breadcrumb-item active">Detalles</li>
      </ol>
      <div class="container-fluid">
           <div class="animated fadeIn">
@@ -14,11 +14,11 @@
                      <div class="col-lg-12">
                          <div class="card">
                              <div class="card-header">
-                                 <strong>Detalle</strong>
-                                  <a href="{{ route('banners.index') }}" class="btn btn-light">atrás</a>
+                                 <strong>Detalles</strong>
+                                  <a href="{{ route('nosotros.index') }}" class="btn btn-light">atrás</a>
                              </div>
                              <div class="card-body">
-                                 @include('banners.show_fields')
+                                 @include('nosotros.show_fields')
                              </div>
                          </div>
                      </div>

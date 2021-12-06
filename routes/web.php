@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\NosotrosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/home',       [HomeController::class, 'index'])->name('home');
   Route::resource('users',  UserController::class);
   Route::resource('roles',  RoleController::class);
+  Route::get('/searchSection/{vendor}', [App\Http\Controllers\NosotrosController::class, 'searchSection']);
 });
 
 // Route::group(['middleware' => ['auth'],'middleware' => ['permission:Manage-Users']], function () {
@@ -35,8 +37,8 @@ Route::group(['middleware' => ['auth']], function () {
 // });
 // Route::group(['middleware' => ['auth'],'middleware' => ['permission:Manage-Roles']], function () {
 // });
-
-
+Route::resource('nosotrosdetalles', App\Http\Controllers\NosotrosdetalleController::class);
+Route::resource('nosotros', App\Http\Controllers\NosotrosController::class);
 Route::resource('calltoActions', App\Http\Controllers\CalltoActionController::class);
 Route::resource('takeAxxions', App\Http\Controllers\TakeAxxionController::class);
 Route::resource('ayudas', App\Http\Controllers\AyudaController::class);
