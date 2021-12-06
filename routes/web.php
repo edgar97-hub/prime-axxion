@@ -35,3 +35,6 @@ Route::group(['middleware' => ['auth']], function () {
 // });
 // Route::group(['middleware' => ['auth'],'middleware' => ['permission:Manage-Roles']], function () {
 // });
+
+
+Route::resource('calltoActions', App\Http\Controllers\CalltoActionController::class);

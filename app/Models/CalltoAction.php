@@ -7,19 +7,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Class Nosotros
+ * Class CalltoAction
  * @package App\Models
- * @version November 22, 2021, 1:51 am UTC
+ * @version December 2, 2021, 9:18 pm UTC
  *
- * @property string $seccion
+ * @property string $title
+ * @property string $img
  */
-class Nosotros extends Model
+class CalltoAction extends Model
 {
     //use SoftDeletes;
 
     use HasFactory;
 
-    public $table = 'nosotros';
+    public $table = 'callto_actions';
     
 
     protected $dates = ['deleted_at'];
@@ -27,7 +28,8 @@ class Nosotros extends Model
 
 
     public $fillable = [
-        'seccion'
+        'title',
+        'img'
     ];
 
     /**
@@ -36,7 +38,8 @@ class Nosotros extends Model
      * @var array
      */
     protected $casts = [
-        'seccion' => 'string'
+        'title' => 'string',
+        'img' => 'string'
     ];
 
     /**
@@ -45,7 +48,8 @@ class Nosotros extends Model
      * @var array
      */
     public static $rules = [
-        'seccion' =>  'required|string|max:255'
+        'title' => 'required',
+        //'img' => 'required'
     ];
 
     

@@ -14,3 +14,9 @@
     </a>
 </li>
 @endcan
+<li class="nav-item {{ Request::is('calltoActions*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('calltoActions.index') }}">
+        <i class="nav-icon icon-cursor"></i>
+        <span>llamada a la acción</span>
+    </a>
+</li>
