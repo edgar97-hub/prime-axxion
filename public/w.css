@@ -1,0 +1,31 @@
+#menu ul,
+#menu li {
+  margin: 0 0;
+  padding: 0 0;
+  list-style: none
+}
+#menu a {
+  display: block;
+  line-height: 35px;
+  padding: 0 14px;
+  text-decoration: none;
+  color: #eee;
+}
+#menu ul.menus {
+  height: auto;
+  width: 180px;
+  background: rgb(56, 52, 52);
+  position: absolute;
+  z-index: 99;
+  display: none;
+  border: 0;
+}
+#menu li:hover ul.menus {
+  display: block
+}
+#menu ul.menus a:hover {
+  background: rgb(26, 139, 231);
+}
+
+ 
+ 

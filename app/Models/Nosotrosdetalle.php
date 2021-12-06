@@ -60,12 +60,12 @@ class Nosotrosdetalle extends Model
      * @var array
      */
     public static $rules = [
-        //'title' => 'requerid',
-        //'textcolumn1' => 'requerid',
-        //'textcolumn2' => 'requerid',
-        //'textitle' => 'requerid',
-        //'img' => 'requerid',
-        //'nosotros_id' => 'requerid'
+        //'title' => 'required',
+        //'textcolumn1' => 'required',
+        //'textcolumn2' => 'required',
+        //'textitle' => 'required',
+        //'img' => 'required',
+         'nosotros_id' => 'required'
     ];
 
     

@@ -58,9 +58,9 @@ class Banner extends Model
     public static $rules = [
     
         'titulolight' => 'required|string|max:255',
-        'titulonegrita' => 'required|string|max:255',
-        'textogeneral' => 'required|string|max:255',
-        'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        //'titulonegrita' => 'required|string|max:255',
+        //'textogeneral' => 'required|string|max:255',
+        //'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ];
 
     
