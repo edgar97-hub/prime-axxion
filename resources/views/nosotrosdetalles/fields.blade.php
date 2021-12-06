@@ -33,7 +33,7 @@
 <div class="form-group col-sm-6">
     {!! Form::label('nosotros_id', 'Sección:') !!}
     
-    {!! Form::number('nosotros_id', null, ['id' => 'Autor','class' => 'form-control','style'=>'display:none']) !!}
+    {!! Form::number('nosotros_id', null, ['id' => 'nosotros_id','class' => 'form-control','style'=>'display:none']) !!}
 
     {!! Form::text('author', null, ['id' => 'Autor_Impersonated' ,'class' => 'form-control']) !!}
     <div id="vendor_list_2"></div>

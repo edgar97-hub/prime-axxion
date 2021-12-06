@@ -27,7 +27,7 @@ $(document).ready(function () {
               //alert(id);
 
               $('#Autor_Impersonated').val(value);
-              $('#Autor').val(id);
+              $('#nosotros_id').val(id);
               $('#vendor_list_2').html("");
               
            
