@@ -20,3 +20,9 @@
         <span>llamada a la acción</span>
     </a>
 </li>
+<li class="nav-item {{ Request::is('takeAxxions*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('takeAxxions.index') }}">
+        <i class="nav-icon icon-cursor"></i>
+        <span>Take Axxions</span>
+    </a>
+</li>
