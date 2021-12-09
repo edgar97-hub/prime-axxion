@@ -8,20 +8,20 @@ trait MakeImg
     {
 
       if (!file_exists(storage_path($filePath))) {
-         mkdir(storage_path($filePath), 777, true);
+         Storage::makeDirectory('public/'.$filePath, 0777, true);
       }
       $input = $request->all();
       $file = $request->file('img');
       $name = uniqid().'.'.$file->getClientOriginalExtension();
       $path = $filePath.$name;
       $input['img'] = $path;
-      $file->storeAs($filePath, $name, 'public');
+      $file->storeAs('public/'.$filePath, $name);
       return $input;
     }
     public function updateImg($request,$filePath,$value)
     {
       if (!file_exists(storage_path($filePath))) {
-         mkdir(storage_path($filePath), 777, true);
+         Storage::makeDirectory('public/'.$filePath, 0777, true);
       }
       $input = $request->all();
       $file = $request->file('img');
@@ -32,13 +32,12 @@ trait MakeImg
         unlink(storage_path('/app/public/'.$value['img']));
       }
       $input['img'] = $path;
-      $file->storeAs($filePath, $name, 'public');
+      $file->storeAs('public/'.$filePath, $name);
       return $input;
     }
     public function deleteImg($filePath,$value)
     {
-      
-       
+
       if (is_file(storage_path('/app/public/'.$value['img'])))
       {   
         unlink(storage_path('/app/public/'.$value['img']));
