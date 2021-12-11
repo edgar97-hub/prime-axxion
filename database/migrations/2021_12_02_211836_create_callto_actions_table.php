@@ -18,7 +18,7 @@ class CreateCalltoActionsTable extends Migration
             $table->id('id');
             $table->text('title')->nullable();
             $table->string('img')->nullable();
-            $table->timestamps()->nullable();
+            $table->timestamps();
             $table->softDeletes();
 
         });
