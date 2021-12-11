@@ -20,7 +20,7 @@ class Ayuda extends Model
 
     use HasFactory;
 
-    public $table = 'ayudas';
+    public $table = 'helps';
     
 
     protected $dates = ['deleted_at'];
@@ -28,8 +28,8 @@ class Ayuda extends Model
 
 
     public $fillable = [
-        'pregunta',
-        'respuesta'
+        'question',
+        'answer'
     ];
 
     /**
@@ -38,8 +38,8 @@ class Ayuda extends Model
      * @var array
      */
     protected $casts = [
-        'pregunta' => 'string',
-        'respuesta' => 'string'
+        'question' => 'string',
+        'answer' => 'string'
     ];
 
     /**
@@ -48,8 +48,8 @@ class Ayuda extends Model
      * @var array
      */
     public static $rules = [
-        'pregunta' => 'required',
-        //'respuesta' => 'required'
+        'question' => 'required',
+        //'answer' => 'required'
     ];
 
     
