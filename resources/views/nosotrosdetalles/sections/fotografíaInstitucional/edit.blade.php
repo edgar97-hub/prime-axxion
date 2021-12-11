@@ -3,7 +3,7 @@
 @section('content')
     <ol class="breadcrumb">
           <li class="breadcrumb-item">
-             
+             <a href="{!! route('nosotrosdetalles.index') !!}">Nosotros detalles</a>
           </li>
           <li class="breadcrumb-item active">Editar</li>
         </ol>
@@ -18,25 +18,9 @@
                               <strong>Editar Nosotros detalles</strong>
                           </div>
                           <div class="card-body">
-                              {!! Form::model($our_information, ['route' => ['nosotrosdetalles.update', $our_information->id], 'method' => 'patch', 'files' => true]) !!}
+                              {!! Form::model($nosotrosdetalles, ['route' => ['nosotrosdetalles.update', $nosotrosdetalles->id], 'method' => 'patch', 'files' => true]) !!}
 
-                               
-
-                                @if($our_information->nosotros_id == 1)
-                                   @include('nosotrosdetalles.sections.azul.fields')
-                                 @endif
-
-                                 @if($our_information->nosotros_id == 2)
-
-                                 @endif
-
-                                 @if($our_information->nosotros_id == 3)
-                                  @include('nosotrosdetalles.sections.somospartede.fields')
-                                 @endif
-
-                                 @if($our_information->nosotros_id == 4)
-
-                                 @endif
+                              @include('nosotrosdetalles.fields')
 
                               {!! Form::close() !!}
                             </div>

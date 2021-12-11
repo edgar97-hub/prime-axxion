@@ -16,11 +16,12 @@ class CreateTakeAxxionsTable extends Migration
     {
         Schema::create('take_axxions', function (Blueprint $table) {
             $table->id('id');
-            $table->string('img');
-            $table->string('title');
-            $table->string('description');
+            $table->string('img')->nullable();
+            $table->text('title')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
         });
     }
 

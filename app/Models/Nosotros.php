@@ -5,7 +5,8 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use App\Models\Nosotrosdetalle;
+use App\Models\OurImg;
 /**
  * Class Nosotros
  * @package App\Models
@@ -19,7 +20,7 @@ class Nosotros extends Model
 
     use HasFactory;
 
-    public $table = 'nosotros';
+    public $table = 'our_information';
     
 
     protected $dates = ['deleted_at'];
@@ -48,5 +49,46 @@ class Nosotros extends Model
         'seccion' =>  'required|string|max:255'
     ];
 
+    public function getOurDetails()
+    {
+        //return $this->hasMany(Nosotrosdetalle::class,'nosotros_id','id');
+        return $this->hasMany('App\Models\Nosotrosdetalle', 'nosotros_id');
+
+        
+    }
+    public function getOurTextImg()
+    {
+        //return $this->hasMany(OurImg::class,'our_id','id');
+        return $this->hasMany('App\Models\OurImg', 'our_id')->select('img')->where('our_id', 1);
+        //return $this->belongsTo('App\Models\Nosotros', 'nosotros_id');
+
+    }
+    public function getSeccionOnew()
+    {
+        return $this->hasMany('App\Models\Nosotrosdetalle', 'nosotros_id')->select(['title','nosotros_id'])->where('id', 1);
+    }
+    public function getSeccionOne()
+    {
+        return $this->hasMany('App\Models\Nosotrosdetalle', 'nosotros_id');
+    }
+    public function getSeccionThree() 
+    {
+        return $this->hasMany('App\Models\OurImg', 'our_id');
+    }
+   
+    public function getSeccionFour()
+    {
+        return $this->hasMany('App\Models\OurImg', 'our_id');
+    }
+
     
+
+    public function getSeccionTwo()
+    {
+        
+        return $this->hasMany('App\Models\OurImg', 'our_id');
+    }
+    
+    
+
 }

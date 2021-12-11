@@ -5,7 +5,7 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use App\Models\Nosotros;
 /**
  * Class Nosotrosdetalle
  * @package App\Models
@@ -25,7 +25,7 @@ class Nosotrosdetalle extends Model
 
     use HasFactory;
 
-    public $table = 'nosotrosdetalles';
+    public $table = 'our_details';
     
 
     protected $dates = ['deleted_at'];
@@ -37,7 +37,7 @@ class Nosotrosdetalle extends Model
         'textcolumn1',
         'textcolumn2',
         'textitle',
-        'img',
+        //'img',
         'nosotros_id'
     ];
 
@@ -65,8 +65,27 @@ class Nosotrosdetalle extends Model
         //'textcolumn2' => 'required',
         //'textitle' => 'required',
         //'img' => 'required',
-         'nosotros_id' => 'required'
+         //'nosotros_id' => 'required'
     ];
-
-    
+    public function getOurInformationDes()
+    {
+        //return $this->belongsTo(Nosotros::class, 'id','id');
+        return $this->belongsTo('App\Models\Nosotros', 'nosotros_id');
+    }
+    public function getSeccionOnew()
+    {
+        return $this->belongsTo('App\Models\Nosotros', 'nosotros_id')->select('seccion')->where('nosotros_id', 1);;
+    }
+    public function getNosotros()
+    {
+        return $this->belongsTo('App\Models\Nosotros');
+    }
+    public function getNosotroswww()
+    {
+       return $this->belongsTo('App\Models\Nosotros', 'nosotros_id');
+    }
+    public function getSeccionOne()
+    {
+        return $this->belongsTo('App\Models\Nosotros', 'nosotros_id');
+    }
 }

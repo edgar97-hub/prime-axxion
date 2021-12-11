@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCalltoActionsTable extends Migration
+class CreateourdetailsTable extends Migration
 {
 
     /**
@@ -14,13 +14,15 @@ class CreateCalltoActionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('callto_actions', function (Blueprint $table) {
+        Schema::create('our_details', function (Blueprint $table) {
             $table->id('id');
             $table->text('title')->nullable();
-            $table->string('img')->nullable();
-            $table->timestamps()->nullable();
+            $table->text('textcolumn1')->nullable();
+            $table->text('textcolumn2')->nullable();
+            $table->unsignedBigInteger('nosotros_id');
+            $table->timestamps();
             $table->softDeletes();
-
+            $table->foreign('nosotros_id')->references('id')->on('our_information')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -31,6 +33,6 @@ class CreateCalltoActionsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('callto_actions');
+        Schema::drop('our_details');
     }
 }

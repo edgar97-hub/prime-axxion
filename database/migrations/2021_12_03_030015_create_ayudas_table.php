@@ -16,8 +16,8 @@ class CreateAyudasTable extends Migration
     {
         Schema::create('ayudas', function (Blueprint $table) {
             $table->id('id');
-            $table->string('pregunta');
-            $table->string('respuesta');
+            $table->text('pregunta')->nullable();
+            $table->text('respuesta')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

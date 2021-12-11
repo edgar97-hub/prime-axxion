@@ -1,6 +1,6 @@
 #menu ul,
 #menu li {
-  margin: 0 0;
+  margin:  0;
   padding: 0 0;
   list-style: none
 }
@@ -28,4 +28,24 @@
 }
 
  
+  
+ 
+#menu
+{
+  list-style-type:none;
+}
+#menu li a:hover
+{
+  color:White;
+  background-color:#1d6ace;
+}
+        
+#menu a:hover
+{
+  color:White;
+}
+#menu li ul
+{
+  display: none;
+}
  

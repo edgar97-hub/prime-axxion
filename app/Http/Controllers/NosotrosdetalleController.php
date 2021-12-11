@@ -36,7 +36,7 @@ class NosotrosdetalleController extends AppBaseController
         $request = Request::create('api/nosotros', 'GET');
         $nosotrosdetalles = Route::dispatch($request)->getContent();
         $response = json_decode($nosotrosdetalles);
-         
+       //dd($request);
         return view('nosotrosdetalles.index')
            ->with('response', $response);
     }
@@ -50,7 +50,10 @@ class NosotrosdetalleController extends AppBaseController
     {
         return view('nosotrosdetalles.create');
     }
-
+    public function createourimformation($id)
+    {
+        return view('nosotrosdetalles.create')->with('our_information', $id);
+    }
     /**
      * Store a newly created CalltoAction in storage.
      *
@@ -67,10 +70,8 @@ class NosotrosdetalleController extends AppBaseController
            $input = $this->makeImg($request,$filePath);
         }
         Flash::success('nosotrosdetalles saved successfully.');
-        
         $this->NosotrosdetalleRepository->create($input);
-     
-        return redirect(route('nosotrosdetalles.index'));
+        return redirect(route('nosotrosdetalles.section',$request['nosotros_id']));
     }
 
     /**
@@ -80,22 +81,76 @@ class NosotrosdetalleController extends AppBaseController
      *
      * @return Response
      */
+    public function section($id)
+    {
+        $nosotrosdetalles = $this->NosotrosdetalleRepository->find($id);
+        $request = Request::create('api/nosotros/'.$id, 'GET');
+        $content = Route::dispatch($request)->getContent();
+        $response = json_decode($content);
+       
+
+        //$nosotrosdetalles['response'] = $response->data;
+       
+       //$data = json_encode($response);
+       //dd($response->data->our_details[1]->id);
+       foreach((array)$response->data as $value) {
+        
+        foreach((array) $value as $k=>$v) {
+           //echo $value->seccion;
+            //echo $v;
+
+            //echo  $k." - ".$v->id;
+            //echo $v[$k]['id'];
+            //echo $v[$k]['seccion'];
+        }
+        }
+        foreach((array) $response->data->our_details as $value) {
+          //echo $value->title;
+          //echo $response->data->seccion;
+       }
+     
+  
+    
+         
+        //if (empty($nosotrosdetalles)) {
+          //  Flash::error('Nosotrosdetalle not found');
+            //return view('nosotrosdetalles.index')->with('our_information', $response);
+            //return redirect(route('nosotrosdetalles.index'));
+        //}
+
+        return view('nosotrosdetalles.index')->with('our_information', $response);
+    }
+    public function showTextImg($id)
+    {       
+       $details = $this->NosotrosdetalleRepository->getTextImg($id);
+        //dd($details->seccion);
+
+        return view('nosotrosdetalles.show')->with('our_details', $details);
+    }
+    public function editTextImg($id)
+    {
+      $details = $this->NosotrosdetalleRepository->getTextImg($id);
+      //dd($details);
+
+      return view('nosotrosdetalles.edit')->with('our_information', $details);
+    }
+
     public function show($id)
     {
         $nosotrosdetalles = $this->NosotrosdetalleRepository->find($id);
-
-
+        
         $request = Request::create('api/nosotros/'.$nosotrosdetalles['nosotros_id'], 'GET');
         $content = Route::dispatch($request)->getContent();
         $response = json_decode($content);
         $nosotrosdetalles['seccion'] = $response->data->seccion;
+       
         if (empty($nosotrosdetalles)) {
             Flash::error('Nosotrosdetalle not found');
 
             return redirect(route('nosotrosdetalles.index'));
         }
 
-        return view('nosotrosdetalles.show')->with('nosotrosdetalles', $nosotrosdetalles);
+        return view('nosotrosdetalles.show')->with('our_information', $nosotrosdetalles);
     }
 
     /**
@@ -108,14 +163,7 @@ class NosotrosdetalleController extends AppBaseController
     public function edit($id)
     {
         $nosotrosdetalles = $this->NosotrosdetalleRepository->find($id);
-
-        if (empty($nosotrosdetalles)) {
-            Flash::error('nosotrosdetalles not found');
-
-            return redirect(route('nosotrosdetalles.index'));
-        }
-
-        return view('nosotrosdetalles.edit')->with('nosotrosdetalles', $nosotrosdetalles);
+        return view('nosotrosdetalles.edit')->with('our_information', $nosotrosdetalles);
     }
 
     /**
@@ -130,7 +178,6 @@ class NosotrosdetalleController extends AppBaseController
     {
         $nosotrosdetalles = $this->NosotrosdetalleRepository->find($id);
         $input = $request->all();
-
         if (empty($nosotrosdetalles)) {
             Flash::error('nosotrosdetalles not found');
 
@@ -143,7 +190,7 @@ class NosotrosdetalleController extends AppBaseController
         $this->NosotrosdetalleRepository->update($input, $id);
         Flash::success('nosotrosdetalles updated successfully.');
 
-        return redirect(route('nosotrosdetalles.index'));
+        return redirect(route('nosotrosdetalles.section',$nosotrosdetalles['nosotros_id']));
     }
 
     /**
@@ -171,8 +218,9 @@ class NosotrosdetalleController extends AppBaseController
         $this->NosotrosdetalleRepository->delete($id);
 
         Flash::success('nosotrosdetalles deleted successfully.');
+        return redirect(route('nosotrosdetalles.section',$nosotrosdetalles['nosotros_id']));
 
-        return redirect(route('nosotrosdetalles.index'));
+        //return redirect(route('nosotrosdetalles.index'));
     }
    
 }
