@@ -10,8 +10,8 @@
         <tbody>
         @foreach($ayudas as $ayuda)
             <tr>
-                <td>{{ $ayuda->pregunta }}</td>
-            <td>{{ $ayuda->respuesta }}</td>
+                <td>{{ $ayuda->question }}</td>
+            <td>{{ $ayuda->answer }}</td>
                 <td>
                     {!! Form::open(['route' => ['ayudas.destroy', $ayuda->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

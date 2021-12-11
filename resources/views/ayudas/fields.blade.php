@@ -1,13 +1,13 @@
 <!-- Pregunta Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('pregunta', 'Pregunta:') !!}
-    {!! Form::text('pregunta', null, ['class' => 'form-control']) !!}
+    {!! Form::text('question', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Respuesta Field -->
 <div class="form-group col-sm-12 col-lg-12">
     {!! Form::label('respuesta', 'Respuesta:') !!}
-    {!! Form::textarea('respuesta', null, ['class' => 'form-control']) !!}
+    {!! Form::textarea('answer', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->
