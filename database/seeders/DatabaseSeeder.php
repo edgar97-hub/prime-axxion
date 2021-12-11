@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         
         $this->call(PermissionTableSeeder::class);
         $this->call(CreateAdminSeeder::class);
+        $this->call(defaultsections::class);
         
         Schema::enableForeignKeyConstraints();
     }
