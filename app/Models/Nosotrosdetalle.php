@@ -67,23 +67,16 @@ class Nosotrosdetalle extends Model
         //'img' => 'required',
          //'nosotros_id' => 'required'
     ];
-    public function getOurInformationDes()
-    {
-        //return $this->belongsTo(Nosotros::class, 'id','id');
-        return $this->belongsTo('App\Models\Nosotros', 'nosotros_id');
-    }
+    
     public function getSeccionOnew()
     {
         return $this->belongsTo('App\Models\Nosotros', 'nosotros_id')->select('seccion')->where('nosotros_id', 1);;
     }
-    public function getNosotros()
+    public function getSeccionTwo()
     {
         return $this->belongsTo('App\Models\Nosotros');
     }
-    public function getNosotroswww()
-    {
-       return $this->belongsTo('App\Models\Nosotros', 'nosotros_id');
-    }
+    
     public function getSeccionOne()
     {
         return $this->belongsTo('App\Models\Nosotros', 'nosotros_id');

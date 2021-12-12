@@ -22,23 +22,18 @@
     </a>
 </li>
 
-<li class="nav-item {{ Request::is('solutions*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('solutions.index') }}">
-        <i class="nav-icon icon-cursor"></i>
-        <span>Solution</span>
-    </a>
-</li>
+ 
 
 <li class="nav-item nav-dropdown  {{ Request::is('solutions*') ? 'active' : '' }}" >
   <a class="nav-link nav-dropdown-toggle" href="#">
     <i class="nav-icon icon-cursor"></i> Solution</a>
   <ul class="nav-dropdown-items">
-    <li class="nav-item {{ Request::is('nosotrosdetalles.section*') ? 'active' : '' }}">
-      <a class="nav-link" href="{{ route('nosotrosdetalles.section',1) }}">
+    <li class="nav-item {{ Request::is('solutions.getView*') ? 'active' : '' }}">
+      <a class="nav-link" href="{{ route('solutions.getView',1) }}">
         <i class="nav-icon"></i>titulo</a>
     </li>
-    <li class="nav-item {{ Request::is('nosotrosdetalles.section*') ? 'active' : '' }}">
-      <a class="nav-link" href="{{ route('imgs.getTextImg',2) }}">
+    <li class="nav-item {{ Request::is('solutions.getView*') ? 'active' : '' }}">
+      <a class="nav-link" href="{{ route('solutions.getView',2) }}">
         <i class="nav-icon"></i>tarjetas</a>
     </li>
     

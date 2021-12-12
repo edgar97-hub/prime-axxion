@@ -138,19 +138,19 @@ class NosotrosdetalleController extends AppBaseController
     public function show($id)
     {
         $nosotrosdetalles = $this->NosotrosdetalleRepository->find($id);
-        
+       
         $request = Request::create('api/nosotros/'.$nosotrosdetalles['nosotros_id'], 'GET');
         $content = Route::dispatch($request)->getContent();
         $response = json_decode($content);
         $nosotrosdetalles['seccion'] = $response->data->seccion;
-       
+        //dd($nosotrosdetalles->nosotros_id);
         if (empty($nosotrosdetalles)) {
             Flash::error('Nosotrosdetalle not found');
 
             return redirect(route('nosotrosdetalles.index'));
         }
 
-        return view('nosotrosdetalles.show')->with('our_information', $nosotrosdetalles);
+        return view('nosotrosdetalles.show')->with('our_details', $nosotrosdetalles);
     }
 
     /**

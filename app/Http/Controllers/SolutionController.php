@@ -16,10 +16,14 @@ class SolutionController extends AppBaseController
     
     private $SolutionRepository;
     use MakeImg;
+    
+    
     public function __construct(SolutionRepository $SolutionRepository)
     {
         $this->SolutionRepository = $SolutionRepository;
     }
+    
+     
 
     /**
      * Display a listing of the CalltoAction.
@@ -35,17 +39,58 @@ class SolutionController extends AppBaseController
         return view('solutions.index')
             ->with('solutions', $solutions);
     }
+    public function getView($viewseccion)
+    {
+      $solutions = $this->SolutionRepository->all();
 
+      if($viewseccion == 1)
+      {
+        return view('solutions.title.index')
+        ->with('solutions', $solutions)->with('viewseccion', $viewseccion);
+      }
+      if($viewseccion == 2)
+      {
+        return view('solutions.cards.index')
+        ->with('solutions', $solutions)->with('viewseccion', $viewseccion);
+      }
+      
+    }
     /**
      * Show the form for creating a new CalltoAction.
      *
      * @return Response
      */
+    public function createCard($viewseccion)
+    {
+        
+        if($viewseccion == 1)
+        {
+          return view('solutions.title.create');
+          
+        }
+        if($viewseccion == 2)
+        {
+          return view('solutions.cards.create');
+        }
+    }
     public function create()
     {
         return view('solutions.create');
     }
+    public function storeCard(CreateSolutionRequest $request)
+    {
+        $input = $request->all();
 
+        if ($request->hasFile('img')) {
+          $filePath = 'img/solution/';
+           $input = $this->makeImg($request,$filePath);
+        }
+        Flash::success('solution saved successfullsssy.');
+        
+        $this->SolutionRepository->create($input);
+     
+        return redirect(route('solutions.getView',2));
+      }
     public function store(CreateSolutionRequest $request)
     {
         $input = $request->all();
@@ -58,7 +103,7 @@ class SolutionController extends AppBaseController
         
         $this->SolutionRepository->create($input);
      
-        return redirect(route('solutions.index'));
+        return redirect(route('solutions.getView',1));
     }
 
     /**
@@ -68,17 +113,39 @@ class SolutionController extends AppBaseController
      *
      * @return Response
      */
+    
+    public function showCard($id)
+    {
+        $solution = $this->SolutionRepository->find($id);
+
+        if (empty($solution)) 
+        {
+            Flash::error('Solution not found');
+
+            return redirect(route('solutions.getView',2));
+
+        }
+    
+         return view('solutions.cards.show')->with('solution', $solution);
+
+        
+
+    } 
     public function show($id)
     {
         $solution = $this->SolutionRepository->find($id);
 
-        if (empty($solution)) {
+        if (empty($solution)) 
+        {
             Flash::error('Solution not found');
 
-            return redirect(route('banners.index'));
-        }
+            return redirect(route('solutions.getView',1));
 
-        return view('solutions.show')->with('solution', $solution);
+        }
+        return view('solutions.title.show')->with('solution', $solution);
+
+         
+
     }
 
     /**
@@ -88,6 +155,18 @@ class SolutionController extends AppBaseController
      *
      * @return Response
      */
+    public function editCard($id)
+    {
+        $solution = $this->SolutionRepository->find($id);
+
+        if (empty($solution)) {
+            Flash::error('solution not found');
+
+            return redirect(route('solutions.getView',2));
+        }
+        return view('solutions.cards.edit')->with('solution', $solution);
+
+    }
     public function edit($id)
     {
         $solution = $this->SolutionRepository->find($id);
@@ -95,10 +174,10 @@ class SolutionController extends AppBaseController
         if (empty($solution)) {
             Flash::error('solution not found');
 
-            return redirect(route('solution.index'));
+            return redirect(route('solutions.getView',1));
         }
 
-        return view('solutions.edit')->with('solution', $solution);
+        return view('solutions.title.edit')->with('solution', $solution);
     }
 
     /**
@@ -109,7 +188,7 @@ class SolutionController extends AppBaseController
      *
      * @return Response
      */
-    public function update($id, UpdateSolutionRequest $request)
+    public function updateCard($id, UpdateSolutionRequest $request)
     {
         $solution = $this->SolutionRepository->find($id);
         $input = $request->all();
@@ -117,7 +196,7 @@ class SolutionController extends AppBaseController
         if (empty($solution)) {
             Flash::error('solution not found');
 
-            return redirect(route('solutions.index'));
+            return redirect(route('solutions.getView',2));
         }
         if ($request->hasFile('img')) {
           $filePath = 'img/solution/';
@@ -126,7 +205,27 @@ class SolutionController extends AppBaseController
         $this->SolutionRepository->update($input, $id);
         Flash::success('solution updated successfully.');
 
-        return redirect(route('solutions.index'));
+        return redirect(route('solutions.getView',2));
+    }
+
+    public function update($id, UpdateSolutionRequest $request)
+    {
+        $solution = $this->SolutionRepository->find($id);
+        $input = $request->all();
+
+        if (empty($solution)) {
+            Flash::error('solution not found');
+
+            return redirect(route('solutions.getView',1));
+          }
+        if ($request->hasFile('img')) {
+          $filePath = 'img/solution/';
+          $input = $this->updateImg($request,$filePath,$solution);
+        }
+        $this->SolutionRepository->update($input, $id);
+        Flash::success('solution updated successfully.');
+
+        return redirect(route('solutions.getView',1));
     }
 
     /**
@@ -138,8 +237,9 @@ class SolutionController extends AppBaseController
      *
      * @return Response
      */
-    public function destroy($id)
+    public function destroyCard($id)
     {
+     
         $solution = $this->SolutionRepository->find($id);
 
         if (empty($solution)) {
@@ -154,7 +254,27 @@ class SolutionController extends AppBaseController
         $this->SolutionRepository->delete($id);
 
         Flash::success('solution deleted successfully.');
+        return redirect(route('solutions.getView',2));
 
-        return redirect(route('solutions.index'));
+    }
+    public function destroy($id)
+    {
+     
+        $solution = $this->SolutionRepository->find($id);
+
+        if (empty($solution)) {
+            Flash::error('solution not found');
+
+            return redirect(route('solutions.index'));
+        }
+     
+        $filePath = 'img/solution/';
+        $this->deleteImg($filePath,$solution);
+        
+        $this->SolutionRepository->delete($id);
+
+        Flash::success('solution deleted successfully.');
+        return redirect(route('solutions.getView',1));
+
     }
 }

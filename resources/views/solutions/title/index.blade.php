@@ -2,7 +2,7 @@
 
 @section('content')
     <ol class="breadcrumb">
-        <li class="breadcrumb-item">solutions</li>
+   
     </ol>
     <div class="container-fluid">
         <div class="animated fadeIn">
@@ -13,21 +13,11 @@
                          <div class="card-header">
                              <i class="fa fa-align-justify"></i>
                              solutions
-                             <a class="pull-right" href="{{ route('solutions.createCards',$id) }}"><i class="fa fa-plus-square fa-lg"></i></a>
+                             <a class="pull-right" href="{{ route('solutions.createCard',$viewseccion) }}"><i class="fa fa-plus-square fa-lg"></i></a>
                          </div>
                          <div class="card-body">
-                              
                      
-                              @if($id == 1)
-                                @include('solutions.title.table')
-                              @endif
-
-                              @if($id == 2)
-                                @include('solutions.cards.table')
-                              @endif
- 
-                            
-
+                              @include('solutions.title.table')
                               <div class="pull-right mr-3">
                                      
                               </div>

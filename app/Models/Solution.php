@@ -55,7 +55,7 @@ class Solution extends Model
      * @var array
      */
     public static $rules = [
-        'title' =>  'required',
+        //'title' =>  'required',
         //'titulolight' =>  'required',
         //'titulonegrita' => 'required',
         //'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',

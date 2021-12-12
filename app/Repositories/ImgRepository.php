@@ -47,14 +47,7 @@ class ImgRepository extends BaseRepository
       ->where('our_information.id', '=', $id)
       ->select('our_information.id','our_information.seccion','our_img.textitle','our_img.img','our_img.id AS img_id')
       ->get();
-      //$response = json_decode($details);
-      //foreach ($response as $data) 
-      //{
-        //$data->img = url('/storage/'.$data->img);
-        //$data->id = $data->our_id;
-        //$data->nosotros_id = $data->our_id;
-
-      //}
+      
 
       return $details;
     }

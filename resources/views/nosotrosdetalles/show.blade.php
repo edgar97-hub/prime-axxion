@@ -17,25 +17,25 @@
                                  <strong>Detalles</strong>
                                   <a 
 
-                                  href="{{ route('nosotrosdetalles.section', [$our_details->id]) }}"
+                                  href="{{ route('nosotrosdetalles.section', [$our_details->nosotros_id]) }}"
                                   class="btn btn-light">atrás</a>
                              </div>
                              <div class="card-body">
                                   
 
-                                 @if($our_details->id == 1)
+                                 @if($our_details->nosotros_id == 1)
                                    @include('nosotrosdetalles.sections.azul.show_fields')
                                  @endif
 
-                                 @if($our_details->id == 2)
+                                 @if($our_details->nosotros_id == 2)
 
                                  @endif
 
-                                 @if($our_details->id == 3)
+                                 @if($our_details->nosotros_id == 3)
                                   @include('nosotrosdetalles.sections.somospartede.show_fields')
                                  @endif
 
-                                 @if($our_details->id == 3)
+                                 @if($our_details->nosotros_id == 3)
 
                                  @endif
                              </div>
