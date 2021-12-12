@@ -30,15 +30,11 @@ Route::group(['middleware' => ['auth']], function () {
   Route::resource('users',  UserController::class);
   Route::resource('roles',  RoleController::class);
   Route::get('/searchSection/{vendor}', [App\Http\Controllers\NosotrosController::class, 'searchSection']);
-  //Route::get('/www/{id}', [App\Http\Controllers\NosotrosdetalleController::class, 'section']);
+ 
    
 });
 
-// Route::group(['middleware' => ['auth'],'middleware' => ['permission:Manage-Users']], function () {
-
-// });
-// Route::group(['middleware' => ['auth'],'middleware' => ['permission:Manage-Roles']], function () {
-// });
+ 
 Route::get('nosotrosdetalles/{id}/section',     [App\Http\Controllers\NosotrosdetalleController::class, 'section'])->name('nosotrosdetalles.section');
 
 Route::get('nosotrosdetalles/{id}/createourimformation',     [App\Http\Controllers\NosotrosdetalleController::class, 'createourimformation'])->name('nosotrosdetalles.createourimformation');
