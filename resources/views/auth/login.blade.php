@@ -29,7 +29,7 @@
                         <form method="post" action="{{ url('/login') }}">
                             @csrf
                             <h1>Login</h1>
-                            <p class="text-muted">Sign In to your account</p>
+                            <p class="text-muted">Iniciar sesión en su cuenta</p>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
@@ -37,7 +37,7 @@
                                     </span>
                                 </div>
                                 <input type="email" class="form-control {{ $errors->has('email')?'is-invalid':'' }}" name="email" value="{{ old('email') }}"
-                                       placeholder="Email">
+                                       placeholder="Correo electrónico">
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -50,7 +50,7 @@
                                       <i class="icon-lock"></i>
                                     </span>
                                 </div>
-                                <input type="password" class="form-control {{ $errors->has('password')?'is-invalid':'' }}" placeholder="Password" name="password">
+                                <input type="password" class="form-control {{ $errors->has('password')?'is-invalid':'' }}" placeholder="Contraseña" name="password">
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback">
                                        <strong>{{ $errors->first('password') }}</strong>
@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="col-6 text-right">
                                     <a class="btn btn-link px-0" href="{{ url('/password/reset') }}">
-                                        Forgot password?
+                                    Olvidaste tu contraseña?
                                     </a>
                                 </div>
                             </div>
@@ -73,8 +73,8 @@
                 <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
                     <div class="card-body text-center">
                         <div>
-                            <h2>Sign up</h2>
-                            <a class="btn btn-primary active mt-3" href="{{ url('/register') }}">Register Now!</a>
+                            <h2> </h2>
+                            <a class="btn btn-primary active mt-3" href="{{ url('/register') }}">Regístrate ahora!</a>
                         </div>
                     </div>
                 </div>

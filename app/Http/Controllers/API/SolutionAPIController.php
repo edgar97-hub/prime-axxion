@@ -36,20 +36,23 @@ class SolutionAPIController extends AppBaseController
     public function index(Request $request)
     {
 
-        $data = DB::select('select titulolight, titulonegrita, img from solutions ');
+        $data = DB::select('select titulolight, titulonegrita, img from solutions WHERE title IS  NULL ');
 
         $solutions = $this->solutionRepository->all(
             $request->except(['skip', 'limit']),
             $request->get('skip'),
             $request->get('limit')
         );
+        
         foreach ($data as $value) 
         {
-          //$value['img'] = url('/'.$value['img']);
-          $value->img = url('/'.$value->img);
-
+          $value->img = url('/storage/'.$value->img);
         }
-        $data['title'] = $solutions[0]->title;
+        
+        if(!count($solutions) == 0)
+        {
+          $data['title'] = $solutions[0]->title;
+        }
        
 
          

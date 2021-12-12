@@ -26,8 +26,8 @@
                 <div class="card-body p-4">
                     <form method="post" action="{{ url('/register') }}">
                         @csrf
-                        <h1>Register</h1>
-                        <p class="text-muted">Create your account</p>
+                        <h1>Registrarse</h1>
+                        <p class="text-muted">Crea tu cuenta</p>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                               <span class="input-group-text">
@@ -35,7 +35,7 @@
                               </span>
                             </div>
                             <input type="text" class="form-control {{ $errors->has('name')?'is-invalid':'' }}" name="name" value="{{ old('name') }}"
-                                   placeholder="Full Name">
+                                   placeholder="Nombre completo">
                             @if ($errors->has('name'))
                                 <span class="invalid-feedback">
                                     <strong>{{ $errors->first('name') }}</strong>
@@ -46,7 +46,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">@</span>
                             </div>
-                            <input type="email" class="form-control {{ $errors->has('email')?'is-invalid':'' }}" name="email" value="{{ old('email') }}" placeholder="Email">
+                            <input type="email" class="form-control {{ $errors->has('email')?'is-invalid':'' }}" name="email" value="{{ old('email') }}" placeholder="Correo">
                             @if ($errors->has('email'))
                                 <span class="invalid-feedback">
                                     <strong>{{ $errors->first('email') }}</strong>
@@ -59,7 +59,7 @@
                                 <i class="icon-lock"></i>
                               </span>
                             </div>
-                            <input type="password" class="form-control {{ $errors->has('password')?'is-invalid':''}}" name="password" placeholder="Password">
+                            <input type="password" class="form-control {{ $errors->has('password')?'is-invalid':''}}" name="password" placeholder="Contraseña">
                             @if ($errors->has('password'))
                                 <span class="invalid-feedback">
                                     <strong>{{ $errors->first('password') }}</strong>
@@ -73,15 +73,15 @@
                               </span>
                             </div>
                             <input type="password" name="password_confirmation" class="form-control"
-                                   placeholder="Confirm password">
+                                   placeholder="Confirmar contraseña">
                             @if ($errors->has('password_confirmation'))
                                 <span class="help-block">
                                   <strong>{{ $errors->first('password_confirmation') }}</strong>
                                </span>
                             @endif
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
-                        <a href="{{ url('/login') }}" class="text-center">I already have a membership</a>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Registrarse</button>
+                        <a href="{{ url('/login') }}" class="text-center">IYa tengo una membresía</a>
                     </form>
                 </div>
             </div>
