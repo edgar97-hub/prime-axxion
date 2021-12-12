@@ -3,9 +3,9 @@
 @section('content')
     <ol class="breadcrumb">
           <li class="breadcrumb-item">
-             <a href="{!! route('solutions.index') !!}">solutions</a>
+        
           </li>
-          <li class="breadcrumb-item active">Editar</li>
+      
         </ol>
     <div class="container-fluid">
          <div class="animated fadeIn">
@@ -15,7 +15,7 @@
                       <div class="card">
                           <div class="card-header">
                               <i class="fa fa-edit fa-lg"></i>
-                              <strong>Editar solutions</strong>
+                              <strong>Editar</strong>
                           </div>
                           <div class="card-body">
                               {!! Form::model($solution, ['route' => ['solutions.update', $solution->id], 'method' => 'patch', 'files' => true]) !!}

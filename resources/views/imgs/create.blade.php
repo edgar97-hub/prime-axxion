@@ -5,7 +5,7 @@
       <li class="breadcrumb-item">
    
       </li>
-      <li class="breadcrumb-item active">Create</li>
+ 
     </ol>
      <div class="container-fluid">
           <div class="animated fadeIn">
@@ -15,7 +15,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <i class="fa fa-plus-square-o fa-lg"></i>
-                                <strong>Create Img</strong>
+                                <strong>Create</strong>
                             </div>
                             <div class="card-body">
                                 {!! Form::open(['route' => 'imgs.store', 'files' => true]) !!}

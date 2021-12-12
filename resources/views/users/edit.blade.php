@@ -3,9 +3,9 @@
 @section('content')
     <ol class="breadcrumb">
           <li class="breadcrumb-item">
-             <a href="{!! route('users.index') !!}">Usuario</a>
+              
           </li>
-          <li class="breadcrumb-item active">Editar</li>
+         
         </ol>
 
 
@@ -65,6 +65,8 @@
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
         <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
+ 
+    <a href="{{ route('users.index') }}" class="btn btn-secondary">Cancelar</a>
 </div>
 {!! Form::close() !!}
 

@@ -2,7 +2,7 @@
 
 @section('content')
     <ol class="breadcrumb">
-        <li class="breadcrumb-item">llamada a la acción</li>
+       
     </ol>
     <div class="container-fluid">
         <div class="animated fadeIn">

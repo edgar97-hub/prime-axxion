@@ -3,9 +3,8 @@
 @section('content')
     <ol class="breadcrumb">
           <li class="breadcrumb-item">
-             <a href="{!! route('calltoActions.index') !!}">llamada a la acción</a>
-          </li>
-          <li class="breadcrumb-item active">Editar</li>
+           </li>
+      
         </ol>
     <div class="container-fluid">
          <div class="animated fadeIn">
@@ -15,7 +14,7 @@
                       <div class="card">
                           <div class="card-header">
                               <i class="fa fa-edit fa-lg"></i>
-                              <strong>Editar llamada a la acción</strong>
+                              <strong>Editar</strong>
                           </div>
                           <div class="card-body">
                               {!! Form::model($calltoAction, ['route' => ['calltoActions.update', $calltoAction->id], 'method' => 'patch', 'files' => true]) !!}

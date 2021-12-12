@@ -61,7 +61,7 @@ class BannerController extends AppBaseController
           $filePath = 'img/banner/';
            $input = $this->makeImg($request,$filePath);
         }
-        Flash::success('banners saved successfully.');
+        Flash::success('Guardado con éxito.');
         
         $this->BannerRepository->create($input);
      
@@ -80,7 +80,7 @@ class BannerController extends AppBaseController
         $banner = $this->BannerRepository->find($id);
 
         if (empty($banner)) {
-            Flash::error('banners Action not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('banners.index'));
         }
@@ -100,7 +100,7 @@ class BannerController extends AppBaseController
         $banner = $this->BannerRepository->find($id);
 
         if (empty($banner)) {
-            Flash::error('banner not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('banners.index'));
         }
@@ -122,7 +122,7 @@ class BannerController extends AppBaseController
         $input = $request->all();
 
         if (empty($banner)) {
-            Flash::error('banner not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('banners.index'));
         }
@@ -131,7 +131,7 @@ class BannerController extends AppBaseController
           $input = $this->updateImg($request,$filePath,$banner);
         }
         $this->BannerRepository->update($input, $id);
-        Flash::success('banner updated successfully.');
+        Flash::success('actualizado con éxito.');
 
         return redirect(route('banners.index'));
     }
@@ -150,7 +150,7 @@ class BannerController extends AppBaseController
         $banner = $this->BannerRepository->find($id);
 
         if (empty($banner)) {
-            Flash::error('banner not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('banners.index'));
         }
@@ -160,7 +160,7 @@ class BannerController extends AppBaseController
         
         $this->BannerRepository->delete($id);
 
-        Flash::success('banner deleted successfully.');
+        Flash::success('eliminando con éxito.');
 
         return redirect(route('banners.index'));
     }

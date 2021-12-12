@@ -1,6 +1,6 @@
 <!-- Titulolight Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('titulolight', 'Titulo Ligero:www') !!}
+    {!! Form::label('titulolight', 'Titulo Ligero:') !!}
     {!! Form::text('titulolight', null, ['class' => 'form-control']) !!}
 </div>
 

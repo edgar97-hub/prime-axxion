@@ -61,7 +61,7 @@ class CalltoActionController extends AppBaseController
           $filePath = 'img/callAction/';
            $input = $this->makeImg($request,$filePath);
         }
-        Flash::success('Callto Action saved successfullsssy.');
+        Flash::success('Guardado con éxito.');
         
         $calltoAction = $this->calltoActionRepository->create($input);
      
@@ -80,7 +80,7 @@ class CalltoActionController extends AppBaseController
         $calltoAction = $this->calltoActionRepository->find($id);
 
         if (empty($calltoAction)) {
-            Flash::error('Callto Action not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('calltoActions.index'));
         }
@@ -100,7 +100,7 @@ class CalltoActionController extends AppBaseController
         $calltoAction = $this->calltoActionRepository->find($id);
 
         if (empty($calltoAction)) {
-            Flash::error('Callto Action not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('calltoActions.index'));
         }
@@ -122,7 +122,7 @@ class CalltoActionController extends AppBaseController
         $input = $request->all();
 
         if (empty($calltoAction)) {
-            Flash::error('Callto Action not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('calltoActions.index'));
         }
@@ -134,7 +134,7 @@ class CalltoActionController extends AppBaseController
         $calltoAction = $this->calltoActionRepository->update($input, $id);
 
 
-        Flash::success('Callto Action updated successfully.');
+        Flash::success('actualizado con éxito.');
 
         return redirect(route('calltoActions.index'));
     }
@@ -153,7 +153,7 @@ class CalltoActionController extends AppBaseController
         $calltoAction = $this->calltoActionRepository->find($id);
 
         if (empty($calltoAction)) {
-            Flash::error('Callto Action not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('calltoActions.index'));
         }
@@ -163,7 +163,7 @@ class CalltoActionController extends AppBaseController
         
         $this->calltoActionRepository->delete($id);
 
-        Flash::success('Callto Action deleted successfully.');
+        Flash::success('eliminando con éxito.');
 
         return redirect(route('calltoActions.index'));
     }

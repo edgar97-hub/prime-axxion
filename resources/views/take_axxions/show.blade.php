@@ -3,9 +3,9 @@
 @section('content')
      <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{{ route('takeAxxions.index') }}">Take Axxion</a>
+          
             </li>
-            <li class="breadcrumb-item active">detalles</li>
+         
      </ol>
      <div class="container-fluid">
           <div class="animated fadeIn">
@@ -14,7 +14,7 @@
                      <div class="col-lg-12">
                          <div class="card">
                              <div class="card-header">
-                                 <strong>Details</strong>
+                                 <strong>Detalle</strong>
                                   <a href="{{ route('takeAxxions.index') }}" class="btn btn-light">atrás</a>
                              </div>
                              <div class="card-body">
