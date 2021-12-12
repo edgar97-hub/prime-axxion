@@ -38,7 +38,7 @@ class ImgController extends AppBaseController
     public function getTextImg($id)
     {
       $our_information = $this->imgRepository->getTextImg($id);
-      //dd($our_information[0]);
+      //dd($our_information[0]->seccion);
       
       
 
