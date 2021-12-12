@@ -8,6 +8,7 @@ use App\Models\Ayuda;
 use App\Repositories\AyudaRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
+use App\Http\Resources\Help\HelpCollection;
 use Response;
 
 /**
@@ -34,13 +35,9 @@ class AyudaAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $ayudas = $this->ayudaRepository->all(
-            $request->except(['skip', 'limit']),
-            $request->get('skip'),
-            $request->get('limit')
-        );
+        $ayudas = Ayuda::orderBy('created_at','desc')->paginate(20);
 
-        return $this->sendResponse($ayudas->toArray(), 'Ayudas retrieved successfully');
+        return $this->sendResponse( new HelpCollection($ayudas), 'Lista de ayuda');
     }
 
     /**
