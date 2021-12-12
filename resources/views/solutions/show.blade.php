@@ -18,7 +18,15 @@
                                   <a href="{{ route('solutions.index') }}" class="btn btn-light">atrás</a>
                              </div>
                              <div class="card-body">
-                                 @include('solutions.show_fields')
+                                 
+                                @if($id == 1)
+                                  @include('solutions.title.show_fields')
+                                @endif
+
+                                @if($id == 2)
+                                  @include('solutions.cards.show_fields')
+                                @endif
+ 
                              </div>
                          </div>
                      </div>

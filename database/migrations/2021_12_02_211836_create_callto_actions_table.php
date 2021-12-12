@@ -16,10 +16,11 @@ class CreateCalltoActionsTable extends Migration
     {
         Schema::create('callto_actions', function (Blueprint $table) {
             $table->id('id');
-            $table->string('title');
-            $table->string('img');
+            $table->text('title')->nullable();
+            $table->string('img')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
         });
     }
 

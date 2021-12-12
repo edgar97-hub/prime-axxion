@@ -2,9 +2,13 @@
 
 namespace App\Repositories;
 
-use App\Models\Nosotros;
 use App\Repositories\BaseRepository;
 use Illuminate\Http\Request;
+use DB;
+use App\Models\Nosotrosdetalle;
+use App\Models\OurImg;
+use App\Models\Nosotros;
+
 /**
  * Class NosotrosRepository
  * @package App\Repositories
@@ -39,36 +43,79 @@ class NosotrosRepository extends BaseRepository
     }
     public function getDetails($nosotros)
     {
-      foreach ($nosotros as $value) 
-        {
-          $Nosotrosdetalles = Nosotros::join('nosotrosdetalles', 'nosotros.id', '=', 'nosotrosdetalles.Nosotros_id')
-          ->where('nosotrosdetalles.Nosotros_id', $value['id'])
-          ->get(['nosotrosdetalles.*']);
-          foreach ($Nosotrosdetalles as $data) 
-          {
-            $data['img'] = url('/storage/'.$data['img']);
 
-          }
-          $value['content'] = $Nosotrosdetalles;
-        }
-      return $nosotros;
-    }
-    public function getNosotros($nosotros)
-    {
-      foreach ($nosotros as $value) 
+ 
+
+      $SeccionOne = Nosotros::with(['getSeccionOne' => function($query){
+      $query->select('title','textcolumn1','textcolumn2','nosotros_id');
+      }])->where('id', 1)
+      ->get();
+
+      $SeccionTwo = Nosotros::with(['getSeccionTwo' => function($query){
+      $query->select('img', 'textitle','our_id');
+      }])->where('id', 2)
+      ->get();
+
+      $SeccionThree = Nosotros::with(['getSeccionThree' => function($query){
+      $query->select('img','our_id');
+      }])
+      ->select('id','seccion')->where('id', 3)
+      ->get();
+
+      $SeccionFour = Nosotros::with(['getSeccionFour' => function($query){
+      $query->select('img','our_id');
+      }])
+      ->select('id','seccion')->where('id', 4)
+      ->get();
+      
+      $SeccionOne = json_decode($SeccionOne);
+      $SeccionTwo = json_decode($SeccionTwo);
+      $SeccionThree = json_decode($SeccionThree);
+      $SeccionFour = json_decode($SeccionFour);
+
+      foreach ($SeccionTwo[0]->get_seccion_two as $value) 
       {
-        $Nosotrosdetalles = Nosotros::join('nosotrosdetalles', 'nosotros.id', '=', 'nosotrosdetalles.Nosotros_id')
-        ->where('nosotrosdetalles.Nosotros_id', $nosotros['id'])
-        ->get(['nosotrosdetalles.*']);
-        foreach ($Nosotrosdetalles as $data) 
-        {
-          $data['img'] = url('/storage/'.$data['img']);
-
-        }
-        $nosotros['content'] = $Nosotrosdetalles;
+        $value->img = url('/'.$value->img);
 
       }
-      return $nosotros;
+      foreach ($SeccionThree[0]->get_seccion_three as $value) 
+      {
+        $value->img = url('/'.$value->img);
+
+      }
+      foreach ($SeccionFour[0]->get_seccion_four as $value) 
+      {
+        $value->img = url('/'.$value->img);
+
+      }
+      $data['azúl'] =  $SeccionOne[0]->get_seccion_one;
+      $data['fotografía institucional'] = $SeccionTwo[0]->get_seccion_two;
+      $data['somos parte de'] = $SeccionThree[0]->get_seccion_three;
+      $data['bancos'] = $SeccionFour[0]->get_seccion_four;
+      
+     return  $data;
+
+    }
+    public function getNosotros($our_information)
+    {
+       
+      $our_details = Nosotros::join('our_details', 'our_information.id', '=', 'our_details.Nosotros_id')
+      ->where('our_details.Nosotros_id', $our_information['id'])
+      ->get(['our_details.*']);
+
+      $our_img = Nosotros::join('our_img', 'our_information.id', '=', 'our_img.our_id')
+      ->where('our_img.our_id', $our_information['id'])
+      ->get(['our_img.*']);
+      
+      foreach ($our_img as $data) 
+      {
+        $data['img'] = url('/storage/'.$data['img']);
+
+      }
+      $our_information['our_details'] = $our_details;
+      $our_information['our_img'] = $our_img;
+      
+      return $our_information;
     }
     public function searchSection(Request $request, $vendor){
 

@@ -13,10 +13,21 @@
                          <div class="card-header">
                              <i class="fa fa-align-justify"></i>
                              solutions
-                             <a class="pull-right" href="{{ route('solutions.create') }}"><i class="fa fa-plus-square fa-lg"></i></a>
+                             <a class="pull-right" href="{{ route('solutions.createCards',$id) }}"><i class="fa fa-plus-square fa-lg"></i></a>
                          </div>
                          <div class="card-body">
-                             @include('solutions.table')
+                              
+                     
+                              @if($id == 1)
+                                @include('solutions.title.table')
+                              @endif
+
+                              @if($id == 2)
+                                @include('solutions.cards.table')
+                              @endif
+ 
+                            
+
                               <div class="pull-right mr-3">
                                      
                               </div>

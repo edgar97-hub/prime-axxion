@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use Response;
 use App\Repositories\MakeImg;
+use DB;
 /**
  * Class SolutionController
  * @package App\Http\Controllers\API
@@ -34,17 +35,26 @@ class SolutionAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
+
+        $data = DB::select('select titulolight, titulonegrita, img from solutions ');
+
         $solutions = $this->solutionRepository->all(
             $request->except(['skip', 'limit']),
             $request->get('skip'),
             $request->get('limit')
         );
-        foreach ($solutions as $value) 
+        foreach ($data as $value) 
         {
-          $value['img'] = url('/'.$value['img']);
+          //$value['img'] = url('/'.$value['img']);
+          $value->img = url('/'.$value->img);
 
         }
-        return $this->sendResponse($solutions->toArray(), 'Solutions retrieved successfully');
+        $data['title'] = $solutions[0]->title;
+       
+
+         
+        
+        return $this->sendResponse($data, 'Solutions retrieved successfully');
     }
 
     /**

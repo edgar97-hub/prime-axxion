@@ -13,10 +13,27 @@
                          <div class="card-header">
                              <i class="fa fa-align-justify"></i>
                              Nosotros detalles
-                             <a class="pull-right" href="{{ route('nosotrosdetalles.create') }}"><i class="fa fa-plus-square fa-lg"></i></a>
+                             <a class="pull-right" href="{{ route('nosotrosdetalles.createourimformation', $our_information->data->id) }}"><i class="fa fa-plus-square fa-lg"></i></a>
                          </div>
                          <div class="card-body">
-                             @include('nosotrosdetalles.table')
+
+                         
+                                 @if($our_information->data->id == 1)
+                                  @include('nosotrosdetalles.sections.azul.table')
+                                 @endif
+
+                                 @if($our_information->data->id == 2)
+                                  @include('nosotrosdetalles.sections.fotografíaInstitucional.table')
+                                 @endif
+
+                                 @if($our_information->data->id == 3)
+                                   @include('nosotrosdetalles.sections.somospartede.table')
+                                 @endif
+
+                                 @if($our_information->data->id == 4)
+                                   @include('nosotrosdetalles.sections.bancos.table')
+                                 @endif
+                            
                               <div class="pull-right mr-3">
                                      
                               </div>

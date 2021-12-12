@@ -3,7 +3,7 @@
 @section('content')
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
-         <a href="{!! route('nosotrosdetalles.index') !!}">Nosotros detalles</a>
+        
       </li>
       <li class="breadcrumb-item active">Crear</li>
     </ol>
@@ -20,7 +20,23 @@
                             <div class="card-body">
                                 {!! Form::open(['route' => 'nosotrosdetalles.store', 'files' => true]) !!}
 
-                                   @include('nosotrosdetalles.fields')
+                                    
+                                 @if($our_information == 1)
+                                   @include('nosotrosdetalles.sections.azul.fields')
+                                 @endif
+
+                                 @if($our_information == 2)
+                                  @include('nosotrosdetalles.sections.fotografíaInstitucional.fields')
+                                 @endif
+
+                                 @if($our_information == 3)
+                                  @include('nosotrosdetalles.sections.somospartede.fields')
+
+                                 @endif
+
+                                 @if($our_information == 4)
+                                  @include('nosotrosdetalles.sections.bancos.fields')
+                                 @endif
 
                                 {!! Form::close() !!}
                             </div>

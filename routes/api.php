@@ -77,3 +77,4 @@ Route::delete('/ayudas/{id}',[AyudaAPIController::class,'delete']);
 //Route::resource('callto_actions', App\Http\Controllers\API\CalltoActionAPIController::class);
 //Route::resource('take_axxions', App\Http\Controllers\API\TakeAxxionAPIController::class);
 //Route::resource('ayudas', App\Http\Controllers\API\AyudaAPIController::class);
+//Route::resource('imgs', App\Http\Controllers\API\ImgAPIController::class);

@@ -1,0 +1,32 @@
+<!-- Title Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('title', 'Campo de título ligero:') !!}
+    {!! Form::text('title', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Textcolumn1 Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('textcolumn1', 'campo de texto 1 :') !!}
+    {!! Form::text('textcolumn1', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Textcolumn2 Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('textcolumn2', 'campo de texto 2:') !!}
+    {!! Form::text('textcolumn2', null, ['class' => 'form-control']) !!}
+</div>
+
+ <!-- Nosotros Id Field -->
+<div class="form-group col-sm-6">
+    {!! Form::number('nosotros_id', 1, ['id' => 'nosotros_id','class' => 'form-control','style'=>'display:none']) !!}
+</div>
+ 
+<!-- Submit Field -->
+<div class="form-group col-sm-12">
+    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+    <a href="{{ route('nosotrosdetalles.section', 1) }}" class="btn btn-secondary">Cancelar</a>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js">
+    </script>
+<script src="{{ asset('auto.js') }}"></script>

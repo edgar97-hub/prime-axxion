@@ -3,7 +3,7 @@
 @section('content')
      <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{{ route('nosotrosdetalles.index') }}">Nosotros detalles</a>
+                <a >Nosotros detalles</a>
             </li>
             <li class="breadcrumb-item active">Detalles</li>
      </ol>
@@ -15,10 +15,29 @@
                          <div class="card">
                              <div class="card-header">
                                  <strong>Detalles</strong>
-                                  <a href="{{ route('nosotrosdetalles.index') }}" class="btn btn-light">atrás</a>
+                                  <a 
+
+                                  href="{{ route('nosotrosdetalles.section', [$our_details->nosotros_id]) }}"
+                                  class="btn btn-light">atrás</a>
                              </div>
                              <div class="card-body">
-                                 @include('nosotrosdetalles.show_fields')
+                                  
+
+                                 @if($our_details->nosotros_id == 1)
+                                   @include('nosotrosdetalles.sections.azul.show_fields')
+                                 @endif
+
+                                 @if($our_details->nosotros_id == 2)
+
+                                 @endif
+
+                                 @if($our_details->nosotros_id == 3)
+                                  @include('nosotrosdetalles.sections.somospartede.show_fields')
+                                 @endif
+
+                                 @if($our_details->nosotros_id == 3)
+
+                                 @endif
                              </div>
                          </div>
                      </div>

@@ -16,11 +16,12 @@ class CreateSolutionsTable extends Migration
     {
         Schema::create('solutions', function (Blueprint $table) {
             $table->id('id');
-            $table->string('title');
-            $table->string('titulolight');
-            $table->string('titulonegrita');
-            $table->binary('img');
+            $table->text('title')->nullable();
+            $table->text('titulolight')->nullable();
+            $table->text('titulonegrita')->nullable();
+            $table->binary('img')->nullable();
             $table->timestamps();
+
             $table->softDeletes();
         });
     }

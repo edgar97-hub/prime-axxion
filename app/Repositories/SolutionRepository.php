@@ -22,6 +22,7 @@ class SolutionRepository extends BaseRepository
      */
 
     use MakeImg;
+    
     protected $fieldSearchable = [
         'title',
         'titulolight',

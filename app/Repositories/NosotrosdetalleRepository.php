@@ -8,7 +8,8 @@ use App\Http\Requests\API\CreateNosotrosdetalleAPIRequest;
 use App\Http\Requests\API\UpdateNosotrosdetalleAPIRequest;
 use Intervention\Image\Facades\Image;
 use App\Repositories\MakeImg;
- 
+use App\Models\Nosotros;
+use DB;
 /**
  * Class NosotrosdetalleRepository
  * @package App\Repositories
@@ -62,5 +63,22 @@ class NosotrosdetalleRepository extends BaseRepository
       $nosotrosdetalle = $this->find($id);
       $input = $this->updateImg($request,$filePath,$nosotrosdetalle);
       return $this->update($input, $id);
+    }
+    public function getTextImg($id)
+    {
+      $details = DB::table('our_information')
+      ->leftjoin('our_details', 'our_details.Nosotros_id', '=', 'our_information.id')
+      ->leftjoin('our_img', 'our_img.our_id', '=', 'our_information.id')
+      ->where('our_img.id', '=', $id)
+      ->get();
+      $response = json_decode($details);
+      foreach ($response as $data) 
+      {
+        $data->img = url('/storage/'.$data->img);
+        $data->id = $data->our_id;
+        $data->nosotros_id = $data->our_id;
+
+      }
+      return $response[0];
     }
 }

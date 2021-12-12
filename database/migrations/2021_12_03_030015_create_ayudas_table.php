@@ -14,10 +14,10 @@ class CreateAyudasTable extends Migration
      */
     public function up()
     {
-        Schema::create('ayudas', function (Blueprint $table) {
+        Schema::create('helps', function (Blueprint $table) {
             $table->id('id');
-            $table->string('pregunta');
-            $table->string('respuesta');
+            $table->text('question')->nullable();
+            $table->text('answer')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

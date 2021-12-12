@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNosotrosTable extends Migration
+class CreateOurImgTable extends Migration
 {
 
     /**
@@ -14,11 +14,14 @@ class CreateNosotrosTable extends Migration
      */
     public function up()
     {
-        Schema::create('nosotros', function (Blueprint $table) {
+        Schema::create('our_img', function (Blueprint $table) {
             $table->id('id');
-            $table->string('seccion');
+            $table->text('textitle')->nullable();
+            $table->string('img')->nullable();
+            $table->unsignedBigInteger('our_id');
             $table->timestamps();
             $table->softDeletes();
+            $table->foreign('our_id')->references('id')->on('our_information')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -29,6 +32,6 @@ class CreateNosotrosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('nosotros');
+        Schema::drop('our_img');
     }
 }
