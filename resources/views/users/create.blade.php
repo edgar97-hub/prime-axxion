@@ -3,9 +3,9 @@
 @section('content')
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
-         <a href="{!! route('users.index') !!}">Usuario</a>
+        
       </li>
-      <li class="breadcrumb-item active">Crear</li>
+    
     </ol>
      <div class="container-fluid">
           <div class="animated fadeIn">
@@ -15,7 +15,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <i class="fa fa-plus-square-o fa-lg"></i>
-                                <strong>Crear Usuario</strong>
+                                <strong>Crear</strong>
                             </div>
                             <div class="card-body">
                                
@@ -60,8 +60,14 @@
                                          </div>
                                     </div>
                                      <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                         <button type="submit" class="btn btn-primary">Submit</button>
+                                         <button type="submit" class="btn btn-primary">Enviar</button>
                                      </div>
+
+                                   
+
+
+                                     <a href="{{ route('users.index') }}" class="btn btn-secondary">Cancelar</a>
+
                                 </div>
                                 {!! Form::close() !!}
                             </div>

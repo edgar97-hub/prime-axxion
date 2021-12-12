@@ -111,9 +111,4 @@
 </li>--}}
 
  
- <li class="nav-item {{ Request::is('imgs*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('imgs.index') }}">
-        <i class="nav-icon icon-cursor"></i>
-        <span>Imgs</span>
-    </a>
-</li>
+ 
