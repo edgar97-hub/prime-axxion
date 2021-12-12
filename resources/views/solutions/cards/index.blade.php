@@ -12,7 +12,7 @@
                      <div class="card">
                          <div class="card-header">
                              <i class="fa fa-align-justify"></i>
-                             tarjetas
+                             Tarjetas
                              <a class="pull-right" href="{{ route('solutions.createCard',$viewseccion) }}"><i class="fa fa-plus-square fa-lg"></i></a>
                          </div>
                          <div class="card-body">

@@ -8,7 +8,7 @@
               <th>campo de texto 2</th>
               <th>Campo de título negrita</th>
               <th>Img</th>
-                <th colspan="3">Action</th>
+                <th colspan="3">Acciones</th>
             </tr>
         </thead>
         <tbody>

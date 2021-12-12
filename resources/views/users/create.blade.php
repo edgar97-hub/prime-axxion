@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+    <!-- Breadcrumb-->
     <ol class="breadcrumb">
+      <li class="breadcrumb-item">Lista</li>
       <li class="breadcrumb-item">
-        
+        <a href="#">Administradores</a>
       </li>
-    
+      <li class="breadcrumb-item active">Nuevo</li>
     </ol>
      <div class="container-fluid">
           <div class="animated fadeIn">
@@ -24,13 +26,13 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                            <strong>Nombre:</strong>
-                                           {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+                                           {!! Form::text('name', null, array('placeholder' => 'Nombre','class' => 'form-control')) !!}
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                          <div class="form-group">
-                                            <strong>Email:</strong>
-                                            {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
+                                            <strong>Correo electrónico:</strong>
+                                            {!! Form::text('email', null, array('placeholder' => 'Correo electrónico','class' => 'form-control')) !!}
                                          </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -59,14 +61,14 @@
                                              
                                          </div>
                                     </div>
-                                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                         <button type="submit" class="btn btn-primary">Enviar</button>
+                                     <div class="col-xs-12 col-sm-12 col-md-12">
+                                         <button type="submit" class="btn btn-primary">Guardar</button>
+                                         <a href="{{ route('users.index') }}" class="btn btn-secondary">Cancelar</a>
                                      </div>
 
                                    
 
 
-                                     <a href="{{ route('users.index') }}" class="btn btn-secondary">Cancelar</a>
 
                                 </div>
                                 {!! Form::close() !!}

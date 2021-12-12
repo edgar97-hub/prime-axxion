@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Login | CoreUI | {{ config('app.name') }}</title>
+    <title>Login | {{ config('app.name') }}</title>
     <meta name="description" content="CoreUI Template - InfyOm Laravel Generator">
     <meta name="keyword" content="CoreUI,Bootstrap,Admin,Template,InfyOm,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <!-- Bootstrap-->
@@ -22,13 +22,13 @@
 <body class="app flex-row align-items-center">
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card-group">
                 <div class="card p-4">
                     <div class="card-body">
                         <form method="post" action="{{ url('/login') }}">
                             @csrf
-                            <h1>Login</h1>
+                            <h1>Prime Axxion</h1>
                             <p class="text-muted">Iniciar sesión en su cuenta</p>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -59,11 +59,11 @@
                             </div>
                             <div class="row">
                                 <div class="col-6">
-                                    <button class="btn btn-primary px-4" type="submit">Login</button>
+                                    <button class="btn btn-primary px-4" type="submit">Iniciar</button>
                                 </div>
                                 <div class="col-6 text-right">
                                     <a class="btn btn-link px-0" href="{{ url('/password/reset') }}">
-                                    Olvidaste tu contraseña?
+                                        Olvido su contraseña?
                                     </a>
                                 </div>
                             </div>
