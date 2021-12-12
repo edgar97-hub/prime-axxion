@@ -5,7 +5,7 @@
             <li class="breadcrumb-item">
                
             </li>
-            <li class="breadcrumb-item active">Detalle</li>
+          
      </ol>
      <div class="container-fluid">
           <div class="animated fadeIn">
@@ -14,7 +14,7 @@
                      <div class="col-lg-12">
                          <div class="card">
                              <div class="card-header">
-                                 <strong>Details</strong>
+                                 <strong>Detalle</strong>
                                   <a href="{{ route('solutions.getView',1) }}" class="btn btn-light">atrás</a>
                              </div>
                              <div class="card-body">

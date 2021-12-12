@@ -3,9 +3,9 @@
 @section('content')
      <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{{ route('calltoActions.index') }}">Callto Action</a>
+             
             </li>
-            <li class="breadcrumb-item active">Detalles</li>
+          
      </ol>
      <div class="container-fluid">
           <div class="animated fadeIn">

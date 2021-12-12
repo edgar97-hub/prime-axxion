@@ -95,7 +95,7 @@ class SolutionController extends AppBaseController
           $filePath = 'img/solution/';
            $input = $this->makeImg($request,$filePath);
         }
-        Flash::success('solution saved successfullsssy.');
+        Flash::success('Guardado con éxito.');
         
         $this->SolutionRepository->create($input);
      
@@ -109,7 +109,7 @@ class SolutionController extends AppBaseController
           $filePath = 'img/solution/';
            $input = $this->makeImg($request,$filePath);
         }
-        Flash::success('solution saved successfullsssy.');
+        Flash::success('Guardado con éxito.');
         
         $this->SolutionRepository->create($input);
      
@@ -130,7 +130,7 @@ class SolutionController extends AppBaseController
 
         if (empty($solution)) 
         {
-            Flash::error('Solution not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('solutions.getView',2));
 
@@ -147,7 +147,7 @@ class SolutionController extends AppBaseController
 
         if (empty($solution)) 
         {
-            Flash::error('Solution not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('solutions.getView',1));
 
@@ -170,7 +170,7 @@ class SolutionController extends AppBaseController
         $solution = $this->SolutionRepository->find($id);
 
         if (empty($solution)) {
-            Flash::error('solution not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('solutions.getView',2));
         }
@@ -182,7 +182,7 @@ class SolutionController extends AppBaseController
         $solution = $this->SolutionRepository->find($id);
 
         if (empty($solution)) {
-            Flash::error('solution not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('solutions.getView',1));
         }
@@ -204,7 +204,7 @@ class SolutionController extends AppBaseController
         $input = $request->all();
 
         if (empty($solution)) {
-            Flash::error('solution not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('solutions.getView',2));
         }
@@ -213,7 +213,7 @@ class SolutionController extends AppBaseController
           $input = $this->updateImg($request,$filePath,$solution);
         }
         $this->SolutionRepository->update($input, $id);
-        Flash::success('solution updated successfully.');
+        Flash::success('actualizado con éxito.');
 
         return redirect(route('solutions.getView',2));
     }
@@ -224,7 +224,7 @@ class SolutionController extends AppBaseController
         $input = $request->all();
 
         if (empty($solution)) {
-            Flash::error('solution not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('solutions.getView',1));
           }
@@ -233,7 +233,7 @@ class SolutionController extends AppBaseController
           $input = $this->updateImg($request,$filePath,$solution);
         }
         $this->SolutionRepository->update($input, $id);
-        Flash::success('solution updated successfully.');
+        Flash::success('actualizado con éxito.');
 
         return redirect(route('solutions.getView',1));
     }
@@ -253,7 +253,7 @@ class SolutionController extends AppBaseController
         $solution = $this->SolutionRepository->find($id);
 
         if (empty($solution)) {
-            Flash::error('solution not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('solutions.index'));
         }
@@ -263,7 +263,7 @@ class SolutionController extends AppBaseController
         
         $this->SolutionRepository->delete($id);
 
-        Flash::success('solution deleted successfully.');
+        Flash::success('eliminando con éxito.');
         return redirect(route('solutions.getView',2));
 
     }
@@ -273,7 +273,7 @@ class SolutionController extends AppBaseController
         $solution = $this->SolutionRepository->find($id);
 
         if (empty($solution)) {
-            Flash::error('solution not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('solutions.index'));
         }
@@ -283,7 +283,7 @@ class SolutionController extends AppBaseController
         
         $this->SolutionRepository->delete($id);
 
-        Flash::success('solution deleted successfully.');
+        Flash::success('eliminando con éxito.');
         return redirect(route('solutions.getView',1));
 
     }

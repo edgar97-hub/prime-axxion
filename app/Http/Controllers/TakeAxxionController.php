@@ -64,7 +64,7 @@ class TakeAxxionController extends AppBaseController
 
         $takeAxxion = $this->takeAxxionRepository->create($input);
 
-        Flash::success('Take Axxion saved successfully.');
+        Flash::success('Guardado con éxito.');
 
         return redirect(route('takeAxxions.index'));
     }
@@ -81,7 +81,7 @@ class TakeAxxionController extends AppBaseController
         $takeAxxion = $this->takeAxxionRepository->find($id);
 
         if (empty($takeAxxion)) {
-            Flash::error('Take Axxion not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('takeAxxions.index'));
         }
@@ -101,7 +101,7 @@ class TakeAxxionController extends AppBaseController
         $takeAxxion = $this->takeAxxionRepository->find($id);
 
         if (empty($takeAxxion)) {
-            Flash::error('Take Axxion not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('takeAxxions.index'));
         }
@@ -122,7 +122,7 @@ class TakeAxxionController extends AppBaseController
         $takeAxxion = $this->takeAxxionRepository->find($id);
         $input = $request->all();
         if (empty($takeAxxion)) {
-            Flash::error('Take Axxion not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('takeAxxions.index'));
         }
@@ -132,7 +132,7 @@ class TakeAxxionController extends AppBaseController
         }
         $takeAxxion = $this->takeAxxionRepository->update($input, $id);
 
-        Flash::success('Take Axxion updated successfully.');
+        Flash::success('actualizado con éxito.');
 
         return redirect(route('takeAxxions.index'));
     }
@@ -151,7 +151,7 @@ class TakeAxxionController extends AppBaseController
         $takeAxxion = $this->takeAxxionRepository->find($id);
 
         if (empty($takeAxxion)) {
-            Flash::error('Take Axxion not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('takeAxxions.index'));
         }
@@ -160,7 +160,7 @@ class TakeAxxionController extends AppBaseController
         
         $this->takeAxxionRepository->delete($id);
 
-        Flash::success('Take Axxion deleted successfully.');
+        Flash::success('eliminando con éxito.');
 
         return redirect(route('takeAxxions.index'));
     }

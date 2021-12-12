@@ -3,9 +3,9 @@
 @section('content')
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
-         <a href="{!! route('calltoActions.index') !!}">llamada a la acción</a>
+       
       </li>
-      <li class="breadcrumb-item active">Crear</li>
+
     </ol>
      <div class="container-fluid">
           <div class="animated fadeIn">
@@ -15,7 +15,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <i class="fa fa-plus-square-o fa-lg"></i>
-                                <strong>Crear llamada a la acción</strong>
+                                <strong>Crear</strong>
                             </div>
                             <div class="card-body">
                                 {!! Form::open(['route' => 'calltoActions.store', 'files' => true]) !!}

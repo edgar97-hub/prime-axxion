@@ -5,7 +5,7 @@
             <li class="breadcrumb-item">
                 
             </li>
-            <li class="breadcrumb-item active">Detail</li>
+       
      </ol>
      <div class="container-fluid">
           <div class="animated fadeIn">
@@ -14,8 +14,8 @@
                      <div class="col-lg-12">
                          <div class="card">
                              <div class="card-header">
-                                 <strong>Details</strong>
-                                  <a href="{{ route('imgs.getTextImg',$img->our_id) }}" class="btn btn-light">Back</a>
+                                 <strong>Detalle</strong>
+                                  <a href="{{ route('imgs.getTextImg',$img->our_id) }}" class="btn btn-light">atrás</a>
                              </div>
                              <div class="card-body">
                                 

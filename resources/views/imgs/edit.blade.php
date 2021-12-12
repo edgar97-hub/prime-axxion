@@ -5,7 +5,7 @@
           <li class="breadcrumb-item">
              
           </li>
-          <li class="breadcrumb-item active">Edit</li>
+           
         </ol>
     <div class="container-fluid">
          <div class="animated fadeIn">
@@ -15,7 +15,7 @@
                       <div class="card">
                           <div class="card-header">
                               <i class="fa fa-edit fa-lg"></i>
-                              <strong>Edit Img</strong>
+                              <strong>Editar</strong>
                           </div>
                           <div class="card-body">
                               {!! Form::model($img, ['route' => ['imgs.update', $img->id], 'method' => 'patch', 'files' => true]) !!}

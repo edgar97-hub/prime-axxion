@@ -1,6 +1,6 @@
 <!-- Textitle Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('textitle', 'Textitle:') !!}
+    {!! Form::label('textitle', 'Campo de titulo:') !!}
     {!! Form::text('textitle', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -18,6 +18,6 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{{ route('imgs.getTextImg',$img_id) }}" class="btn btn-secondary">Cancel</a>
+    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+    <a href="{{ route('imgs.getTextImg',$img_id) }}" class="btn btn-secondary">Cancelar</a>
 </div>

@@ -58,7 +58,7 @@ class AyudaController extends AppBaseController
 
         $ayuda = $this->ayudaRepository->create($input);
 
-        Flash::success('Ayuda saved successfully.');
+        Flash::success('Guardado con éxito.');
 
         return redirect(route('ayudas.index'));
     }
@@ -75,7 +75,7 @@ class AyudaController extends AppBaseController
         $ayuda = $this->ayudaRepository->find($id);
 
         if (empty($ayuda)) {
-            Flash::error('Ayuda not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('ayudas.index'));
         }
@@ -95,7 +95,7 @@ class AyudaController extends AppBaseController
         $ayuda = $this->ayudaRepository->find($id);
 
         if (empty($ayuda)) {
-            Flash::error('Ayuda not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('ayudas.index'));
         }
@@ -116,14 +116,14 @@ class AyudaController extends AppBaseController
         $ayuda = $this->ayudaRepository->find($id);
 
         if (empty($ayuda)) {
-            Flash::error('Ayuda not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('ayudas.index'));
         }
 
         $ayuda = $this->ayudaRepository->update($request->all(), $id);
 
-        Flash::success('Ayuda updated successfully.');
+        Flash::success('actualizado con éxito.');
 
         return redirect(route('ayudas.index'));
     }
@@ -142,14 +142,14 @@ class AyudaController extends AppBaseController
         $ayuda = $this->ayudaRepository->find($id);
 
         if (empty($ayuda)) {
-            Flash::error('Ayuda not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('ayudas.index'));
         }
 
         $this->ayudaRepository->delete($id);
 
-        Flash::success('Ayuda deleted successfully.');
+        Flash::success('eliminando con éxito.');
 
         return redirect(route('ayudas.index'));
     }

@@ -57,7 +57,7 @@ class NosotrosController extends AppBaseController
     {
         $input = $request->all();
  
-        Flash::success('nosotros saved successfully');
+        Flash::success('Guardado con éxito');
         
         $this->NosotrosRepository->create($input);
      
@@ -76,7 +76,7 @@ class NosotrosController extends AppBaseController
         $nosotros = $this->NosotrosRepository->find($id);
 
         if (empty($nosotros)) {
-            Flash::error('nosotros Action not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('nosotros.index'));
         }
@@ -96,7 +96,7 @@ class NosotrosController extends AppBaseController
         $nosotros = $this->NosotrosRepository->find($id);
 
         if (empty($nosotros)) {
-            Flash::error('nosotros not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('nosotros.index'));
         }
@@ -118,13 +118,13 @@ class NosotrosController extends AppBaseController
         $input = $request->all();
 
         if (empty($nosotros)) {
-            Flash::error('nosotros not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('nosotros.index'));
         }
          
         $this->NosotrosRepository->update($input, $id);
-        Flash::success('nosotros updated successfully.');
+        Flash::success('actualizado con éxito.');
 
         return redirect(route('nosotros.index'));
     }
@@ -143,7 +143,7 @@ class NosotrosController extends AppBaseController
         $nosotros = $this->NosotrosRepository->find($id);
 
         if (empty($nosotros)) {
-            Flash::error('nosotros not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('nosotros.index'));
         }
@@ -151,7 +151,7 @@ class NosotrosController extends AppBaseController
         
         $this->NosotrosRepository->delete($id);
 
-        Flash::success('nosotros deleted successfully.');
+        Flash::success('eliminando con éxito.');
 
         return redirect(route('nosotros.index'));
     }

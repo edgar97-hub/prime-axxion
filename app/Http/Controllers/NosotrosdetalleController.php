@@ -69,7 +69,7 @@ class NosotrosdetalleController extends AppBaseController
           $filePath = 'img/nosotrosdetalles/';
            $input = $this->makeImg($request,$filePath);
         }
-        Flash::success('nosotrosdetalles saved successfully.');
+        Flash::success('Guardado con éxito.');
         $this->NosotrosdetalleRepository->create($input);
         return redirect(route('nosotrosdetalles.section',$request['nosotros_id']));
     }
@@ -145,7 +145,7 @@ class NosotrosdetalleController extends AppBaseController
         $nosotrosdetalles['seccion'] = $response->data->seccion;
         //dd($nosotrosdetalles->nosotros_id);
         if (empty($nosotrosdetalles)) {
-            Flash::error('Nosotrosdetalle not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('nosotrosdetalles.index'));
         }
@@ -179,7 +179,7 @@ class NosotrosdetalleController extends AppBaseController
         $nosotrosdetalles = $this->NosotrosdetalleRepository->find($id);
         $input = $request->all();
         if (empty($nosotrosdetalles)) {
-            Flash::error('nosotrosdetalles not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('nosotrosdetalles.index'));
         }
@@ -188,7 +188,7 @@ class NosotrosdetalleController extends AppBaseController
           $input = $this->updateImg($request,$filePath,$nosotrosdetalles);
         }
         $this->NosotrosdetalleRepository->update($input, $id);
-        Flash::success('nosotrosdetalles updated successfully.');
+        Flash::success('actualizado con éxito.');
 
         return redirect(route('nosotrosdetalles.section',$nosotrosdetalles['nosotros_id']));
     }
@@ -207,7 +207,7 @@ class NosotrosdetalleController extends AppBaseController
         $nosotrosdetalles = $this->NosotrosdetalleRepository->find($id);
 
         if (empty($nosotrosdetalles)) {
-            Flash::error('nosotrosdetalles not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('nosotrosdetalles.index'));
         }
@@ -217,7 +217,7 @@ class NosotrosdetalleController extends AppBaseController
         
         $this->NosotrosdetalleRepository->delete($id);
 
-        Flash::success('nosotrosdetalles deleted successfully.');
+        Flash::success('eliminando con éxito.');
         return redirect(route('nosotrosdetalles.section',$nosotrosdetalles['nosotros_id']));
 
         //return redirect(route('nosotrosdetalles.index'));

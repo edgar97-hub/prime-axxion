@@ -2,7 +2,7 @@
     <table class="table table-striped" id="imgs-table">
         <thead>
             <tr>
-                <th>Textitle</th>
+                <th>Campo de título</th>
         <th>Img</th>
        
                 <th colspan="3">Action</th>

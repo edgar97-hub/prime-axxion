@@ -26,7 +26,7 @@
 
 <li class="nav-item nav-dropdown  {{ Request::is('solutions*') ? 'active' : '' }}" >
   <a class="nav-link nav-dropdown-toggle" href="#">
-    <i class="nav-icon icon-cursor"></i> Solution</a>
+    <i class="nav-icon icon-cursor"></i> Soluciones</a>
   <ul class="nav-dropdown-items">
     <li class="nav-item {{ Request::is('solutions.getView*') ? 'active' : '' }}">
       <a class="nav-link" href="{{ route('solutions.getView',1) }}">
@@ -54,7 +54,7 @@
 <li class="nav-item {{ Request::is('takeAxxions*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('takeAxxions.index') }}">
         <i class="nav-icon icon-cursor"></i>
-        <span>Take Axxions</span>
+        <span>Take Axxion</span>
     </a>
 </li>
 
@@ -64,7 +64,7 @@
   <ul class="nav-dropdown-items">
     <li class="nav-item {{ Request::is('nosotrosdetalles.section*') ? 'active' : '' }}">
       <a class="nav-link" href="{{ route('nosotrosdetalles.section',1) }}">
-        <i class="nav-icon"></i>Sección azúl</a>
+        <i class="nav-icon"></i>Sección azul</a>
     </li>
     <li class="nav-item {{ Request::is('nosotrosdetalles.section*') ? 'active' : '' }}">
       <a class="nav-link" href="{{ route('imgs.getTextImg',2) }}">
@@ -72,7 +72,7 @@
     </li>
     <li class="nav-item {{ Request::is('imgs.getTextImg*') ? 'active' : '' }}">
       <a class="nav-link" href="{{ route('imgs.getTextImg',3) }}">
-        <i class="nav-icon"></i>somos parte</a>
+        <i class="nav-icon"></i>somos parte de</a>
      </li>
     <li class="nav-item {{ Request::is('nosotrosdetalles.section*') ? 'active' : '' }}">
       <a class="nav-link" href="{{ route('imgs.getTextImg',4) }}">

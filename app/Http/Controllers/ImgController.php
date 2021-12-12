@@ -76,7 +76,7 @@ class ImgController extends AppBaseController
 
 
         $img = $this->imgRepository->create($input);
-        Flash::success('Img saved successfully.');
+        Flash::success('Guardado con éxito.');
         return redirect(route('imgs.getTextImg',$img['our_id']));
 
     }
@@ -93,7 +93,7 @@ class ImgController extends AppBaseController
         $img = $this->imgRepository->find($id);
 
         if (empty($img)) {
-            Flash::error('Img not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('imgs.index'));
         }
@@ -113,7 +113,7 @@ class ImgController extends AppBaseController
         $img = $this->imgRepository->find($id);
 
         if (empty($img)) {
-            Flash::error('Img not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('imgs.index'));
         }
@@ -134,7 +134,7 @@ class ImgController extends AppBaseController
         $img = $this->imgRepository->find($id);
         $input = $request->all();
         if (empty($img)) {
-            Flash::error('Img not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('imgs.index'));
         }
@@ -145,7 +145,7 @@ class ImgController extends AppBaseController
       
         $img = $this->imgRepository->update($input, $id);
      
-        Flash::success('Img updated successfully.');
+        Flash::success('actualizado con éxito.');
         return redirect(route('imgs.getTextImg',$img['our_id']));
 
     }
@@ -164,7 +164,7 @@ class ImgController extends AppBaseController
         $img = $this->imgRepository->find($id);
         //dd($id);
         if (empty($img)) {
-            Flash::error('Img not found');
+            Flash::error('Registro no encontrado');
 
             return redirect(route('imgs.index'));
         }
@@ -172,7 +172,7 @@ class ImgController extends AppBaseController
         $this->deleteImg($filePath,$img);
         $this->imgRepository->delete($id);
 
-        Flash::success('Img deleted successfully.');
+        Flash::success('eliminando con éxito.');
         
         return redirect(route('imgs.getTextImg',$img['our_id']));
 
