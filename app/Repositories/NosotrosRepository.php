@@ -73,6 +73,21 @@ class NosotrosRepository extends BaseRepository
       $SeccionThree = json_decode($SeccionThree);
       $SeccionFour = json_decode($SeccionFour);
 
+      foreach ($SeccionTwo[0]->get_seccion_two as $value) 
+      {
+        $value->img = url('/'.$value->img);
+
+      }
+      foreach ($SeccionThree[0]->get_seccion_three as $value) 
+      {
+        $value->img = url('/'.$value->img);
+
+      }
+      foreach ($SeccionFour[0]->get_seccion_four as $value) 
+      {
+        $value->img = url('/'.$value->img);
+
+      }
       $data['azúl'] =  $SeccionOne[0]->get_seccion_one;
       $data['fotografía institucional'] = $SeccionTwo[0]->get_seccion_two;
       $data['somos parte de'] = $SeccionThree[0]->get_seccion_three;

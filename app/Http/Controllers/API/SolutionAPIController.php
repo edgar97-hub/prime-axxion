@@ -46,7 +46,7 @@ class SolutionAPIController extends AppBaseController
         foreach ($data as $value) 
         {
           //$value['img'] = url('/'.$value['img']);
-          $value->img = url('/'.$value->img);;
+          $value->img = url('/'.$value->img);
 
         }
         $data['title'] = $solutions[0]->title;
