@@ -5,7 +5,7 @@
                 <th>Textitle</th>
         <th>Img</th>
         <th>Our Id</th>
-                <th colspan="3">Action</th>
+                <th colspan="3">Acciones</th>
             </tr>
         </thead>
         <tbody>

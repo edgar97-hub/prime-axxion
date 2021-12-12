@@ -12,7 +12,7 @@
                      <div class="card">
                          <div class="card-header">
                              <i class="fa fa-align-justify"></i>
-                             solutions
+                             Soluciones
                              <a class="pull-right" href="{{ route('solutions.createCards',$id) }}"><i class="fa fa-plus-square fa-lg"></i></a>
                          </div>
                          <div class="card-body">

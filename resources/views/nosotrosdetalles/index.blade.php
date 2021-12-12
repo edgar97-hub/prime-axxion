@@ -12,7 +12,7 @@
                      <div class="card">
                          <div class="card-header">
                              <i class="fa fa-align-justify"></i>
-                             sección azul
+                             Sección azul
                              <a class="pull-right" href="{{ route('nosotrosdetalles.createourimformation', $our_information->data->id) }}"><i class="fa fa-plus-square fa-lg"></i></a>
                          </div>
                          <div class="card-body">

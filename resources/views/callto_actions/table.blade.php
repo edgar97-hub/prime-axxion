@@ -4,7 +4,7 @@
             <tr>
                 <th>Titulo</th>
         <th>Img</th>
-                <th colspan="3">Action</th>
+                <th colspan="3">Acciones</th>
             </tr>
         </thead>
         <tbody>
