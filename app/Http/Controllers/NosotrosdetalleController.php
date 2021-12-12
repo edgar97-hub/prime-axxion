@@ -93,21 +93,21 @@ class NosotrosdetalleController extends AppBaseController
        
        //$data = json_encode($response);
        //dd($response->data->our_details[1]->id);
-       foreach((array)$response->data as $value) {
+       //foreach((array)$response->data as $value) {
         
-        foreach((array) $value as $k=>$v) {
+        //foreach((array) $value as $k=>$v) {
            //echo $value->seccion;
             //echo $v;
 
             //echo  $k." - ".$v->id;
             //echo $v[$k]['id'];
             //echo $v[$k]['seccion'];
-        }
-        }
-        foreach((array) $response->data->our_details as $value) {
+        //}
+        //}
+        //foreach((array) $response->data->our_details as $value) {
           //echo $value->title;
           //echo $response->data->seccion;
-       }
+       //}
      
   
     

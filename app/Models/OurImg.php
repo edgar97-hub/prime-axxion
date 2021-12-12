@@ -57,7 +57,8 @@ class OurImg extends Model
      */
     public static $rules = [
         //'img' => 'required',
-         'our_id' => 'required'
+         'our_id' => 'required',
+         //'textitle' => 'required'
     ];
     public function getOurInformationImg()
     {

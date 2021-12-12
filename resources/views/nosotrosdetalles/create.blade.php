@@ -26,15 +26,16 @@
                                  @endif
 
                                  @if($our_information == 2)
-
+                                  @include('nosotrosdetalles.sections.fotografíaInstitucional.fields')
                                  @endif
 
                                  @if($our_information == 3)
+                                  @include('nosotrosdetalles.sections.somospartede.fields')
 
                                  @endif
 
                                  @if($our_information == 4)
-
+                                  @include('nosotrosdetalles.sections.bancos.fields')
                                  @endif
 
                                 {!! Form::close() !!}

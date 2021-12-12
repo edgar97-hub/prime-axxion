@@ -54,3 +54,8 @@ Route::resource('takeAxxions', App\Http\Controllers\TakeAxxionController::class)
 Route::resource('ayudas', App\Http\Controllers\AyudaController::class);
 Route::resource('banners', App\Http\Controllers\BannerController::class);
 Route::resource('solutions', App\Http\Controllers\SolutionController::class);
+
+Route::get('imgs/{id}/getTextImg',     [App\Http\Controllers\ImgController::class, 'getTextImg'])->name('imgs.getTextImg');
+
+Route::get('imgs/{id}/createTextImg',     [App\Http\Controllers\ImgController::class, 'createTextImg'])->name('imgs.createTextImg');
+Route::resource('imgs', App\Http\Controllers\ImgController::class);

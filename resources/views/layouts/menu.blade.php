@@ -29,6 +29,26 @@
     </a>
 </li>
 
+<li class="nav-item nav-dropdown  {{ Request::is('solutions*') ? 'active' : '' }}" >
+  <a class="nav-link nav-dropdown-toggle" href="#">
+    <i class="nav-icon icon-cursor"></i> Solution</a>
+  <ul class="nav-dropdown-items">
+    <li class="nav-item {{ Request::is('nosotrosdetalles.section*') ? 'active' : '' }}">
+      <a class="nav-link" href="{{ route('nosotrosdetalles.section',1) }}">
+        <i class="nav-icon"></i>titulo</a>
+    </li>
+    <li class="nav-item {{ Request::is('nosotrosdetalles.section*') ? 'active' : '' }}">
+      <a class="nav-link" href="{{ route('imgs.getTextImg',2) }}">
+        <i class="nav-icon"></i>tarjetas</a>
+    </li>
+    
+    
+  </ul>
+</li>
+
+ 
+
+
 
 <li class="nav-item {{ Request::is('calltoActions*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('calltoActions.index') }}">
@@ -52,15 +72,15 @@
         <i class="nav-icon"></i> Sección azúl</a>
     </li>
     <li class="nav-item {{ Request::is('nosotrosdetalles.section*') ? 'active' : '' }}">
-      <a class="nav-link" href="{{ route('nosotrosdetalles.section',2) }}">
+      <a class="nav-link" href="{{ route('imgs.getTextImg',2) }}">
         <i class="nav-icon"></i>fotografía institucional</a>
     </li>
-    <li class="nav-item {{ Request::is('nosotrosdetalles.section*') ? 'active' : '' }}">
-      <a class="nav-link" href="{{ route('nosotrosdetalles.section',3) }}">
+    <li class="nav-item {{ Request::is('imgs.getTextImg*') ? 'active' : '' }}">
+      <a class="nav-link" href="{{ route('imgs.getTextImg',3) }}">
         <i class="nav-icon"></i>somos parte de </a>
-    </li>
+     </li>
     <li class="nav-item {{ Request::is('nosotrosdetalles.section*') ? 'active' : '' }}">
-      <a class="nav-link" href="{{ route('nosotrosdetalles.section',4) }}">
+      <a class="nav-link" href="{{ route('imgs.getTextImg',4) }}">
         <i class="nav-icon"></i> Bancos</a>
     </li>
     
@@ -96,4 +116,9 @@
 </li>--}}
 
  
- 
+ <li class="nav-item {{ Request::is('imgs*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('imgs.index') }}">
+        <i class="nav-icon icon-cursor"></i>
+        <span>Imgs</span>
+    </a>
+</li>
