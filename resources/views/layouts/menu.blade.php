@@ -64,7 +64,7 @@
   <ul class="nav-dropdown-items">
     <li class="nav-item {{ Request::is('nosotrosdetalles.section*') ? 'active' : '' }}">
       <a class="nav-link" href="{{ route('nosotrosdetalles.section',1) }}">
-        <i class="nav-icon"></i> Sección azúl</a>
+        <i class="nav-icon"></i>Sección azúl</a>
     </li>
     <li class="nav-item {{ Request::is('nosotrosdetalles.section*') ? 'active' : '' }}">
       <a class="nav-link" href="{{ route('imgs.getTextImg',2) }}">
@@ -72,11 +72,11 @@
     </li>
     <li class="nav-item {{ Request::is('imgs.getTextImg*') ? 'active' : '' }}">
       <a class="nav-link" href="{{ route('imgs.getTextImg',3) }}">
-        <i class="nav-icon"></i>somos parte de </a>
+        <i class="nav-icon"></i>somos parte</a>
      </li>
     <li class="nav-item {{ Request::is('nosotrosdetalles.section*') ? 'active' : '' }}">
       <a class="nav-link" href="{{ route('imgs.getTextImg',4) }}">
-        <i class="nav-icon"></i> Bancos</a>
+        <i class="nav-icon"></i>bancos</a>
     </li>
     
   </ul>

@@ -9,11 +9,9 @@
         </thead>
         <tbody>
         @foreach($solutions as $solution)
-            <tr>
+          @if(!is_null($solution->title))
+          <tr>
                 <td>{{ $solution->title }}</td>
-          
-            
-
                 <td>
                     {!! Form::open(['route' => ['solutions.destroy', $solution->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
@@ -24,6 +22,10 @@
                     {!! Form::close() !!}
                 </td>
             </tr>
+
+        
+          @endif
+            
         @endforeach
         </tbody>
     </table>

@@ -42,11 +42,21 @@ class SolutionController extends AppBaseController
     public function getView($viewseccion)
     {
       $solutions = $this->SolutionRepository->all();
+      //dd($solutions[2]->title);
+      //$titulo;
+     // foreach( $solutions as $value) {
+       // if(is_null($value['title']))
+        //{
+          //echo $value['title'], "\n";
 
+        //}
+      //}
       if($viewseccion == 1)
       {
+        
         return view('solutions.title.index')
         ->with('solutions', $solutions)->with('viewseccion', $viewseccion);
+       
       }
       if($viewseccion == 2)
       {
