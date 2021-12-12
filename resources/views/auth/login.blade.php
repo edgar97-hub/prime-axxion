@@ -37,7 +37,7 @@
                                     </span>
                                 </div>
                                 <input type="email" class="form-control {{ $errors->has('email')?'is-invalid':'' }}" name="email" value="{{ old('email') }}"
-                                       placeholder="Email">
+                                       placeholder="Correo electrónico">
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -50,7 +50,7 @@
                                       <i class="icon-lock"></i>
                                     </span>
                                 </div>
-                                <input type="password" class="form-control {{ $errors->has('password')?'is-invalid':'' }}" placeholder="Password" name="password">
+                                <input type="password" class="form-control {{ $errors->has('password')?'is-invalid':'' }}" placeholder="Contraseña" name="password">
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback">
                                        <strong>{{ $errors->first('password') }}</strong>
@@ -70,7 +70,14 @@
                         </form>
                     </div>
                 </div>
-
+                <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+                    <div class="card-body text-center">
+                        <div>
+                            <h2> </h2>
+                            <a class="btn btn-primary active mt-3" href="{{ url('/register') }}">Regístrate ahora!</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

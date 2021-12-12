@@ -75,17 +75,17 @@ class NosotrosRepository extends BaseRepository
 
       foreach ($SeccionTwo[0]->get_seccion_two as $value) 
       {
-        $value->img = url('/'.$value->img);
+        $value->img = url('/storage/'.$value->img);
 
       }
       foreach ($SeccionThree[0]->get_seccion_three as $value) 
       {
-        $value->img = url('/'.$value->img);
+        $value->img = url('/storage/'.$value->img);
 
       }
       foreach ($SeccionFour[0]->get_seccion_four as $value) 
       {
-        $value->img = url('/'.$value->img);
+        $value->img = url('/storage/'.$value->img);
 
       }
       $data['azúl'] =  $SeccionOne[0]->get_seccion_one;
