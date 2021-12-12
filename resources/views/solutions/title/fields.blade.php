@@ -7,5 +7,5 @@
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
-    <a href="{{ route('solutions.index') }}" class="btn btn-secondary">Cancelar</a>
+    <a href="{{ route('solutions.getView',1) }}" class="btn btn-secondary">Cancelar</a>
 </div>
