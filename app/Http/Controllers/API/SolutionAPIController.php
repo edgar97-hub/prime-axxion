@@ -38,20 +38,21 @@ class SolutionAPIController extends AppBaseController
 
         $data = DB::select('select titulolight, titulonegrita, img from solutions WHERE title IS  NULL ');
 
-        $solutions = $this->solutionRepository->all(
-            $request->except(['skip', 'limit']),
-            $request->get('skip'),
-            $request->get('limit')
-        );
-        
-        foreach ($data as $value) 
+        if(!count($data) == 0)
         {
-          $value->img = url('/storage/'.$value->img);
-        }
-        
-        if(!count($solutions) == 0)
-        {
-          $data['title'] = $solutions[0]->title;
+          $solutions = $this->solutionRepository->all(
+          $request->except(['skip', 'limit']),
+          $request->get('skip'),
+          $request->get('limit')
+          )->first()->whereNotNull('title')->get();
+          foreach ($data as $value) 
+          {
+            $value->img = url('/storage/'.$value->img);
+          }
+          if(!count($solutions) == 0)
+          {
+           $data['title'] = $solutions[0]->title;
+          }
         }
        
 
