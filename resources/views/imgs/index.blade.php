@@ -1,8 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <ol class="breadcrumb">
-         
+@php
+    $seccion = $imgs[0]->seccion
+@endphp
+<ol class="breadcrumb">
+      
+        <a href="#">{{$imgs[0]->seccion}}</a>
+      </li>
     </ol>
     <div class="container-fluid">
         <div class="animated fadeIn">
