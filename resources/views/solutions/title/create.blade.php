@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <ol class="breadcrumb">
+<ol class="breadcrumb">
+     
       <li class="breadcrumb-item">
-          
+        <a href="#">Titulo</a>
       </li>
-    
+      <li class="breadcrumb-item active">Nuevo</li>
     </ol>
      <div class="container-fluid">
           <div class="animated fadeIn">

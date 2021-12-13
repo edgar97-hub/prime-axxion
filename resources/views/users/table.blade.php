@@ -23,16 +23,17 @@
       @endif
     </td>
     <td>
-       <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Mostrar</a>
-       <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Editar</a>
-        {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-            {!! Form::submit('Eliminar', ['class' => 'btn btn-danger','onclick' => "return confirm('Estas seguro?')"]) !!}
-        {!! Form::close() !!}
+              {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
+                    <div class='btn-group'>
+                        <a href="{{ route('users.show', [$user->id]) }}" class='btn btn-ghost-success'><i class="fa fa-eye"></i></a>
+                        <a href="{{ route('users.edit', [$user->id]) }}" class='btn btn-ghost-info'><i class="fa fa-edit"></i></a>
+                        {!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-ghost-danger', 'onclick' => "return confirm('Estas seguro?')"]) !!}
+                    </div>
+              {!! Form::close() !!}
     </td>
   </tr>
  @endforeach
 </table>
-
-
- 
 </div>
+
+         

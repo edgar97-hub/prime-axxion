@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-             
-          </li>
-           
-        </ol>
+@php
+    $img_id = $img->our_id
+@endphp
+<ol class="breadcrumb">
+        
+  
+      <li class="breadcrumb-item active">Editar</li>
+    </ol>
     <div class="container-fluid">
          <div class="animated fadeIn">
              @include('coreui-templates::common.errors')
@@ -19,10 +21,7 @@
                           </div>
                           <div class="card-body">
                               {!! Form::model($img, ['route' => ['imgs.update', $img->id], 'method' => 'patch', 'files' => true]) !!}
-
-                                @php
-                                $img_id = $img->our_id
-                                @endphp
+ 
 
                                 @if($img->our_id == 2)
                                   @include('imgs.sections.fotografíaInstitucional.fields')

@@ -1,9 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+    
     <ol class="breadcrumb">
-         
-    </ol>
+    
+      <li class="breadcrumb-item">
+        <a href="#">Sección azul</a>
+      </li>
+</ol>
     <div class="container-fluid">
         <div class="animated fadeIn">
              @include('flash::message')

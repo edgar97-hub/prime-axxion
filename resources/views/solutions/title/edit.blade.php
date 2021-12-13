@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-        
-          </li>
-      
-        </ol>
+<ol class="breadcrumb">
+     
+     <li class="breadcrumb-item">
+       <a href="#">Titulo</a>
+     </li>
+     <li class="breadcrumb-item active">Editar</li>
+   </ol>
     <div class="container-fluid">
          <div class="animated fadeIn">
              @include('coreui-templates::common.errors')

@@ -16,16 +16,16 @@ class defaultsections extends Seeder
     public function run()
     {
       $SecionOne = Nosotros::create([
-        'seccion' => 'azúl', 
+        'seccion' => 'azul', 
       ]);
       $SecionTwo = Nosotros::create([
-        'seccion' => 'fotografía institucional', 
+        'seccion' => 'Fotografía Institucional', 
       ]);
       $SecionThree = Nosotros::create([
-        'seccion' => 'somos parte de', 
+        'seccion' => 'Somos parte de', 
       ]);
       $SecionFour = Nosotros::create([
-        'seccion' => 'bancos', 
+        'seccion' => 'Bancos', 
       ]);
     }
 }

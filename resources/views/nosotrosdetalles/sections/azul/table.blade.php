@@ -2,7 +2,7 @@
     <table class="table table-striped" id="qqs-table">
         <thead>
             <tr>
-              <th>Sección</th>
+              
               <th>Campo de título </th>
               <th>Campo de texto 1</th>
               <th>Campo de texto 2</th>
@@ -15,7 +15,7 @@
         
         @foreach((array)  $our_information->data->our_details as $value )
             <tr> 
-              <td>{{ $our_information->data->seccion }}</td>
+              
               <td>{{ $value->title }}</td>
               <td>{{ $value->textcolumn1 }}</td>
               <td>{{ $value->textcolumn2 }}</td>
