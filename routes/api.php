@@ -45,7 +45,7 @@ Route::get('/solutions', [SolutionAPIController::class, 'index']);
 
 
 Route::get('/nosotros', [NosotrosAPIController::class, 'index']);
-// Route::get('/nosotros/{id}', [NosotrosAPIController::class, 'show']);
+Route::get('/nosotros/{id}', [NosotrosAPIController::class, 'show']);
 // Route::post('/nosotros',[NosotrosAPIController::class,'store']);
 // Route::put('/nosotros/{id}',[NosotrosAPIController::class,'update']);
 // Route::delete('/nosotros/{id}',[NosotrosAPIController::class,'delete']);
