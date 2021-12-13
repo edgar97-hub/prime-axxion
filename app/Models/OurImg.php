@@ -33,6 +33,7 @@ class OurImg extends Model
 
 
     public $fillable = [
+        'textitle',
         'img',
         'our_id'
     ];
