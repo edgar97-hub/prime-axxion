@@ -71,6 +71,6 @@
 <li class="nav-item {{ Request::is('ayudas*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('ayudas.index') }}">
         <i class="nav-icon fa fa-question-circle"></i>
-        <span>Ayudas</span>
+        <span>Ayuda</span>
     </a>
 </li> 
