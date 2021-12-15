@@ -172,7 +172,7 @@ class ImgController extends AppBaseController
         $this->deleteImg($filePath,$img);
         $this->imgRepository->delete($id);
 
-        Flash::success('eliminando con éxito.');
+        Flash::success('eliminado con éxito.');
         
         return redirect(route('imgs.getTextImg',$img['our_id']));
 

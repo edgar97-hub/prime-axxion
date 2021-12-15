@@ -10,7 +10,11 @@
         <tbody>
         @foreach($solutions as $solution)
           @if(!is_null($solution->title))
+           @php
+              $numberRecords += 1 ;
+           @endphp
           <tr>
+          
                 <td>{{ $solution->title }}</td>
                 <td>
                     {!! Form::open(['route' => ['solutions.destroy', $solution->id], 'method' => 'delete']) !!}
@@ -27,6 +31,18 @@
           @endif
             
         @endforeach
+  
+          @if ($numberRecords > 0)
+  
+           <script>
+            
+          
+            var x = document.getElementById("addRecords");
+            x.style.display = "none";
+           </script>
+          @endif
         </tbody>
     </table>
 </div>
+
+ 

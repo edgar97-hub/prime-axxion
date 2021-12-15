@@ -20,23 +20,7 @@
                           <div class="card-body">
                               {!! Form::model($our_information, ['route' => ['nosotrosdetalles.update', $our_information->id], 'method' => 'patch', 'files' => true]) !!}
 
-                               
-
-                                @if($our_information->nosotros_id == 1)
-                                   @include('nosotrosdetalles.sections.azul.fields')
-                                 @endif
-
-                                 @if($our_information->nosotros_id == 2)
-
-                                 @endif
-
-                                 @if($our_information->nosotros_id == 3)
-                                  @include('nosotrosdetalles.sections.somospartede.fields')
-                                 @endif
-
-                                 @if($our_information->nosotros_id == 4)
-
-                                 @endif
+                              @include('nosotrosdetalles.sections.azul.fields')
 
                               {!! Form::close() !!}
                             </div>

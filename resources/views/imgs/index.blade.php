@@ -2,7 +2,7 @@
 
 @section('content')
 @php
-    $seccion = $imgs[0]->seccion
+    $seccion = $imgs[0]->seccion;
 @endphp
 <ol class="breadcrumb">
       
@@ -18,7 +18,7 @@
                          <div class="card-header">
                              <i class="fa fa-align-justify"></i>
                              {{ $imgs[0]->seccion}}
-                             <a class="pull-right" href="{{ route('imgs.createTextImg',$imgs[0]->id) }}"><i class="fa fa-plus-square fa-lg"></i></a>
+                             <a id ="addRecords" class="pull-right" href="{{ route('imgs.createTextImg',$imgs[0]->id) }}"><i class="fa fa-plus-square fa-lg"></i></a>
                          </div>
                          <div class="card-body">
                           

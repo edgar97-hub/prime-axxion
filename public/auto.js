@@ -1,37 +1,12 @@
+var title = "";
+var Card  = "";
+var Edit  = false;
 $(document).ready(function () {
-    $('#Autor_Impersonated').on('keyup',function() {
-        var query = $(this).val();
-
-        //$('#Autor').val("w");
-        $.ajax({
     
-        url:"/searchSection/"+query,
-        type:"GET",
-        success:function (data) {
+   if (document.contains($('#Edit')[0])) {
+    Edit = true;
 
-           // var index = data.indexOf("#");
-            //var res = data.substring(0, index); 
-
-            $('#vendor_list_2').html(data);
-
-            }
-
-        })
-    });
- 
-         $(document).on('click', 'li', function(){
-            //alert('Handler for .keyup() called.'+this.id); 
-            
-              var value = $(this).text();
-              id = $(this).data("id")
-              //alert(id);
-
-              $('#Autor_Impersonated').val(value);
-              $('#nosotros_id').val(id);
-              $('#vendor_list_2').html("");
-              
-           
-         });     
+  }
 });
  
 
@@ -58,3 +33,72 @@ $("#treeview .menus").click(function (e) {
         return null;
     });
 });
+
+ 
+
+function isEmptyOrSpaces(str){
+  return str === null || str.match(/^ *$/) !== null;
+}
+
+
+$("#saveTitle").click(function() {
+
+  title = $('#title').val();
+  if(isEmptyOrSpaces(title)){
+    document.getElementById("message").innerHTML = "El campo de título es obligatorio";
+
+    return false;
+  }
+  return true;
+});
+
+$("#saveCard").click(function() {
+
+  Card = $('#titulolight').val();
+  if(isEmptyOrSpaces(Card)){
+    document.getElementById("message").innerHTML = "El campo de título ligero es obligatorio";
+
+    return false;
+  }
+  return true;
+}); 
+
+$("#saveSeccionAzul").click(function() {
+
+  title = $('#title').val();
+  if(isEmptyOrSpaces(title)){
+    document.getElementById("message").innerHTML = "El campo de título ligero es obligatorio";
+
+    return false;
+  }
+  return true;
+}); 
+
+
+$("#saveImg").click(function() {
+  
+  if(!Edit)
+  {
+    //alert("Edit: "+$('#img').get(0).files.length);
+    if ($('#img').get(0).files.length === 0) 
+    {
+      document.getElementById("message").innerHTML = "El campo de img es obligatorio";
+    
+      return false;
+    }
+  }
+  return true;
+}); 
+$("#saveSeccionPhotoInstitutional").click(function() {
+
+  textitle = $('#textitle').val();
+  if(isEmptyOrSpaces(textitle)){
+    document.getElementById("message").innerHTML = "El campo de título es obligatorio";
+
+    return false;
+  }
+  return true;
+});
+
+
+ 

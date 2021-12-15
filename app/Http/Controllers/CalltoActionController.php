@@ -163,7 +163,7 @@ class CalltoActionController extends AppBaseController
         
         $this->calltoActionRepository->delete($id);
 
-        Flash::success('eliminando con éxito.');
+        Flash::success('eliminado con éxito.');
 
         return redirect(route('calltoActions.index'));
     }

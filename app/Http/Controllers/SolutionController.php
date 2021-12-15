@@ -263,7 +263,7 @@ class SolutionController extends AppBaseController
         
         $this->SolutionRepository->delete($id);
 
-        Flash::success('eliminando con éxito.');
+        Flash::success('eliminado con éxito.');
         return redirect(route('solutions.getView',2));
 
     }
@@ -283,7 +283,7 @@ class SolutionController extends AppBaseController
         
         $this->SolutionRepository->delete($id);
 
-        Flash::success('eliminando con éxito.');
+        Flash::success('eliminado con éxito.');
         return redirect(route('solutions.getView',1));
 
     }

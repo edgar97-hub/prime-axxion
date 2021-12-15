@@ -149,7 +149,7 @@ class AyudaController extends AppBaseController
 
         $this->ayudaRepository->delete($id);
 
-        Flash::success('eliminando con éxito.');
+        Flash::success('eliminado con éxito.');
 
         return redirect(route('ayudas.index'));
     }

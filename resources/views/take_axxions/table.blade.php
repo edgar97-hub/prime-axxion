@@ -10,6 +10,9 @@
         </thead>
         <tbody>
         @foreach($takeAxxions as $takeAxxion)
+           @php
+              $numberRecords += 1 ;
+            @endphp
             <tr>
                
             <td>{{ $takeAxxion->title }}</td>
@@ -26,6 +29,12 @@
                 </td>
             </tr>
         @endforeach
+        @if ($numberRecords >1)
+           <script>
+            var x = document.getElementById("addRecords");
+            x.style.display = "none";
+           </script>
+        @endif
         </tbody>
     </table>
 </div>

@@ -21,22 +21,7 @@
                                 {!! Form::open(['route' => 'nosotrosdetalles.store', 'files' => true]) !!}
 
                                     
-                                 @if($our_information == 1)
-                                   @include('nosotrosdetalles.sections.azul.fields')
-                                 @endif
-
-                                 @if($our_information == 2)
-                                  @include('nosotrosdetalles.sections.fotografíaInstitucional.fields')
-                                 @endif
-
-                                 @if($our_information == 3)
-                                  @include('nosotrosdetalles.sections.somospartede.fields')
-
-                                 @endif
-
-                                 @if($our_information == 4)
-                                  @include('nosotrosdetalles.sections.bancos.fields')
-                                 @endif
+                                @include('nosotrosdetalles.sections.azul.fields')
 
                                 {!! Form::close() !!}
                             </div>

@@ -9,6 +9,9 @@
         </thead>
         <tbody>
         @foreach($calltoActions as $calltoAction)
+            @php
+              $numberRecords += 1 ;
+            @endphp
             <tr>
                 <td>{{ $calltoAction->title }}</td>
                 <td><img height="50" src="{{ asset('storage/'.$calltoAction->img) }}" alt="" title=""></td>
@@ -24,6 +27,13 @@
                 </td>
             </tr>
         @endforeach
+        @if ($numberRecords >0)
+           <script>
+              
+            var x = document.getElementById("addRecords");
+            x.style.display = "none";
+           </script>
+        @endif
         </tbody>
     </table>
 </div>

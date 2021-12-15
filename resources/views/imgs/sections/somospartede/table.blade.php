@@ -10,8 +10,11 @@
         </thead>
         <tbody>
         @foreach($imgs as $img)
+            @php
+              $numberRecords += 1 ;
+            @endphp
             <tr>
-                
+            
             <td><img height="50" src="{{ asset('storage/'.$img->img) }}" alt="" title=""></td>
             
                 <td>
@@ -25,6 +28,12 @@
                 </td>
             </tr>
         @endforeach
+        @if ($numberRecords >2)
+           <script>
+            var x = document.getElementById("addRecords");
+            x.style.display = "none";
+           </script>
+        @endif
         </tbody>
     </table>
 </div>

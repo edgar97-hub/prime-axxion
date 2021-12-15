@@ -2,7 +2,7 @@
 
 @section('content')
 @php
-    $img_id = $img->our_id
+    $img_id = $img->our_id;
 @endphp
 <ol class="breadcrumb">
         
@@ -18,6 +18,7 @@
                           <div class="card-header">
                               <i class="fa fa-edit fa-lg"></i>
                               <strong>Editar</strong>
+                              <input type="checkbox" name="answer" id="Edit" style = "display:none"/>
                           </div>
                           <div class="card-body">
                               {!! Form::model($img, ['route' => ['imgs.update', $img->id], 'method' => 'patch', 'files' => true]) !!}
@@ -43,3 +44,8 @@
          </div>
     </div>
 @endsection
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js">
+    </script>
+<script src="{{ asset('auto.js') }}"></script>

@@ -19,6 +19,7 @@
                                 <strong>Crear </strong>
                             </div>
                             <div class="card-body">
+
                                 {!! Form::open(['route' => 'solutions.store', 'files' => true]) !!}
 
                                    @include('solutions.title.fields')
@@ -31,3 +32,9 @@
            </div>
     </div>
 @endsection
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js">
+    </script>
+
+<script src="{{ asset('auto.js') }}"></script>
+

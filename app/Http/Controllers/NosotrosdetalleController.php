@@ -50,9 +50,9 @@ class NosotrosdetalleController extends AppBaseController
     {
         return view('nosotrosdetalles.create');
     }
-    public function createourimformation($id)
+    public function createourimformation($seccion)
     {
-        return view('nosotrosdetalles.create')->with('our_information', $id);
+        return view('nosotrosdetalles.create')->with('our_information', $seccion);
     }
     /**
      * Store a newly created CalltoAction in storage.
@@ -123,14 +123,12 @@ class NosotrosdetalleController extends AppBaseController
     public function showTextImg($id)
     {       
        $details = $this->NosotrosdetalleRepository->getTextImg($id);
-        //dd($details->seccion);
 
         return view('nosotrosdetalles.show')->with('our_details', $details);
     }
     public function editTextImg($id)
     {
       $details = $this->NosotrosdetalleRepository->getTextImg($id);
-      //dd($details);
 
       return view('nosotrosdetalles.edit')->with('our_information', $details);
     }
@@ -143,7 +141,6 @@ class NosotrosdetalleController extends AppBaseController
         $content = Route::dispatch($request)->getContent();
         $response = json_decode($content);
         $nosotrosdetalles['seccion'] = $response->data->seccion;
-        //dd($nosotrosdetalles->nosotros_id);
         if (empty($nosotrosdetalles)) {
             Flash::error('Registro no encontrado');
 
@@ -217,7 +214,7 @@ class NosotrosdetalleController extends AppBaseController
         
         $this->NosotrosdetalleRepository->delete($id);
 
-        Flash::success('eliminando con éxito.');
+        Flash::success('eliminado con éxito.');
         return redirect(route('nosotrosdetalles.section',$nosotrosdetalles['nosotros_id']));
 
         //return redirect(route('nosotrosdetalles.index'));

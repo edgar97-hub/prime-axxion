@@ -22,22 +22,7 @@
                              </div>
                              <div class="card-body">
                                   
-
-                                 @if($our_details->nosotros_id == 1)
-                                   @include('nosotrosdetalles.sections.azul.show_fields')
-                                 @endif
-
-                                 @if($our_details->nosotros_id == 2)
-
-                                 @endif
-
-                                 @if($our_details->nosotros_id == 3)
-                                  @include('nosotrosdetalles.sections.somospartede.show_fields')
-                                 @endif
-
-                                 @if($our_details->nosotros_id == 3)
-
-                                 @endif
+                             @include('nosotrosdetalles.sections.azul.show_fields')
                              </div>
                          </div>
                      </div>

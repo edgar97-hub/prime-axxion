@@ -151,7 +151,7 @@ class NosotrosController extends AppBaseController
         
         $this->NosotrosRepository->delete($id);
 
-        Flash::success('eliminando con éxito.');
+        Flash::success('eliminado con éxito.');
 
         return redirect(route('nosotros.index'));
     }

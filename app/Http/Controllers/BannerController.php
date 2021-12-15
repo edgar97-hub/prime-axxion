@@ -160,7 +160,7 @@ class BannerController extends AppBaseController
         
         $this->BannerRepository->delete($id);
 
-        Flash::success('eliminando con éxito.');
+        Flash::success('eliminado con éxito.');
 
         return redirect(route('banners.index'));
     }

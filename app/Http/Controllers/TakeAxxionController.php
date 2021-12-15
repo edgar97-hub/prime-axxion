@@ -160,7 +160,7 @@ class TakeAxxionController extends AppBaseController
         
         $this->takeAxxionRepository->delete($id);
 
-        Flash::success('eliminando con éxito.');
+        Flash::success('eliminado con éxito.');
 
         return redirect(route('takeAxxions.index'));
     }

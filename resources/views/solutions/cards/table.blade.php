@@ -15,8 +15,11 @@
 
           @else
 
+              @php
+                $numberRecords += 1 ;
+              @endphp
           <tr>
-               
+              
                <td>{{ $solution->titulolight }}</td>
                <td>{{ $solution->titulonegrita }}</td>
                <td><img height="50" src="{{ asset('storage/'.$solution->img) }}" alt="" title=""></td>
@@ -33,7 +36,12 @@
                    </td>
                </tr>
           @endif
-            
+          @if ($numberRecords >2)
+           <script>
+            var x = document.getElementById("addRecords");
+            x.style.display = "none";
+           </script>
+          @endif
         @endforeach
         </tbody>
     </table>

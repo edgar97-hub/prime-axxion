@@ -14,6 +14,9 @@
        
         
         @foreach((array)  $our_information->data->our_details as $value )
+             @php
+              $numberRecords += 1 ;
+            @endphp
             <tr> 
               
               <td>{{ $value->title }}</td>
@@ -30,6 +33,12 @@
                 </td>
             </tr>
         @endforeach
+        @if ($numberRecords >0)
+           <script>
+            var x = document.getElementById("addRecords");
+            x.style.display = "none";
+           </script>
+        @endif
         </tbody>
     </table>
 </div>
