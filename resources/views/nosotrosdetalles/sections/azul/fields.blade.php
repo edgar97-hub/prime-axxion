@@ -7,13 +7,13 @@
 <!-- Textcolumn1 Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('textcolumn1', 'campo de texto 1 :') !!}
-    {!! Form::text('textcolumn1', null, ['class' => 'form-control']) !!}
+    {!! Form::textarea('textcolumn1', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Textcolumn2 Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('textcolumn2', 'campo de texto 2:') !!}
-    {!! Form::text('textcolumn2', null, ['class' => 'form-control']) !!}
+    {!! Form::textarea('textcolumn2', null, ['class' => 'form-control']) !!}
 </div>
 
  <!-- Nosotros Id Field -->
