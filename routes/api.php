@@ -10,6 +10,7 @@ use App\Http\Controllers\API\NosotrosAPIController;
 use App\Http\Controllers\API\CalltoActionAPIController;
 use App\Http\Controllers\API\TakeAxxionAPIController;
 use App\Http\Controllers\API\AyudaAPIController;
+use App\Http\Controllers\API\CustomerInquiriesAPIController; 
 
 
 
@@ -72,3 +73,15 @@ Route::get('/ayudas', [AyudaAPIController::class, 'index']);
 // Route::put('/ayudas/{id}',[AyudaAPIController::class,'update']);
 // Route::delete('/ayudas/{id}',[AyudaAPIController::class,'delete']);
 
+
+Route::get('/customer_inquiries', [CustomerInquiriesAPIController::class, 'index']);
+// Route::get('/ayudas/{id}', [AyudaAPIController::class, 'show']);
+Route::post('/customer_inquiries',[CustomerInquiriesAPIController::class,'store']);
+// Route::put('/ayudas/{id}',[AyudaAPIController::class,'update']);
+Route::delete('/customer_inquiries/{id}',[CustomerInquiriesAPIController::class,'delete']);
+
+//
+
+
+
+//Route::resource('customer_inquiries', App\Http\Controllers\API\CustomerInquiriesAPIController::class);

@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "a7b96a58-27bf-4a98-8ac6-b2b4b5e8a461",
+		"name": "customer inquiries",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/customer_inquiries",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"customer_inquiries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "store",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "ww",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "ww",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "ww",
+							"type": "text"
+						},
+						{
+							"key": "telephone",
+							"value": "12212212",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "ww",
+							"type": "text"
+						},
+						{
+							"key": "investor_in_financial_assests",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "comment",
+							"value": "ww",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/customer_inquiries",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"customer_inquiries"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

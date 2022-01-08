@@ -3,7 +3,7 @@
         <thead>
             <tr>
                 <th>Titulo</th>
-        <th>Img</th>
+        <th>Video</th>
                 <th colspan="3">Acciones</th>
             </tr>
         </thead>
@@ -14,8 +14,9 @@
             @endphp
             <tr>
                 <td>{{ $calltoAction->title }}</td>
-                <td><img height="50" src="{{ asset('storage/'.$calltoAction->img) }}" alt="" title=""></td>
-                
+                <td> 
+                <video width="70" height="70" src="{{ asset('storage/'.$calltoAction->img) }}"></video>              
+              </td>
                 <td>
                     {!! Form::open(['route' => ['calltoActions.destroy', $calltoAction->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

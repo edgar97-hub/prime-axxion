@@ -6,8 +6,13 @@
 
 <!-- Img Field -->
 <div class="form-group">
-    {!! Form::label('img', 'Img:') !!}
-    <p><img height="200" src="{{ asset('storage/'.$calltoAction->img) }}" alt="" title=""></p>
+    {!! Form::label('img', 'Video:') !!}
+    <p><video width="500" height="280" poster="https://www.salesforce.com/content/dam/web/en_gb/www/images/resources/platform-slack-mobile.png" controls>
+  <source src="{{ asset('storage/'.$calltoAction->img) }}" type="video/mp4">
+
+</video> </p>
+
+    
 </div>
 
  

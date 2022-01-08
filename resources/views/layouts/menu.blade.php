@@ -74,3 +74,12 @@
         <span>Ayuda</span>
     </a>
 </li> 
+ 
+<li class="nav-item {{ Request::is('customerInquiries*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('customerInquiries.index') }}">
+        <i class="nav-icon icon-cursor"></i>
+        <span>Consultas de Clientes</span>
+    </a>
+</li>
+
+ 
