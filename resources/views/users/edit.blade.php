@@ -10,7 +10,7 @@
     </ol>
 
 
-        @if (count($errors) > 0)
+  @if (count($errors) > 0)
   <div class="alert alert-danger">
     <strong>¡Ups!</strong> Hubo algunos problemas con tu entrada.<br><br>
     <ul>

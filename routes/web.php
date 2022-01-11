@@ -70,6 +70,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::resource('imgs', App\Http\Controllers\ImgController::class);
 
    
+  Route::resource('customerInquiries', App\Http\Controllers\CustomerInquiriesController::class);
 });
 
  
@@ -78,4 +79,3 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
-Route::resource('customerInquiries', App\Http\Controllers\CustomerInquiriesController::class);

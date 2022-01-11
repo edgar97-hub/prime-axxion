@@ -63,7 +63,14 @@ class CustomerInquiries extends Model
      * @var array
      */
     public static $rules = [
-        
+      
+      'name' => 'required',
+      'last_name' => 'required',
+      'email' => 'required',
+      'telephone' => 'required',
+      'country' => 'required',
+      'investor_in_financial_assests' => 'required',
+      'comment' => 'required'
     ];
 
     

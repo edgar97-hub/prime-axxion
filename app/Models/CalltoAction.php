@@ -49,7 +49,8 @@ class CalltoAction extends Model
      */
     public static $rules = [
         'title' => 'required',
-        //'img' => 'required'
+        //'img' => 'mimes:mp4,mov | max:20000'
+        
     ];
 
     
