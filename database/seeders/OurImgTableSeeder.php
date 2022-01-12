@@ -16,7 +16,7 @@ class OurImgTableSeeder extends Seeder
     {
         
 
-        \DB::table('our_img')->delete();
+        \DB::table('our_img')->truncate();
         
         \DB::table('our_img')->insert(array (
             0 => 

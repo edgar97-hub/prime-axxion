@@ -16,7 +16,7 @@ class OurInformationTableSeeder extends Seeder
     {
         
 
-        \DB::table('our_information')->delete();
+        \DB::table('our_information')->truncate();
         
         \DB::table('our_information')->insert(array (
             0 => 

@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Seeder;
 use App\Models\Nosotros;
 
@@ -15,6 +15,10 @@ class defaultsections extends Seeder
      */
     public function run()
     {
+      Schema::disableForeignKeyConstraints();
+      \DB::table('our_information')->truncate();
+      Schema::enableForeignKeyConstraints();
+
       $SecionOne = Nosotros::create([
         'seccion' => 'azul', 
       ]);

@@ -16,7 +16,7 @@ class HelpsTableSeeder extends Seeder
     {
         
 
-        \DB::table('helps')->delete();
+        \DB::table('helps')->truncate();
         
         \DB::table('helps')->insert(array (
             0 => 

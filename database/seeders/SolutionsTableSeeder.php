@@ -16,7 +16,7 @@ class SolutionsTableSeeder extends Seeder
     {
         
 
-        \DB::table('solutions')->delete();
+        \DB::table('solutions')->truncate();
         
         \DB::table('solutions')->insert(array (
             0 => 

@@ -16,7 +16,7 @@ class CalltoActionsTableSeeder extends Seeder
     {
         
 
-        \DB::table('callto_actions')->delete();
+        \DB::table('callto_actions')->truncate();
         
         \DB::table('callto_actions')->insert(array (
             0 => 

@@ -16,7 +16,7 @@ class OurDetailsTableSeeder extends Seeder
     {
         
 
-        \DB::table('our_details')->delete();
+        \DB::table('our_details')->truncate();
         
         \DB::table('our_details')->insert(array (
             0 => 

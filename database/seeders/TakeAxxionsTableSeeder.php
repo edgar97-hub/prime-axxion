@@ -16,7 +16,7 @@ class TakeAxxionsTableSeeder extends Seeder
     {
         
 
-        \DB::table('take_axxions')->delete();
+        \DB::table('take_axxions')->truncate();
         
         \DB::table('take_axxions')->insert(array (
             0 => 
