@@ -37,12 +37,25 @@
         <span>Llamada a la acción</span>
     </a>
 </li>
-<li class="nav-item {{ Request::is('takeAxxions*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('takeAxxions.index') }}">
-        <i class="nav-icon icon-cursor"></i>
-        <span>Take Axxion</span>
-    </a>
+ 
+
+<li class="nav-item nav-dropdown  {{ Request::is('categories*') ? 'active' : '' }}" >
+  <a class="nav-link nav-dropdown-toggle" href="#">
+    <i class="nav-icon fa fa-bullhorn"></i> Take Axxion</a>
+  <ul class="nav-dropdown-items">
+    <li class="nav-item {{ Request::is('categories*') ? 'active' : '' }}">
+      <a class="nav-link" href="{{ route('categories.index') }}">
+        <i class="nav-icon"></i>categorias</a>
+    </li>
+    <li class="nav-item {{ Request::is('takeAxxions*') ? 'active' : '' }}">
+      <a class="nav-link" href="{{ route('takeAxxions.index') }}">
+        <i class="nav-icon"></i>blogs</a>
+    </li>
+    
+    
+  </ul>
 </li>
+
 
 <li class="nav-item nav-dropdown  {{ Request::is('nosotrosdetalles*') ? 'active' : '' }}" >
   <a class="nav-link nav-dropdown-toggle" href="#">
@@ -82,4 +95,5 @@
     </a>
 </li>
 
+ 
  

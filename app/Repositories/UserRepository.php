@@ -69,4 +69,5 @@ class UserRepository extends BaseRepository
         $user->assignRole($request->input('roles'));
       return $user;   
     }
+   
 }

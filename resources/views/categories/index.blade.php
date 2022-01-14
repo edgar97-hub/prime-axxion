@@ -2,7 +2,7 @@
 
 @section('content')
     <ol class="breadcrumb">
-        <li class="breadcrumb-item">Take Axxions</li>
+        <li class="breadcrumb-item">Categorías</li>
     </ol>
     <div class="container-fluid">
         <div class="animated fadeIn">
@@ -12,11 +12,11 @@
                      <div class="card">
                          <div class="card-header">
                              <i class="fa fa-align-justify"></i>
-                             TakeAxxions
-                             <a class="pull-right" href="{{ route('takeAxxions.create') }}"><i class="fa fa-plus-square fa-lg"></i></a>
+                             Categorías
+                             <a class="pull-right" href="{{ route('categories.create') }}"><i class="fa fa-plus-square fa-lg"></i></a>
                          </div>
                          <div class="card-body">
-                             @include('take_axxions.table')
+                             @include('categories.table')
                               <div class="pull-right mr-3">
                                      
                               </div>

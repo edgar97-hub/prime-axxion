@@ -5,21 +5,35 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\category;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 /**
  * Class TakeAxxion
  * @package App\Models
- * @version December 3, 2021, 1:41 am UTC
+ * @version January 13, 2022, 3:02 am UTC
  *
- * @property string $img
+ * @property integer $category_id
+ * @property string $level
+ * @property integer $number_visits
  * @property string $title
- * @property string $description
+ * @property integer $user_id
+ * @property string $light_text_1
+ * @property string $img_1
+ * @property string $light_text_2
+ * @property string $img_2
+ * @property string $light_text_3
+ * @property string $body
+ * @property string $video
+ * @property string $podcast
  */
-class TakeAxxion extends Model
+class TakeAxxion extends Model implements HasMedia
 {
-    use SoftDeletes;
+    //use SoftDeletes;
 
-    //use HasFactory;
+    use HasFactory;
+    use InteractsWithMedia;
 
     public $table = 'take_axxions';
     
@@ -29,9 +43,17 @@ class TakeAxxion extends Model
 
 
     public $fillable = [
-        'img',
+        'category_id',
+        'level',
+        'number_visits',
         'title',
-        'description'
+        'user_id',
+        'short_description',
+        'img',
+        'body',
+        'video_1',
+        'video_2',
+        'podcast'
     ];
 
     /**
@@ -40,9 +62,11 @@ class TakeAxxion extends Model
      * @var array
      */
     protected $casts = [
-        'img' => 'string',
-        'title' => 'string',
-        'description' => 'string'
+        'category_id' => 'integer',
+        'level' => 'string',
+        'number_visits' => 'integer',
+        'user_id' => 'integer',
+         
     ];
 
     /**
@@ -51,10 +75,18 @@ class TakeAxxion extends Model
      * @var array
      */
     public static $rules = [
-        //'img' => 'required',
-        'title' => 'required',
-        //'description' => 'required'
+        'category_id' => 'required',
+        'user_id' => 'required',
     ];
 
+    public function getCategory()
+    {
+         return $this->belongsTo('App\Models\category', 'category_id');
+    }
+    public function getUser()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id');
+    }
+    
     
 }

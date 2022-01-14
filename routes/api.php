@@ -85,3 +85,9 @@ Route::delete('/customer_inquiries/{id}',[CustomerInquiriesAPIController::class,
 
 
 //Route::resource('customer_inquiries', App\Http\Controllers\API\CustomerInquiriesAPIController::class);
+
+
+Route::resource('take_axxions', App\Http\Controllers\API\TakeAxxionAPIController::class);
+
+
+Route::resource('categories', App\Http\Controllers\API\categoryAPIController::class);

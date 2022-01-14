@@ -7,6 +7,10 @@ $(document).ready(function () {
     Edit = true;
 
   }
+  var user_id = $('#user_field_2').val();
+  $('#user').val(user_id);
+  var category_id = $('#category_field_2').val();
+  $('#category').val(category_id);
 });
  
 
@@ -100,5 +104,8 @@ $("#saveSeccionPhotoInstitutional").click(function() {
   return true;
 });
 
+//$('#LiteraryGenre').val("w");
 
- 
+//$('#category_field_2').on('change', function() {
+  //alert( this.value );
+//});

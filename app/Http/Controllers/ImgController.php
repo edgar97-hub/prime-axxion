@@ -162,7 +162,6 @@ class ImgController extends AppBaseController
     public function destroy($id)
     {
         $img = $this->imgRepository->find($id);
-        //dd($id);
         if (empty($img)) {
             Flash::error('Registro no encontrado');
 

@@ -2,13 +2,11 @@
 
 @section('content')
     <ol class="breadcrumb">
-      <li class="breadcrumb-item">Lista</li>
-      <li class="breadcrumb-item">
-        <a href="#">Take Axxion</a>
-      </li>
-      <li class="breadcrumb-item active">Editar</li>
-    </ol>
-
+          <li class="breadcrumb-item">
+             <a href="{!! route('categories.index') !!}">Category</a>
+          </li>
+          <li class="breadcrumb-item active">Edit</li>
+        </ol>
     <div class="container-fluid">
          <div class="animated fadeIn">
              @include('coreui-templates::common.errors')
@@ -17,12 +15,12 @@
                       <div class="card">
                           <div class="card-header">
                               <i class="fa fa-edit fa-lg"></i>
-                              <strong>Editar</strong>
+                              <strong>Edit Category</strong>
                           </div>
                           <div class="card-body">
-                              {!! Form::model($takeAxxion, ['route' => ['takeAxxions.update', $takeAxxion->id], 'method' => 'patch', 'files' => true]) !!}
+                              {!! Form::model($category, ['route' => ['categories.update', $category->id], 'method' => 'patch','files' => true]) !!}
 
-                              @include('take_axxions.fieldsEdit')
+                              @include('categories.fields')
 
                               {!! Form::close() !!}
                             </div>

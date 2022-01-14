@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTakeAxxionsTable extends Migration
+class CreateCategoriesTable extends Migration
 {
 
     /**
@@ -14,14 +14,12 @@ class CreateTakeAxxionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('take_axxions', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id('id');
+            $table->text('name_category');
             $table->string('img')->nullable();
-            $table->text('title')->nullable();
-            $table->text('description')->nullable();
             $table->timestamps();
             $table->softDeletes();
-
         });
     }
 
@@ -32,6 +30,6 @@ class CreateTakeAxxionsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('take_axxions');
+        Schema::drop('categories');
     }
 }

@@ -101,9 +101,7 @@ class UserController extends AppBaseController
 
         $user = $this->userRepository->find($id);
         $roles = Role::all();
-        $userRole = $user->roles->all();
-
-        return view('users.edit',compact('user','roles','userRole'));
+        return view('users.edit',compact('user','roles'));
 
 
 

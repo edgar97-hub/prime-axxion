@@ -70,7 +70,7 @@ class Nosotrosdetalle extends Model
     
     public function getSeccionOnew()
     {
-        return $this->belongsTo('App\Models\Nosotros', 'nosotros_id')->select('seccion')->where('nosotros_id', 1);;
+        return $this->belongsTo('App\Models\Nosotros', 'nosotros_id')->select('seccion')->where('nosotros_id', 1);
     }
     public function getSeccionTwo()
     {

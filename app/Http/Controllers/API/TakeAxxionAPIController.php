@@ -9,7 +9,7 @@ use App\Repositories\TakeAxxionRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use Response;
-use App\Repositories\MakeImg;
+
 /**
  * Class TakeAxxionController
  * @package App\Http\Controllers\API
@@ -20,7 +20,6 @@ class TakeAxxionAPIController extends AppBaseController
     /** @var  TakeAxxionRepository */
     private $takeAxxionRepository;
 
-    use MakeImg;
     public function __construct(TakeAxxionRepository $takeAxxionRepo)
     {
         $this->takeAxxionRepository = $takeAxxionRepo;
@@ -40,11 +39,7 @@ class TakeAxxionAPIController extends AppBaseController
             $request->get('skip'),
             $request->get('limit')
         );
-        foreach ($takeAxxions as $value) 
-        {
-          $value['img'] = url('/storage/'.$value['img']);
 
-        }
         return $this->sendResponse($takeAxxions->toArray(), 'Take Axxions retrieved successfully');
     }
 
@@ -58,11 +53,9 @@ class TakeAxxionAPIController extends AppBaseController
      */
     public function store(CreateTakeAxxionAPIRequest $request)
     {
-        //$input = $request->all();
-        //$takeAxxion = $this->takeAxxionRepository->create($input);
+        $input = $request->all();
 
-        $takeAxxion = $this->takeAxxionRepository->createTakeAxxionRepository($request);
-        $takeAxxion['img'] = url('/storage/'.$takeAxxion['img']);
+        $takeAxxion = $this->takeAxxionRepository->create($input);
 
         return $this->sendResponse($takeAxxion->toArray(), 'Take Axxion saved successfully');
     }
@@ -83,7 +76,6 @@ class TakeAxxionAPIController extends AppBaseController
         if (empty($takeAxxion)) {
             return $this->sendError('Take Axxion not found');
         }
-        $takeAxxion['img'] = url('/storage/'.$takeAxxion['img']);
 
         return $this->sendResponse($takeAxxion->toArray(), 'Take Axxion retrieved successfully');
     }
@@ -108,9 +100,8 @@ class TakeAxxionAPIController extends AppBaseController
             return $this->sendError('Take Axxion not found');
         }
 
-        //$takeAxxion = $this->takeAxxionRepository->update($input, $id);
-        $takeAxxion = $this->takeAxxionRepository->updateTakeAxxionRepository($id,$request);
-        $takeAxxion['img'] = url('/storage/'.$takeAxxion['img']);
+        $takeAxxion = $this->takeAxxionRepository->update($input, $id);
+
         return $this->sendResponse($takeAxxion->toArray(), 'TakeAxxion updated successfully');
     }
 
@@ -124,7 +115,7 @@ class TakeAxxionAPIController extends AppBaseController
      *
      * @return Response
      */
-    public function delete($id)
+    public function destroy($id)
     {
         /** @var TakeAxxion $takeAxxion */
         $takeAxxion = $this->takeAxxionRepository->find($id);
@@ -132,8 +123,7 @@ class TakeAxxionAPIController extends AppBaseController
         if (empty($takeAxxion)) {
             return $this->sendError('Take Axxion not found');
         }
-       
-        $this->deleteImg(null,$takeAxxion);
+
         $takeAxxion->delete();
 
         return $this->sendSuccess('Take Axxion deleted successfully');

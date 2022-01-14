@@ -1,22 +1,74 @@
-<!-- Img Field -->
+<!-- Category Id Field -->
+<div class="form-group">
+    {!! Form::label('category_id', 'Categoría:') !!}
+    <p>{{ $takeAxxion[0]->get_category->name_category }}</p>
+</div>
+
+<!-- Level Field -->
+<div class="form-group">
+    {!! Form::label('level', 'Nivel:') !!}
+    <p>{{ $takeAxxion[0]->level }}</p>
+</div>
+
+<!-- Number Visits Field -->
+<div class="form-group">
+    {!! Form::label('number_visits', 'Número de visitas:') !!}
+    <p>{{ $takeAxxion[0]->number_visits }}</p>
+</div>
 
 <!-- Title Field -->
 <div class="form-group">
     {!! Form::label('title', 'Título:') !!}
-    <p>{{ $takeAxxion->title }}</p>
+    <p>{{ $takeAxxion[0]->title }}</p>
 </div>
 
-<!-- Description Field -->
+<!-- User Id Field -->
 <div class="form-group">
-    {!! Form::label('description', 'Descripción:') !!}
-    <p>{{ $takeAxxion->description }}</p>
+    {!! Form::label('user_id', 'Usuario creador del blog:') !!}
+    <p>{{ $takeAxxion[0]->get_user->name }}</p>
+</div>
+
+<!-- Light Text 1 Field -->
+<div class="form-group">
+    {!! Form::label('light_text_1', 'Breve descripción:') !!}
+    <p>{!! $takeAxxion[0]->short_description !!}</p>
+</div>
+
+<!-- Img 1 Field -->
+<div class="form-group">
+    {!! Form::label('img_1', 'Img:') !!}
+    <p> <img height="200" src="{{ asset('storage/'.$takeAxxion[0]->img) }}" alt="" title=""></p>
+
+</div>
+
+<!-- Body Field -->
+<div class="form-group">
+    {!! Form::label('body', 'cuerpo del blog:') !!}
+    <p>{!! $takeAxxion[0]->body !!}</p>
+</div>
+
+<!-- Video Field -->
+<div class="form-group">
+    {!! Form::label('video', 'Video 1:') !!}
+    <p>{{ $takeAxxion[0]->video_1 }}</p>
 </div>
 
 <div class="form-group">
-    {!! Form::label('img', 'Img:') !!}
-    <p> <img height="200" src="{{ asset('storage/'.$takeAxxion->img) }}" alt="" title=""></p>
-   
+    {!! Form::label('video', 'Video 2:') !!}
+    <p>{{ $takeAxxion[0]->video_2 }}</p>
 </div>
 
 
+<!-- Podcast Field -->
+<div class="form-group">
+    {!! Form::label('podcast', 'Podcast:') !!}
+    <p>{{ $takeAxxion[0]->podcast }}</p>
+</div>
+
+<!-- Created At Field -->
+<div class="form-group">
+    {!! Form::label('created_at', 'Fecha de creación:') !!}
+    <p>{{ $takeAxxion[0]->created_at }}</p>
+</div>
+ 
 

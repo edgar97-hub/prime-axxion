@@ -1,15 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-      <ol class="breadcrumb">
-      <li class="breadcrumb-item">Lista</li>
+    <ol class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="#">Take Axxion</a>
+         <a href="{!! route('categories.index') !!}">Category</a>
       </li>
-      <li class="breadcrumb-item active">Nuevo</li>
+      <li class="breadcrumb-item active">Create</li>
     </ol>
-
-
      <div class="container-fluid">
           <div class="animated fadeIn">
                 @include('coreui-templates::common.errors')
@@ -18,12 +15,12 @@
                         <div class="card">
                             <div class="card-header">
                                 <i class="fa fa-plus-square-o fa-lg"></i>
-                                <strong>Nuevo</strong>
+                                <strong>Create Category</strong>
                             </div>
                             <div class="card-body">
-                                {!! Form::open(['route' => 'takeAxxions.store', 'files' => true]) !!}
+                                {!! Form::open(['route' => 'categories.store','files' => true]) !!}
 
-                                   @include('take_axxions.fields')
+                                   @include('categories.fields')
 
                                 {!! Form::close() !!}
                             </div>
