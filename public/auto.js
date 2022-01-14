@@ -11,6 +11,8 @@ $(document).ready(function () {
   $('#user').val(user_id);
   var category_id = $('#category_field_2').val();
   $('#category').val(category_id);
+
+
 });
  
 
@@ -109,3 +111,4 @@ $("#saveSeccionPhotoInstitutional").click(function() {
 //$('#category_field_2').on('change', function() {
   //alert( this.value );
 //});
+

@@ -77,6 +77,7 @@ class TakeAxxion extends Model implements HasMedia
     public static $rules = [
         'category_id' => 'required',
         'user_id' => 'required',
+        'body'=> 'required',
     ];
 
     public function getCategory()

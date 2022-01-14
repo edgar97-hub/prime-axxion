@@ -7,7 +7,16 @@
 <!-- Level Field -->
 <div class="form-group">
     {!! Form::label('level', 'Nivel:') !!}
-    <p>{{ $takeAxxion[0]->level }}</p>
+
+    @if($takeAxxion[0]->level == 'basic')
+      <p>{{ 'Básico' }}</p>
+    @endif
+    @if($takeAxxion[0]->level == 'intermediate')
+      <p>{{ 'Intermedio' }}</p>
+    @endif
+    @if($takeAxxion[0]->level == 'advanced')
+      <p>{{ 'Avanzado' }}</p>
+    @endif
 </div>
 
 <!-- Number Visits Field -->

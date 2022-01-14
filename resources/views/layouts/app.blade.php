@@ -6,7 +6,7 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link rel="stylesheet" type="text/css" href="{{ url('w.css') }}" />
     <link rel="shortcut icon" href="{{ asset('img/icon.ico') }}">
-
+   
     <!-- Bootstrap 4.1.1 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
@@ -95,16 +95,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@2.1.16/dist/js/coreui.min.js"></script>
-
+ 
 <script>
-
 class MyUploadAdapter {
-    // ...
 
-    // Starts the upload process.
     constructor( loader ) {
-        // The file loader instance to use during the upload. It sounds scary but do not
-        // worry — the loader will be passed into the adapter later on in this guide.
         this.loader = loader;
     }
 
@@ -117,7 +112,6 @@ class MyUploadAdapter {
             } ) );
     }
 
-    // Aborts the upload process.
     abort() {
         if ( this.xhr ) {
             this.xhr.abort();
@@ -126,11 +120,6 @@ class MyUploadAdapter {
 
     _initRequest() {
         const xhr = this.xhr = new XMLHttpRequest();
-
-        // Note that your request may look different. It is up to you and your editor
-        // integration to choose the right communication channel. This example uses
-        // a POST request with JSON as a data structure but your configuration
-        // could be different.
         xhr.open( 'POST', '{{ route('images.storeImg')}}', true );
         xhr.setRequestHeader('x-csrf-token','{{csrf_token() }}');
         xhr.responseType = 'json';
@@ -145,29 +134,13 @@ class MyUploadAdapter {
         xhr.addEventListener( 'abort', () => reject() );
         xhr.addEventListener( 'load', () => {
             const response = xhr.response;
-
-            // This example assumes the XHR server's "response" object will come with
-            // an "error" which has its own "message" that can be passed to reject()
-            // in the upload promise.
-            //
-            // Your integration may handle upload errors in a different way so make sure
-            // it is done properly. The reject() function must be called when the upload fails.
             if ( !response || response.error ) {
                 return reject( response && response.error ? response.error.message : genericErrorText );
             }
-
-            // If the upload is successful, resolve the upload promise with an object containing
-            // at least the "default" URL, pointing to the image on the server.
-            // This URL will be used to display the image in the content. Learn more in the
-            // UploadAdapter#upload documentation.
             resolve( {
                 default: response.url
             } );
         } );
-
-        // Upload progress when it is supported. The file loader has the #uploadTotal and #uploaded
-        // properties which are used e.g. to display the upload progress bar in the editor
-        // user interface.
         if ( xhr.upload ) {
             xhr.upload.addEventListener( 'progress', evt => {
                 if ( evt.lengthComputable ) {
@@ -177,54 +150,63 @@ class MyUploadAdapter {
             } );
         }
     }
-
     _sendRequest( file ) {
-        // Prepare the form data.
         const data = new FormData();
-
         data.append( 'upload', file );
-
-        // Important note: This is the right place to implement security mechanisms
-        // like authentication and CSRF protection. For instance, you can use
-        // XMLHttpRequest.setRequestHeader() to set the request headers containing
-        // the CSRF token generated earlier by your application.
-
-        // Send the request.
         this.xhr.send( data );
     }
 
 
-
-    // ...
 }
 
-function MyCustomUploadAdapterPlugin( editor ) {
-    editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
-        // Configure the URL to the upload script in your back-end here!
-        return new MyUploadAdapter( loader );
-    };
-}
+    function MyCustomUploadAdapterPlugin( editor ) {
+        editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
+            return new MyUploadAdapter( loader );
+        };
+    }
 
-    ClassicEditor
-      .create( document.querySelector( '#short_description' ) , {
-        extraPlugins: [ MyCustomUploadAdapterPlugin ],
+    let Myeditor;
+    DecoupledEditor
+      .create( document.querySelector( '#editor' ), {
+      extraPlugins: [ MyCustomUploadAdapterPlugin ],
+
+    }  )
+    .then( newEditor => {
+      const toolbarContainer = document.querySelector( '#toolbar-container' );
+
+      toolbarContainer.appendChild( newEditor.ui.view.toolbar.element );
+      window.editor = newEditor;
+      Myeditor = newEditor;
+      //handleStatusChanges( newEditor );
+      //handleSaveButton( newEditor );
+      //handleBeforeunload( newEditor );
+      //displayStatus( newEditor );
+
+      var qqq = document.getElementById("www");
+      Myeditor.setData(qqq.value);
+
+
+
+
 
     } )
-      .catch( error => {
-          console.error( error );
-    });
+    .catch( error => {
+      console.error( error );
+    } );
+
+    document.querySelector( '#save' ).addEventListener( 'click', () => {
+      var editorData = Myeditor.getData();
+      var qqq = document.getElementById("www");
+      qqq.value = editorData;
+      return true;
+      } );
  
-    ClassicEditor
-      .create( document.querySelector( '#body' ) , {
-        extraPlugins: [ MyCustomUploadAdapterPlugin ],
 
-    } )
-      .catch( error => {
-          console.error( error );
-    }); 
-    
-    
+ 
+
 </script>
+
+
 
 @stack('scripts')
 

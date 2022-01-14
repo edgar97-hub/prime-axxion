@@ -19,7 +19,7 @@ class CreateTakeAxxionsTable extends Migration
         Schema::create('take_axxions', function (Blueprint $table) {
             $table->id('id');
             $table->unsignedBigInteger('category_id')->nullable();
-            $table->enum('level',['básico','intermedio','avanzado'])->default('básico');
+            $table->enum('level',['basic','intermediate','advanced'])->default('basic');
             $table->integer('number_visits')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->text('title')->nullable();

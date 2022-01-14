@@ -93,7 +93,6 @@ class TakeAxxionRepository extends BaseRepository
       $categories = category::all()
                ->sortBy('name_category');
       $categories = json_decode($categories);
-
       return $categories;
     }
     public function getUsers()
@@ -101,7 +100,6 @@ class TakeAxxionRepository extends BaseRepository
       $users = User::all()
                ->sortBy('name');
       $users = json_decode($users);
-
       return $users;
     }
     public function getTakeAxxionIndex()
@@ -114,29 +112,17 @@ class TakeAxxionRepository extends BaseRepository
       //$data = json_decode($data);
 
 
-      $data = TakeAxxion::with(['getCategory','getUser' => function($query)
-      {
-        
-      }])
+      $data = TakeAxxion::with(['getCategory','getUser'])
       ->get();
-      //$data = json_decode($data);
-
-
       return $data;
     }
 
     public function getTakeAxxion($id)
     {
-
-      $data = TakeAxxion::with(['getCategory','getUser' => function($query)
-      {
-        
-      }])
+      $data = TakeAxxion::with(['getCategory','getUser'])
       ->where('take_axxions.id', $id)
       ->get();
       $data = json_decode($data);
-
-
       return $data;
     }
 }

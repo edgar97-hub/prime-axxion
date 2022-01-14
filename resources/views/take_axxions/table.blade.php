@@ -16,18 +16,26 @@
         @foreach($takeAxxions as $takeAxxion)
             <tr>
                 <td>{{ $takeAxxion->getCategory->name_category }}</td>
-            <td>{{ $takeAxxion->level }}</td>
-            <td>{{ $takeAxxion->number_visits }}</td>
-            <td>{{ $takeAxxion->title }}</td>
-            <td>{{ $takeAxxion->getUser->name }}</td>
-            <td>{{ $takeAxxion->created_at }}</td>
+                @if($takeAxxion->level == 'basic')
+                  <td>{{ 'Básico'  }}</td>
+                @endif
+                @if($takeAxxion->level == 'intermediate')
+                  <td>{{'Intermedio'  }}</td>
+                @endif
+                @if($takeAxxion->level == 'advanced')
+                  <td>{{'Avanzado'}}</td>
+                @endif
+                <td>{{ $takeAxxion->number_visits }}</td>
+                <td>{{ $takeAxxion->title }}</td>
+                <td>{{ $takeAxxion->getUser->name }}</td>
+                <td>{{ $takeAxxion->created_at }}</td>
             
                 <td>
                     {!! Form::open(['route' => ['takeAxxions.destroy', $takeAxxion->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
                         <a href="{{ route('takeAxxions.show', [$takeAxxion->id]) }}" class='btn btn-ghost-success'><i class="fa fa-eye"></i></a>
                         <a href="{{ route('takeAxxions.edit', [$takeAxxion->id]) }}" class='btn btn-ghost-info'><i class="fa fa-edit"></i></a>
-                        {!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-ghost-danger', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        {!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-ghost-danger', 'onclick' => "return confirm('Estas seguro?')"]) !!}
                     </div>
                     {!! Form::close() !!}
                 </td>

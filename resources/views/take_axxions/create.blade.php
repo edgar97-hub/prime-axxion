@@ -21,7 +21,7 @@
                                 <strong>Nuevo</strong>
                             </div>
                             <div class="card-body">
-                                {!! Form::open(['route' => 'takeAxxions.store', 'files' => true]) !!}
+                                {!! Form::open(['route' => 'takeAxxions.store', 'files' => true,'onsubmit'=>'sendObject()','id' => 'myform'] ) !!}
 
                                    @include('take_axxions.fields')
 
