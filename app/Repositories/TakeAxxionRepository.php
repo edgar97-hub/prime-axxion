@@ -251,6 +251,7 @@ class TakeAxxionRepository extends BaseRepository
       ->take(3)
       ->get();
 
+      $TheNew;
       foreach ($TheNew as $value) 
       {
         $value->img = url('/storage/'.$value->img);

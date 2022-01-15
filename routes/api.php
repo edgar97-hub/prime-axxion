@@ -61,7 +61,7 @@ Route::get('/callto_actions', [CalltoActionAPIController::class, 'index']);
 // Route::put('/callto_actions/{id}',[CalltoActionAPIController::class,'update']);
 // Route::delete('/callto_actions/{id}',[CalltoActionAPIController::class,'delete']);
 
-Route::get('/take_axxions', [TakeAxxionAPIController::class, 'index']);
+//Route::get('/take_axxions', [TakeAxxionAPIController::class, 'index']);
 // Route::get('/take_axxions/{id}', [TakeAxxionAPIController::class, 'show']);
 // Route::post('/take_axxions',[TakeAxxionAPIController::class,'store']);
 // Route::put('/take_axxions/{id}',[TakeAxxionAPIController::class,'update']);
@@ -91,11 +91,11 @@ Route::delete('/customer_inquiries/{id}',[CustomerInquiriesAPIController::class,
 //Route::resource('categories', App\Http\Controllers\API\categoryAPIController::class);
 
 //Route::get('/take_axxions', [TakeAxxionAPIController::class, 'index']);
+
 Route::get('/take_axxion_record/{id}', [TakeAxxionAPIController::class, 'getRecord']);
 Route::get('/take_axxion_landing',[TakeAxxionAPIController::class, 'getTakeAxxionMostVisits']);
 Route::get('/categories', [categoryAPIController::class, 'index']);
 Route::get('/category_level/{category_id}/{level}', [TakeAxxionAPIController::class, 'getCategoryLevels']);
-
 Route::get('/take_axxion_trends',[TakeAxxionAPIController::class, 'getTakeAxxionTrends']);
 Route::put('/take_axxions/{id}',[TakeAxxionAPIController::class,'update']);
 

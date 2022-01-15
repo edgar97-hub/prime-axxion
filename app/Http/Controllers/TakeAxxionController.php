@@ -11,6 +11,8 @@ use Flash;
 use Response;
 use App\Repositories\MakeImg;
 use App\Models\TakeAxxion;
+use DB;
+use Carbon\Carbon;
 
 
 
@@ -75,6 +77,7 @@ class TakeAxxionController extends AppBaseController
         }
          
         $takeAxxion = $this->takeAxxionRepository->create($input);
+
         Flash::success('Take Axxion saved successfully.');
         return redirect(route('takeAxxions.index'));
     }
@@ -185,6 +188,11 @@ class TakeAxxionController extends AppBaseController
     public function storeImg(Request $request)
     {
  
+      //$file_1 = 'upload';
+      //$filePath = 'img/takeaxxionwww/';         
+      //$input = $this->makeFile($request,$filePath,$file_1);
+      //$input = $this->updateFile($request,$filePath,$takeAxxion,$file_1);
+      $info['upload'] = $filePath.
       $task = new TakeAxxion();
       $task->id = 0;
       $task->exists = true;
