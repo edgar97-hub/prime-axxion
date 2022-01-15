@@ -97,6 +97,7 @@ Route::get('/categories', [categoryAPIController::class, 'index']);
 Route::get('/category_level/{category_id}/{level}', [TakeAxxionAPIController::class, 'getCategoryLevels']);
 
 Route::get('/take_axxion_trends',[TakeAxxionAPIController::class, 'getTakeAxxionTrends']);
+Route::put('/take_axxions/{id}',[TakeAxxionAPIController::class,'update']);
 
 
 

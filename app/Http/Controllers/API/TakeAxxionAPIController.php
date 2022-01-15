@@ -99,9 +99,9 @@ class TakeAxxionAPIController extends AppBaseController
         if (empty($takeAxxion)) {
             return $this->sendError('Take Axxion not found');
         }
-
+        $input['number_visits'] =  $takeAxxion['number_visits'] +1;
         $takeAxxion = $this->takeAxxionRepository->update($input, $id);
-
+        
         return $this->sendResponse($takeAxxion->toArray(), 'TakeAxxion updated successfully');
     }
 
