@@ -39,7 +39,10 @@ class categoryAPIController extends AppBaseController
             $request->get('skip'),
             $request->get('limit')
         );
-
+        foreach ($categories as $value) 
+        {
+          $value->img = url('/storage/'.$value->img);
+        }
         return $this->sendResponse($categories->toArray(), 'Categories retrieved successfully');
     }
 

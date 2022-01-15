@@ -128,4 +128,36 @@ class TakeAxxionAPIController extends AppBaseController
 
         return $this->sendSuccess('Take Axxion deleted successfully');
     }
+
+    public function getRecord($id)
+    {
+        
+        $takeAxxions = $this->takeAxxionRepository->getRecordTakeAxxion($id);
+
+        return $this->sendResponse($takeAxxions, 'Take Axxions retrieved successfully');
+    }
+    public function getTakeAxxionMostVisits (Request $request)
+    {
+        
+        $takeAxxions = $this->takeAxxionRepository->getTakeAxxionMostVisits();
+
+        return $this->sendResponse($takeAxxions, 'Take Axxions retrieved successfully');
+    }
+    public function getCategoryLevels($category_id,$level)
+    {
+        
+        $takeAxxions = $this->takeAxxionRepository->getCategoryLevels($category_id,$level);
+
+        return $this->sendResponse($takeAxxions, 'Take Axxions retrieved successfully');
+    }
+
+
+    public function getTakeAxxionTrends (Request $request)
+    {
+        
+        $takeAxxions = $this->takeAxxionRepository->getTakeAxxionTrends();
+
+        return $this->sendResponse($takeAxxions, 'Take Axxions retrieved successfully');
+    }
+
 }

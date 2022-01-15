@@ -71,6 +71,13 @@ Route::group(['middleware' => ['auth']], function () {
 
    
   Route::resource('customerInquiries', App\Http\Controllers\CustomerInquiriesController::class);
+
+  Route::resource('takeAxxions', App\Http\Controllers\TakeAxxionController::class);
+
+
+  Route::resource('categories', App\Http\Controllers\categoryController::class);
+
+
 });
 
  
@@ -83,7 +90,3 @@ Route::group(['middleware' => ['auth']], function () {
 Route::post('images',[App\Http\Controllers\TakeAxxionController::class, 'storeImg'])->name('images.storeImg');
 
 
-Route::resource('takeAxxions', App\Http\Controllers\TakeAxxionController::class);
-
-
-Route::resource('categories', App\Http\Controllers\categoryController::class);

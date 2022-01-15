@@ -11,7 +11,7 @@ use App\Http\Controllers\API\CalltoActionAPIController;
 use App\Http\Controllers\API\TakeAxxionAPIController;
 use App\Http\Controllers\API\AyudaAPIController;
 use App\Http\Controllers\API\CustomerInquiriesAPIController; 
-
+use App\Http\Controllers\API\categoryAPIController;
 
 
 
@@ -87,7 +87,16 @@ Route::delete('/customer_inquiries/{id}',[CustomerInquiriesAPIController::class,
 //Route::resource('customer_inquiries', App\Http\Controllers\API\CustomerInquiriesAPIController::class);
 
 
-Route::resource('take_axxions', App\Http\Controllers\API\TakeAxxionAPIController::class);
+//Route::resource('take_axxions', App\Http\Controllers\API\TakeAxxionAPIController::class);
+//Route::resource('categories', App\Http\Controllers\API\categoryAPIController::class);
+
+//Route::get('/take_axxions', [TakeAxxionAPIController::class, 'index']);
+Route::get('/take_axxion_record/{id}', [TakeAxxionAPIController::class, 'getRecord']);
+Route::get('/take_axxion_landing',[TakeAxxionAPIController::class, 'getTakeAxxionMostVisits']);
+Route::get('/categories', [categoryAPIController::class, 'index']);
+Route::get('/category_level/{category_id}/{level}', [TakeAxxionAPIController::class, 'getCategoryLevels']);
+
+Route::get('/take_axxion_trends',[TakeAxxionAPIController::class, 'getTakeAxxionTrends']);
 
 
-Route::resource('categories', App\Http\Controllers\API\categoryAPIController::class);
+

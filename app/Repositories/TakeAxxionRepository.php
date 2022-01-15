@@ -104,14 +104,10 @@ class TakeAxxionRepository extends BaseRepository
     }
     public function getTakeAxxionIndex()
     {
-
-      
       //$take_axxions = category::join('take_axxions', 'categories.id', '=', 'take_axxions.category_id')
       //->where('our_details.category_id', $our_information['id'])
       //->get(['categories.name_category','take_axxions.*']);
       //$data = json_decode($data);
-
-
       $data = TakeAxxion::with(['getCategory','getUser'])
       ->get();
       return $data;
@@ -125,4 +121,186 @@ class TakeAxxionRepository extends BaseRepository
       $data = json_decode($data);
       return $data;
     }
+    
+
+    public function getRecordTakeAxxion($id)
+    {
+
+      $data = TakeAxxion::with(['getCategory','getUser' => function($query)
+      {
+       $query->select('id','name');
+      }])->select('id','category_id','level','number_visits','user_id','title','short_description','img','body','video_1','video_2','podcast','created_at')
+      ->where('id', $id)
+      ->get();
+      foreach ($data as $value) 
+      {
+        $value->img = url('/storage/'.$value->img);
+        $value->video_1 = url('/storage/'.$value->video_1);
+        $value->video_2 = url('/storage/'.$value->video_2);
+        $value->podcast = url('/storage/'.$value->podcast);
+        //$value['name_category'];
+        //$value['name_user'];
+      }
+      $data = json_decode($data);
+
+      //foreach ($getTakeAxxion as $value) 
+      //{
+        //$value->name_category = $value->get_category->name_category;
+        //$value->name_user = $value->get_user->name;
+      //}
+
+      //dd($getTakeAxxion);
+
+     return  $data;
+
+    }
+    public function getTakeAxxionMostVisits()
+    {
+
+      $data = TakeAxxion::with(['getCategory','getUser' => function($query)
+      {
+       $query->select('id','name');
+      }])->select('id','category_id','level','number_visits','user_id','title','short_description','img','body','video_1','video_2','podcast','created_at')
+      -> orderBy('number_visits', 'desc')
+      ->take(2)
+      ->get();
+      foreach ($data as $value) 
+      {
+        $value->img = url('/storage/'.$value->img);
+        $value->video_1 = url('/storage/'.$value->video_1);
+        $value->video_2 = url('/storage/'.$value->video_2);
+        $value->podcast = url('/storage/'.$value->podcast);
+      }
+      $data = json_decode($data);
+     return  $data;
+    }
+
+    public function getCategoryLevels($category_id,$level)
+    {
+
+      if($category_id != null)
+      {
+        if($level == 'all')
+        {
+          $data = TakeAxxion::with(['getCategory','getUser' => function($query)
+          {
+          $query->select('id','name');
+          }])->select('id','category_id','level','number_visits','user_id','title','short_description','img','body','video_1','video_2','podcast','created_at')
+          ->where('category_id', $category_id)
+          -> orderBy('number_visits', 'desc')
+          ->get();
+          foreach ($data as $value) 
+          {
+            $value->img = url('/storage/'.$value->img);
+            $value->video_1 = url('/storage/'.$value->video_1);
+            $value->video_2 = url('/storage/'.$value->video_2);
+            $value->podcast = url('/storage/'.$value->podcast);
+          }
+          $data = json_decode($data);
+        }
+        else
+        {
+          $data = TakeAxxion::with(['getCategory','getUser' => function($query)
+          {
+          $query->select('id','name');
+          }])->select('id','category_id','level','number_visits','user_id','title','short_description','img','body','video_1','video_2','podcast','created_at')
+          ->where([
+            ['category_id', '=', $category_id],
+            ['level', '=', $level],
+          ])
+          -> orderBy('number_visits', 'desc')
+          ->get();
+          foreach ($data as $value) 
+          {
+            $value->img = url('/storage/'.$value->img);
+            $value->video_1 = url('/storage/'.$value->video_1);
+            $value->video_2 = url('/storage/'.$value->video_2);
+            $value->podcast = url('/storage/'.$value->podcast);
+          }
+          $data = json_decode($data);
+            
+        }
+        
+      }
+     return  $data;
+    }
+    public function getTakeAxxionTrends()
+    {
+
+      $MostViewed = TakeAxxion::with(['getCategory','getUser' => function($query)
+      {
+       $query->select('id','name');
+      }])->select('id','category_id','level','number_visits','user_id','title','short_description','img','body','video_1','video_2','podcast','created_at')
+      -> orderBy('number_visits', 'desc')
+      ->take(3)
+      ->get();
+
+      foreach ($MostViewed as $value) 
+      {
+        $value->img = url('/storage/'.$value->img);
+        $value->video_1 = url('/storage/'.$value->video_1);
+        $value->video_2 = url('/storage/'.$value->video_2);
+        $value->podcast = url('/storage/'.$value->podcast);
+      }
+
+      $TheNew = TakeAxxion::with(['getCategory','getUser' => function($query)
+      {
+       $query->select('id','name');
+      }])->select('id','category_id','level','number_visits','user_id','title','short_description','img','body','video_1','video_2','podcast','created_at')
+      -> orderBy('created_at', 'desc')
+      ->take(3)
+      ->get();
+
+      foreach ($TheNew as $value) 
+      {
+        $value->img = url('/storage/'.$value->img);
+        $value->video_1 = url('/storage/'.$value->video_1);
+        $value->video_2 = url('/storage/'.$value->video_2);
+        $value->podcast = url('/storage/'.$value->podcast);
+      }
+
+      $categories = category::all()
+      ->sortBy('name_category');
+      $data;
+      foreach ($categories as $value) 
+      {
+        $MostViewedbyCategory = TakeAxxion::with(['getCategory','getUser' => function($query)
+        {
+         $query->select('id','name');
+        }])->select('id','category_id','level','number_visits','user_id','title','short_description','img','body','video_1','video_2','podcast','created_at')
+        ->where('category_id', $value->id)
+        -> orderBy('number_visits', 'desc')
+        ->take(1)
+        ->get();
+
+        if(!count($MostViewedbyCategory) == 0)
+        {
+          $MostViewedbyCategory[0]->img = url('/storage/'.$MostViewedbyCategory[0]->img);;
+        }
+        $data['MostViewedbyCategory'][$value->name_category] =  $MostViewedbyCategory;
+      }
+
+      foreach ($data as $value) 
+      {
+         
+      }
+      $data['MostViewed'] =  $MostViewed;
+      $data['TheNew'] =  $TheNew;
+      //$data['MostViewedbyCategory'] =  $categoriy;
+
+
+
+      //$data = json_decode($data);
+
+     //foreach ($data as $value) 
+      //{
+        //$value->img = url('/storage/'.$value->img);
+        //$value->video_1 = url('/storage/'.$value->video_1);
+        //$value->video_2 = url('/storage/'.$value->video_2);
+        //$value->podcast = url('/storage/'.$value->podcast);
+      //}
+     return  $data;
+    }
+
+
 }

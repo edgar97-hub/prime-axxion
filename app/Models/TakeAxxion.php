@@ -75,9 +75,9 @@ class TakeAxxion extends Model implements HasMedia
      * @var array
      */
     public static $rules = [
-        'category_id' => 'required',
-        'user_id' => 'required',
-        'body'=> 'required',
+        //'category_id' => 'required',
+        //'user_id' => 'required',
+        //'body'=> 'required',
     ];
 
     public function getCategory()
@@ -88,6 +88,15 @@ class TakeAxxion extends Model implements HasMedia
     {
         return $this->belongsTo('App\Models\User', 'user_id');
     }
+
+    public function getTakeAxxion()
+    {
+        return $this->belongsTo('App\Models\category', 'category_id');
+    }
+
     
+   
+
+
     
 }
