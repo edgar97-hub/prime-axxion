@@ -48,7 +48,7 @@ class category extends Model
      */
     public static $rules = [
         'name_category' => 'required',
-        'img'  => 'required'
+        //'img'  => 'required'
     ];
 
     public function getTakeAxxion()
