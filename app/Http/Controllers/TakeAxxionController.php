@@ -38,6 +38,7 @@ class TakeAxxionController extends AppBaseController
     {
         $takeAxxions = $this->takeAxxionRepository->all();
         $TakeAxxionIndex = $this->takeAxxionRepository->getTakeAxxionIndex();
+        //dd($TakeAxxionIndex);
         return view('take_axxions.index')
             ->with('takeAxxions', $TakeAxxionIndex);
     }
