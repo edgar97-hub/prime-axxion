@@ -15,7 +15,7 @@
 <!-- Number Visits Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('number_visits', 'Número de visitas:',['style'=>'display:none']) !!}
-    {!! Form::number('number_visits', null, ['style'=>'display:none','class' => 'form-control']) !!}
+    {!! Form::number('number_visits', 0, ['style'=>'display:none','class' => 'form-control']) !!}
 </div>
 
 
