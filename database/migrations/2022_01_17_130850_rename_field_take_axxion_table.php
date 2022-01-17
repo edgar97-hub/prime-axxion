@@ -4,9 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class RenameFieldTakeAxxionTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -14,12 +13,9 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id('id');
-            $table->text('name_category');
-            $table->string('img')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('take_axxions', function (Blueprint $table) {
+            $table->renameColumn('description', 'short_description');
+
         });
     }
 
@@ -30,6 +26,8 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('categories');
+        Schema::table('take_axxions', function (Blueprint $table) {
+          $table->renameColumn('short_description', 'description');
+        });
     }
 }

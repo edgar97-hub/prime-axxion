@@ -78,7 +78,7 @@ class TakeAxxionController extends AppBaseController
          
         $takeAxxion = $this->takeAxxionRepository->create($input);
 
-        Flash::success('Take Axxion saved successfully.');
+        Flash::success('registro guardado con éxito.');
         return redirect(route('takeAxxions.index'));
     }
 
@@ -151,7 +151,7 @@ class TakeAxxionController extends AppBaseController
          
         $takeAxxion = $this->takeAxxionRepository->update($input, $id);
 
-        Flash::success('Take Axxion updated successfully.');
+        Flash::success('registro actualizado con éxito.');
 
         return redirect(route('takeAxxions.index'));
     }
@@ -180,7 +180,7 @@ class TakeAxxionController extends AppBaseController
         $this->deleteFile($filePath,$takeAxxion,$file_1);
         $this->deleteFile($filePath,$takeAxxion,$file_2);
         $this->takeAxxionRepository->delete($id);
-        Flash::success('Take Axxion deleted successfully.');
+        Flash::success('registro eliminado con exito.');
 
         return redirect(route('takeAxxions.index'));
     }
@@ -192,7 +192,7 @@ class TakeAxxionController extends AppBaseController
       //$filePath = 'img/takeaxxionwww/';         
       //$input = $this->makeFile($request,$filePath,$file_1);
       //$input = $this->updateFile($request,$filePath,$takeAxxion,$file_1);
-      $info['upload'] = $filePath.
+      //$info['upload'] = $filePath.
       $task = new TakeAxxion();
       $task->id = 0;
       $task->exists = true;
