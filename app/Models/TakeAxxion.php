@@ -35,7 +35,7 @@ class TakeAxxion extends Model implements HasMedia
     use HasFactory;
     use InteractsWithMedia;
 
-    public $table = 'take_axxions';
+    public $table = 'take_axxions_';
     
 
     protected $dates = ['deleted_at'];

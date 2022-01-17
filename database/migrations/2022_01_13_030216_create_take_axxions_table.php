@@ -16,7 +16,7 @@ class CreateTakeAxxionsTable extends Migration
     {
 
        
-        Schema::create('take_axxions', function (Blueprint $table) {
+        Schema::create('take_axxions_', function (Blueprint $table) {
             $table->id('id');
             $table->unsignedBigInteger('category_id')->nullable();
             $table->enum('level',['basic','intermediate','advanced'])->default('basic');
@@ -43,6 +43,6 @@ class CreateTakeAxxionsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('take_axxions');
+        Schema::drop('take_axxions_');
     }
 }

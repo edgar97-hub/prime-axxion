@@ -30,6 +30,6 @@ class CreateAyudasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('ayudas');
+        Schema::drop('helps');
     }
 }
