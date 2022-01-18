@@ -68,10 +68,12 @@ class ImgController extends AppBaseController
     public function store(CreateImgRequest $request)
     {
         $input = $request->all();
-
+        $file_1 = 'img';
         if ($request->hasFile('img')) {
           $filePath = 'img/nosotrosdetalles/';
-          $input = $this->makeImg($request,$filePath);
+          //$input = $this->makeImg($request,$filePath);
+          $input = $this->makeFile($request,$filePath,$file_1);
+
         }
 
 
@@ -133,6 +135,7 @@ class ImgController extends AppBaseController
     {
         $img = $this->imgRepository->find($id);
         $input = $request->all();
+        $file_1 = 'img';
         if (empty($img)) {
             Flash::error('Registro no encontrado');
 
@@ -140,7 +143,8 @@ class ImgController extends AppBaseController
         }
         if ($request->hasFile('img')) {
           $filePath = 'img/nosotrosdetalles/';
-          $input = $this->updateImg($request,$filePath,$img);
+          $input = $this->updateFile($request,$filePath,$img,$file_1);
+
         }
       
         $img = $this->imgRepository->update($input, $id);
@@ -162,13 +166,16 @@ class ImgController extends AppBaseController
     public function destroy($id)
     {
         $img = $this->imgRepository->find($id);
+        $file_2 = 'img';
         if (empty($img)) {
             Flash::error('Registro no encontrado');
 
             return redirect(route('imgs.index'));
         }
         $filePath = 'img/nosotrosdetalles/';
-        $this->deleteImg($filePath,$img);
+        //$this->deleteImg($filePath,$img);
+        $this->deleteFile($filePath,$img,$file_2);
+
         $this->imgRepository->delete($id);
 
         Flash::success('eliminado con éxito.');

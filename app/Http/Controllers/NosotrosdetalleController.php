@@ -64,10 +64,11 @@ class NosotrosdetalleController extends AppBaseController
     public function store(CreateNosotrosdetalleRequest $request)
     {
         $input = $request->all();
-
+        $file_1 = 'img';
         if ($request->hasFile('img')) {
           $filePath = 'img/nosotrosdetalles/';
-           $input = $this->makeImg($request,$filePath);
+           $input = $this->makeFile($request,$filePath,$file_1);
+
         }
         Flash::success('Guardado con éxito.');
         $this->NosotrosdetalleRepository->create($input);
@@ -175,6 +176,7 @@ class NosotrosdetalleController extends AppBaseController
     {
         $nosotrosdetalles = $this->NosotrosdetalleRepository->find($id);
         $input = $request->all();
+        $file_1 = 'img';
         if (empty($nosotrosdetalles)) {
             Flash::error('Registro no encontrado');
 
@@ -182,7 +184,9 @@ class NosotrosdetalleController extends AppBaseController
         }
         if ($request->hasFile('img')) {
           $filePath = 'img/nosotrosdetalles/';
-          $input = $this->updateImg($request,$filePath,$nosotrosdetalles);
+          //$input = $this->updateImg($request,$filePath,$nosotrosdetalles);
+          $input = $this->updateFile($request,$filePath,$calltoAction,$file_1);
+
         }
         $this->NosotrosdetalleRepository->update($input, $id);
         Flash::success('actualizado con éxito.');
@@ -202,7 +206,7 @@ class NosotrosdetalleController extends AppBaseController
     public function destroy($id)
     {
         $nosotrosdetalles = $this->NosotrosdetalleRepository->find($id);
-
+        $file_2 = 'img';
         if (empty($nosotrosdetalles)) {
             Flash::error('Registro no encontrado');
 
@@ -210,14 +214,14 @@ class NosotrosdetalleController extends AppBaseController
         }
      
         $filePath = 'img/nosotrosdetalles/';
-        $this->deleteImg($filePath,$nosotrosdetalles);
-        
+        //$this->deleteImg($filePath,$nosotrosdetalles);
+        $this->deleteFile($filePath,$nosotrosdetalles,$file_2);
+
         $this->NosotrosdetalleRepository->delete($id);
 
         Flash::success('eliminado con éxito.');
         return redirect(route('nosotrosdetalles.section',$nosotrosdetalles['nosotros_id']));
 
-        //return redirect(route('nosotrosdetalles.index'));
     }
    
 }

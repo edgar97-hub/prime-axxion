@@ -39,22 +39,7 @@ class BannerRepository extends BaseRepository
         return $this->fieldSearchable;
     }
 
-    public function createBanner(CreateBannerAPIRequest $request)
-    {
-
-      $filePath = 'img/banner/';
-      $input = $this->makeImg($request,$filePath);
-      return $this->create($input);
-      
-    }
-    public function updateBanner($id,UpdateBannerAPIRequest $request)
-    {
-      $filePath = 'img/banner/';
-      $nosotrosdetalle = $this->find($id);
-      $input = $this->updateImg($request,$filePath,$nosotrosdetalle);
-      
-      return $this->update($input, $id);
-    }
+   
     /**
      * Configure the Model
      **/

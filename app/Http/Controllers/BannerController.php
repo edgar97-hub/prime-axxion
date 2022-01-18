@@ -56,10 +56,12 @@ class BannerController extends AppBaseController
     public function store(CreateBannerRequest $request)
     {
         $input = $request->all();
-
+        $file_1 = 'img';
         if ($request->hasFile('img')) {
           $filePath = 'img/banner/';
-           $input = $this->makeImg($request,$filePath);
+           //$input = $this->makeImg($request,$filePath);
+           $input = $this->makeFile($request,$filePath,$file_1);
+
         }
         Flash::success('Guardado con éxito.');
         
@@ -120,7 +122,7 @@ class BannerController extends AppBaseController
     {
         $banner = $this->BannerRepository->find($id);
         $input = $request->all();
-
+        $file_1 = 'img';
         if (empty($banner)) {
             Flash::error('Registro no encontrado');
 
@@ -128,7 +130,8 @@ class BannerController extends AppBaseController
         }
         if ($request->hasFile('img')) {
           $filePath = 'img/banner/';
-          $input = $this->updateImg($request,$filePath,$banner);
+          $input = $this->updateFile($request,$filePath,$banner,$file_1);
+          //$input = $this->updateImg($request,$filePath,$banner);
         }
         $this->BannerRepository->update($input, $id);
         Flash::success('actualizado con éxito.');
@@ -148,7 +151,7 @@ class BannerController extends AppBaseController
     public function destroy($id)
     {
         $banner = $this->BannerRepository->find($id);
-
+        $file_2 = 'img';
         if (empty($banner)) {
             Flash::error('Registro no encontrado');
 
@@ -156,8 +159,9 @@ class BannerController extends AppBaseController
         }
      
         $filePath = 'img/banner/';
-        $this->deleteImg($filePath,$banner);
-        
+        //$this->deleteImg($filePath,$banner);
+        $this->deleteFile($filePath,$banner,$file_2);
+
         $this->BannerRepository->delete($id);
 
         Flash::success('eliminado con éxito.');

@@ -49,21 +49,7 @@ class NosotrosdetalleRepository extends BaseRepository
     {
         return Nosotrosdetalle::class;
     }
-    public function createUs(CreateNosotrosdetalleAPIRequest $request)
-    {
-      $filePath = 'img/nosotrosdetalles/';
-      $input = $this->makeImg($request,$filePath);
-      return $this->create($input);
-      
-    }
-    public function updateUs($id,UpdateNosotrosdetalleAPIRequest $request)
-    {
-
-      $filePath = 'img/nosotrosdetalles/';
-      $nosotrosdetalle = $this->find($id);
-      $input = $this->updateImg($request,$filePath,$nosotrosdetalle);
-      return $this->update($input, $id);
-    }
+     
     public function getTextImg($id)
     {
       $details = DB::table('our_information')

@@ -90,10 +90,12 @@ class SolutionController extends AppBaseController
     public function storeCard(CreateSolutionRequest $request)
     {
         $input = $request->all();
-
+        $file_1 = 'img';
+        
         if ($request->hasFile('img')) {
           $filePath = 'img/solution/';
-           $input = $this->makeImg($request,$filePath);
+           $input = $this->makeFile($request,$filePath,$file_1);
+
         }
         Flash::success('Guardado con éxito.');
         
@@ -104,11 +106,7 @@ class SolutionController extends AppBaseController
     public function store(CreateSolutionRequest $request)
     {
         $input = $request->all();
-
-        if ($request->hasFile('img')) {
-          $filePath = 'img/solution/';
-           $input = $this->makeImg($request,$filePath);
-        }
+        
         Flash::success('Guardado con éxito.');
         
         $this->SolutionRepository->create($input);
@@ -202,7 +200,7 @@ class SolutionController extends AppBaseController
     {
         $solution = $this->SolutionRepository->find($id);
         $input = $request->all();
-
+        $file_1  = 'img';
         if (empty($solution)) {
             Flash::error('Registro no encontrado');
 
@@ -210,7 +208,8 @@ class SolutionController extends AppBaseController
         }
         if ($request->hasFile('img')) {
           $filePath = 'img/solution/';
-          $input = $this->updateImg($request,$filePath,$solution);
+          $input = $this->updateFile($request,$filePath,$solution,$file_1);
+
         }
         $this->SolutionRepository->update($input, $id);
         Flash::success('actualizado con éxito.');
@@ -222,16 +221,12 @@ class SolutionController extends AppBaseController
     {
         $solution = $this->SolutionRepository->find($id);
         $input = $request->all();
-
         if (empty($solution)) {
             Flash::error('Registro no encontrado');
 
             return redirect(route('solutions.getView',1));
-          }
-        if ($request->hasFile('img')) {
-          $filePath = 'img/solution/';
-          $input = $this->updateImg($request,$filePath,$solution);
         }
+         
         $this->SolutionRepository->update($input, $id);
         Flash::success('actualizado con éxito.');
 
@@ -251,7 +246,7 @@ class SolutionController extends AppBaseController
     {
      
         $solution = $this->SolutionRepository->find($id);
-
+        $file_2 = 'img';
         if (empty($solution)) {
             Flash::error('Registro no encontrado');
 
@@ -259,8 +254,8 @@ class SolutionController extends AppBaseController
         }
      
         $filePath = 'img/solution/';
-        $this->deleteImg($filePath,$solution);
-        
+        $this->deleteFile($filePath,$solution,$file_2);
+
         $this->SolutionRepository->delete($id);
 
         Flash::success('eliminado con éxito.');
@@ -271,16 +266,13 @@ class SolutionController extends AppBaseController
     {
      
         $solution = $this->SolutionRepository->find($id);
-
         if (empty($solution)) {
             Flash::error('Registro no encontrado');
 
             return redirect(route('solutions.index'));
         }
      
-        $filePath = 'img/solution/';
-        $this->deleteImg($filePath,$solution);
-        
+         
         $this->SolutionRepository->delete($id);
 
         Flash::success('eliminado con éxito.');

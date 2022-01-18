@@ -41,20 +41,5 @@ class CalltoActionRepository extends BaseRepository
     }
 
    
-    public function createCallActionRepository($request)
-    {
-
-      $filePath = 'img/callAction/';
-      $input = $this->makeImg($request,$filePath);
-      return $this->create($input);
-      
-    }
-    public function updateCallActionRepository($id,$request)
-    {
-      $filePath = 'img/callAction/';
-      $nosotrosdetalle = $this->find($id);
-      $input = $this->updateImg($request,$filePath,$nosotrosdetalle);
-      
-      return $this->update($input, $id);
-    }
+     
 }

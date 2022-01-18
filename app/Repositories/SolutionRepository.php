@@ -47,18 +47,5 @@ class SolutionRepository extends BaseRepository
     {
         return Solution::class;
     }
-    public function createT(CreateSolutionAPIRequest $request)
-    {
-      $filePath = 'img/solution/';
-      $input = $this->makeImg($request,$filePath);
-
-      return $this->create($input);
-    }
-    public function updateT($id,UpdateSolutionAPIRequest $request)
-    {
-      $filePath = 'img/solution/';
-      $nosotrosdetalle = $this->find($id);
-      $input = $this->updateImg($request,$filePath,$nosotrosdetalle);
-      return $this->update($input, $id);
-    }
+     
 }

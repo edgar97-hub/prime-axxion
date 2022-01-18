@@ -56,10 +56,12 @@ class CalltoActionController extends AppBaseController
     public function store(CreateCalltoActionRequest $request)
     {
         $input = $request->all();
-
+        $file_1 = 'img';
         if ($request->hasFile('img')) {
           $filePath = 'img/callAction/';
-           $input = $this->makeImg($request,$filePath);
+           //$input = $this->makeImg($request,$filePath);
+           $input = $this->makeFile($request,$filePath,$file_1);
+
         }
         Flash::success('Guardado con éxito.');
         
@@ -120,7 +122,7 @@ class CalltoActionController extends AppBaseController
     {
         $calltoAction = $this->calltoActionRepository->find($id);
         $input = $request->all();
-
+        $file_1 = 'img';
         if (empty($calltoAction)) {
             Flash::error('Registro no encontrado');
 
@@ -128,7 +130,9 @@ class CalltoActionController extends AppBaseController
         }
         if ($request->hasFile('img')) {
           $filePath = 'img/callAction/';
-          $input = $this->updateImg($request,$filePath,$calltoAction);
+          //$input = $this->updateImg($request,$filePath,$calltoAction);
+          $input = $this->updateFile($request,$filePath,$calltoAction,$file_1);
+
         }
         //$calltoAction = $this->calltoActionRepository->update($request->all(), $id);
         $calltoAction = $this->calltoActionRepository->update($input, $id);
@@ -151,7 +155,7 @@ class CalltoActionController extends AppBaseController
     public function destroy($id)
     {
         $calltoAction = $this->calltoActionRepository->find($id);
-
+        $file_2 = 'img';
         if (empty($calltoAction)) {
             Flash::error('Registro no encontrado');
 
@@ -159,8 +163,9 @@ class CalltoActionController extends AppBaseController
         }
      
         $filePath = 'img/callAction/';
-        $this->deleteImg($filePath,$calltoAction);
-        
+        //$this->deleteImg($filePath,$calltoAction);
+        $this->deleteFile($filePath,$calltoAction,$file_2);
+
         $this->calltoActionRepository->delete($id);
 
         Flash::success('eliminado con éxito.');
