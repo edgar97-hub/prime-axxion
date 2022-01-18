@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/take_axxion_record/12",
+					"raw": "http://127.0.0.1:8000/api/take_axxion_record/2",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -23,7 +23,7 @@
 					"path": [
 						"api",
 						"take_axxion_record",
-						"12"
+						"2"
 					]
 				}
 			},
@@ -58,43 +58,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/categories",
+					"raw": "http://prime-axxion.apselom.xyz/api/categories",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"prime-axxion",
+						"apselom",
+						"xyz"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"categories"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getCategoryLevels",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:8000/api/category_level/2/advanced",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"category_level",
-						"2",
-						"advanced"
 					]
 				}
 			},
@@ -106,18 +79,39 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/take_axxion_trends",
+					"raw": "http://prime-axxion.apselom.xyz/api/take_axxion_trends",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"prime-axxion",
+						"apselom",
+						"xyz"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"take_axxion_trends"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCategoryLevels",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://prime-axxion.apselom.xyz/api/category_level/2/basic",
+					"protocol": "http",
+					"host": [
+						"prime-axxion",
+						"apselom",
+						"xyz"
+					],
+					"path": [
+						"api",
+						"category_level",
+						"2",
+						"basic"
 					]
 				}
 			},
@@ -129,19 +123,17 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/take_axxions/15",
+					"raw": "http://prime-axxion.apselom.xyz/api/take_axxions/2",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"prime-axxion",
+						"apselom",
+						"xyz"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"take_axxions",
-						"15"
+						"2"
 					]
 				}
 			},
@@ -153,19 +145,39 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/category/4",
+					"raw": "http://prime-axxion.apselom.xyz/api/others_take_action/3",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"prime-axxion",
+						"apselom",
+						"xyz"
 					],
-					"port": "8000",
 					"path": [
 						"api",
-						"category",
-						"4"
+						"others_take_action",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://prime-axxion.apselom.xyz/api/filter/p",
+					"protocol": "http",
+					"host": [
+						"prime-axxion",
+						"apselom",
+						"xyz"
+					],
+					"path": [
+						"api",
+						"filter",
+						"p"
 					]
 				}
 			},

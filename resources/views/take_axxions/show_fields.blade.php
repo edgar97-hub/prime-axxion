@@ -53,7 +53,7 @@
 <!-- Body Field -->
 <div class="form-group">
     {!! Form::label('body', 'cuerpo del blog:') !!}
-    <p>{!! $takeAxxion[0]->body !!}</p>
+    <p>{{ $takeAxxion[0]->body }}</p>
 </div>
 
 <!-- Video Field -->
