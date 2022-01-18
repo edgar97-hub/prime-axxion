@@ -182,6 +182,14 @@ class TakeAxxionAPIController extends AppBaseController
 
 
     }
+    public function getcategory($id)
+    {
+        $takeAxxion = $this->takeAxxionRepository->find($id);
+        $category_id = $takeAxxion['category_id'];
+        $takeAxxions = $this->takeAxxionRepository->getcategory($category_id ,$id);
+
+        return $this->sendResponse($takeAxxions, 'Take Axxions retrieved successfully');
+    }
 
 
 

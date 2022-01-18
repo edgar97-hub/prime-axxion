@@ -99,7 +99,7 @@ Route::get('/category_level/{category_id}/{level}', [TakeAxxionAPIController::cl
 Route::get('/take_axxion_trends',[TakeAxxionAPIController::class, 'getTakeAxxionTrends']);
 Route::put('/take_axxions/{id}',[TakeAxxionAPIController::class,'update']);
 
-Route::get('/category/{id}', [categoryAPIController::class, 'getcategory']);
+Route::get('/others_take_action/{id}', [TakeAxxionAPIController::class, 'getcategory']);
 Route::get('/filter/{data}', [TakeAxxionAPIController::class, 'filter']);
 
 

@@ -131,11 +131,5 @@ class categoryAPIController extends AppBaseController
 
         return $this->sendSuccess('Category deleted successfully');
     }
-    public function getcategory($id)
-    {
-        
-        $takeAxxions = $this->categoryRepository->getcategory($id);
-
-        return $this->sendResponse($takeAxxions, 'Take Axxions retrieved successfully');
-    }
+   
 }
