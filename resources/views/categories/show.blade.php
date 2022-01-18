@@ -2,11 +2,14 @@
 
 @section('content')
      <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="{{ route('categories.index') }}">Category</a>
-            </li>
-            <li class="breadcrumb-item active">Detail</li>
-     </ol>
+      <li class="breadcrumb-item">Lista</li>
+      <li class="breadcrumb-item">
+        <a href="#">Categorías</a>
+      </li>
+      <li class="breadcrumb-item active">Detalles</li>
+    </ol>
+
+
      <div class="container-fluid">
           <div class="animated fadeIn">
                  @include('coreui-templates::common.errors')
@@ -14,8 +17,8 @@
                      <div class="col-lg-12">
                          <div class="card">
                              <div class="card-header">
-                                 <strong>Details</strong>
-                                  <a href="{{ route('categories.index') }}" class="btn btn-light">Back</a>
+                                 <strong>Detalles</strong>
+                                  <a href="{{ route('categories.index') }}" class="btn btn-light">atrás</a>
                              </div>
                              <div class="card-body">
                                  @include('categories.show_fields')
