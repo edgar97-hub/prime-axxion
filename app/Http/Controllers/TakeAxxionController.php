@@ -93,6 +93,7 @@ class TakeAxxionController extends AppBaseController
     {
         //$takeAxxion = $this->takeAxxionRepository->find($id);
         $takeAxxion = $this->takeAxxionRepository->getTakeAxxion($id);
+         
 
         if (empty($takeAxxion)) {
             Flash::error('Take Axxion not found');
@@ -212,5 +213,6 @@ class TakeAxxionController extends AppBaseController
       ]);
 
     }
+    
 
 }

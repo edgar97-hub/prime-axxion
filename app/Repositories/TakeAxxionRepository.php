@@ -299,6 +299,18 @@ class TakeAxxionRepository extends BaseRepository
      return  $data;
     }
 
+    public function filter($data)
+    {
+        $query = TakeAxxion::with(['getCategory','getUser' => function($query)
+        {
+         $query->select('id','name');
+        }])->select('id','category_id','level','number_visits','user_id','title','short_description','img','body','video_1','video_2','podcast','created_at')
+        ->where('title', 'LIKE', '%'.$data.'%')
+        -> orderBy('number_visits', 'desc')
+        ->get();
+
+        return  $query;
+    }
    
 
 

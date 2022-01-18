@@ -163,15 +163,23 @@ class TakeAxxionAPIController extends AppBaseController
         return $this->sendResponse($takeAxxions, 'Take Axxions retrieved successfully');
     }
 
-    public function storeImg(Request $request)
-    {
+    //public function storeImg(Request $request)
+    //{
  
-      $namefield = 'upload';
-      $filePath = 'img/takeaxxionwww/';         
-      $result = $this->makeFile($request,$filePath,$namefield);
-      return response()->json(
-        ['url'=> url('/storage/'.$result[$namefield])
-      ]);
+      //$namefield = 'upload';
+      //$filePath = 'img/takeaxxionwww/';         
+      //$result = $this->makeFile($request,$filePath,$namefield);
+      //return response()->json(
+        //['url'=> url('/storage/'.$result[$namefield])
+      //]);
+
+    //}
+    public function filter($data)
+    {
+      $takeAxxions = $this->takeAxxionRepository->filter($data);
+
+      return $this->sendResponse($takeAxxions, 'Take Axxions retrieved successfully');
+
 
     }
 

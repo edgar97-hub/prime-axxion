@@ -100,6 +100,7 @@ Route::get('/take_axxion_trends',[TakeAxxionAPIController::class, 'getTakeAxxion
 Route::put('/take_axxions/{id}',[TakeAxxionAPIController::class,'update']);
 
 Route::get('/category/{id}', [categoryAPIController::class, 'getcategory']);
+Route::get('/filter/{data}', [TakeAxxionAPIController::class, 'filter']);
 
 
 
