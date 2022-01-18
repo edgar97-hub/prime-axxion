@@ -120,7 +120,7 @@ class MyUploadAdapter {
 
     _initRequest() {
         const xhr = this.xhr = new XMLHttpRequest();
-        xhr.open( 'POST', '{{ route('images.storeImg')}}', true );
+        xhr.open( 'POST', '{{ route('images.store')}}', true );
         xhr.setRequestHeader('x-csrf-token','{{csrf_token() }}');
         xhr.responseType = 'json';
     }

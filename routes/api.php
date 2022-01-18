@@ -100,4 +100,5 @@ Route::get('/take_axxion_trends',[TakeAxxionAPIController::class, 'getTakeAxxion
 Route::put('/take_axxions/{id}',[TakeAxxionAPIController::class,'update']);
 
 
+//Route::post('/imagen',[TakeAxxionAPIController::class, 'storeImg']);
 

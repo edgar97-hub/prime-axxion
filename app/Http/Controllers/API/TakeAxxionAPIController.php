@@ -9,6 +9,8 @@ use App\Repositories\TakeAxxionRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use Response;
+use App\Repositories\MakeImg;
+
 
 /**
  * Class TakeAxxionController
@@ -19,6 +21,7 @@ class TakeAxxionAPIController extends AppBaseController
 {
     /** @var  TakeAxxionRepository */
     private $takeAxxionRepository;
+    use MakeImg;
 
     public function __construct(TakeAxxionRepository $takeAxxionRepo)
     {
@@ -159,5 +162,18 @@ class TakeAxxionAPIController extends AppBaseController
 
         return $this->sendResponse($takeAxxions, 'Take Axxions retrieved successfully');
     }
+
+    public function storeImg(Request $request)
+    {
+ 
+      $namefield = 'upload';
+      $filePath = 'img/takeaxxionwww/';         
+      $result = $this->makeFile($request,$filePath,$namefield);
+      return response()->json(
+        ['url'=> url('/storage/'.$result[$namefield])
+      ]);
+
+    }
+
 
 }

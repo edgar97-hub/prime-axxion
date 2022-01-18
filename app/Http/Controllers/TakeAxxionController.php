@@ -38,7 +38,6 @@ class TakeAxxionController extends AppBaseController
     {
         $takeAxxions = $this->takeAxxionRepository->all();
         $TakeAxxionIndex = $this->takeAxxionRepository->getTakeAxxionIndex();
-        //dd($TakeAxxionIndex);
         return view('take_axxions.index')
             ->with('takeAxxions', $TakeAxxionIndex);
     }
@@ -186,29 +185,32 @@ class TakeAxxionController extends AppBaseController
         return redirect(route('takeAxxions.index'));
     }
 
+    //public function storeImgwww(Request $request)
+    //{
+      //$namefield = 'upload';
+      //$filePath = 'img/takeaxxionwww/';         
+      //$result = $this->makeFile($request,$filePath,$namefield);
+
+      //$task = new TakeAxxion();
+      //$task->id = 0;
+      //$task->exists = true;
+      //$images = $task->addMediaFromRequest('upload')->toMediaCollection('images');
+
+      //return response()->json(
+        //['url'=> url('/storage/'.$images->order_column.'/'.$images->file_name) 
+      //]);
+
+    //}
     public function storeImg(Request $request)
     {
  
-      //$file_1 = 'upload';
-      //$filePath = 'img/takeaxxionwww/';         
-      //$input = $this->makeFile($request,$filePath,$file_1);
-      //$input = $this->updateFile($request,$filePath,$takeAxxion,$file_1);
-      //$info['upload'] = $filePath.
-      $task = new TakeAxxion();
-      $task->id = 0;
-      $task->exists = true;
-      $images = $task->addMediaFromRequest('upload')->toMediaCollection('images');
-
-
-      //url('/storage/'.$value->img);
-      //return response()->json(
-        //['url'=> $images->getUrl()
-      //]);
-      //dd($images->getUrl());
-
+      $namefield = 'upload';
+      $filePath = 'img/takeaxxion/';         
+      $result = $this->makeFile($request,$filePath,$namefield);
       return response()->json(
-        ['url'=> url('/storage/'.$images->order_column.'/'.$images->file_name) 
+        ['url'=> url('/storage/'.$result[$namefield])
       ]);
 
     }
+
 }
