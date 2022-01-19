@@ -129,7 +129,6 @@
 <script src="{{ asset('auto.js') }}"></script>
 
 
-<script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/decoupled-document/ckeditor.js"></script>
 
 <script type="text/javascript">
         var category = document.getElementById("category");

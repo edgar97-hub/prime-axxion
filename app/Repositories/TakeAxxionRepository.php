@@ -301,7 +301,7 @@ class TakeAxxionRepository extends BaseRepository
 
     public function filter($data)
     {
-        $query = TakeAxxion::with(['getCategory','getUser' => function($query)
+        $data = TakeAxxion::with(['getCategory','getUser' => function($query)
         {
          $query->select('id','name');
         }])->select('id','category_id','level','number_visits','user_id','title','short_description','img','body','video_1','video_2','podcast','created_at')
@@ -309,7 +309,15 @@ class TakeAxxionRepository extends BaseRepository
         -> orderBy('number_visits', 'desc')
         ->get();
 
-        return  $query;
+        foreach ($data as $value) 
+        {
+          $value->img = url('/storage/'.$value->img);
+          $value->video_1 = url('/storage/'.$value->video_1);
+          $value->video_2 = url('/storage/'.$value->video_2);
+          $value->podcast = url('/storage/'.$value->podcast);
+        }
+
+        return  $data;
     }
 
     public function getcategory($category_id,$id)

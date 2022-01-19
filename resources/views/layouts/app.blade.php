@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>{{config('app.name')}}</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+<script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/decoupled-document/ckeditor.js"></script>
+
     <link rel="stylesheet" type="text/css" href="{{ url('w.css') }}" />
     <link rel="shortcut icon" href="{{ asset('img/icon.ico') }}">
    
@@ -163,7 +165,7 @@ class MyUploadAdapter {
         editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
             return new MyUploadAdapter( loader );
         };
-    }
+    }/*  */
 
     let Myeditor;
     DecoupledEditor

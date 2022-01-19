@@ -17,5 +17,10 @@
         "lodash": "^4.17.19",
         "popper.js": "^1.12",
         "postcss": "^8.1.14"
+    },
+    "dependencies": {
+        "@ckeditor/ckeditor5-core": "^31.1.0",
+        "@ckeditor/ckeditor5-image": "^31.1.0",
+        "@ckeditor/ckeditor5-ui": "^31.1.0"
     }
 }
