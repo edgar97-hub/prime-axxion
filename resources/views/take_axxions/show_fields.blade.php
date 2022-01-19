@@ -51,10 +51,26 @@
 </div>
 
 <!-- Body Field -->
-<div class="form-group">
+<div  class="form-group">
     {!! Form::label('body', 'cuerpo del blog:') !!}
-    <p>{!!$takeAxxion[0]->body!!}</p>
+
+    {!! Form::textarea('body', $takeAxxion[0]->body, ['id'=>'www','style'=>'display:none','class' => 'form-control']) !!}
 </div>
+
+
+<div id="document-editor" >
+
+  <div id="toolbar-container">
+    {!! Form::label('body', 'cuerpo del blog:') !!}
+  </div>
+
+  <div  id="editor"  class="form-group col-sm-12 col-lg-12">
+      {!! Form::textarea('qqq', null, ['id'=>'editorText','class' => 'form-control']) !!}
+  </div>
+  
+</div>
+
+
 
 <!-- Video Field -->
 <div class="form-group">

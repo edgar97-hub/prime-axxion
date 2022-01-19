@@ -186,11 +186,15 @@
       window.editor = newEditor;
       Myeditor = newEditor;
 
+      
+      if (document.contains(document.getElementById("ccc"))) {
+        newEditor.isReadOnly = true;
+        var qqq = document.getElementById("www");
+         Myeditor.setData(qqq.value);
+        toolbarContainer.style.display = 'none';
 
-      if(isReadOnly)
-      {
-        newEditor.isReadOnly = isReadOnly;
       }
+
       //handleStatusChanges( newEditor );
       //handleSaveButton( newEditor );
       //handleBeforeunload( newEditor );

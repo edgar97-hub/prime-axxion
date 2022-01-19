@@ -12,6 +12,8 @@ $(document).ready(function () {
   var category_id = $('#category_field_2').val();
   $('#category').val(category_id);
 
+  
+
 
 });
  
