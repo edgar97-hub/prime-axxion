@@ -48,4 +48,21 @@
 {
   display: none;
 }
+
+#toolbar-container {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+
+	width: 20.8cm;
+	box-shadow: 2px 2px 1px rgba(0,0,0,.05);
+}
+#editor {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+
+	width: 20.8cm;
+	min-height: 15cm;
+	padding: 1cm 1cm 2cm;
+	box-shadow: 2px 2px 1px rgba(0,0,0,.05);
+}
  

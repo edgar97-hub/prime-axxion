@@ -6,6 +6,9 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/decoupled-document/ckeditor.js"></script>
 
+
+<link type="text/css" href="{{url('w.css')}}"rel="stylesheet" media="screen" />
+
     <link rel="stylesheet" type="text/css" href="{{ url('w.css') }}" />
     <link rel="shortcut icon" href="{{ asset('img/icon.ico') }}">
    
@@ -99,7 +102,8 @@
 <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@2.1.16/dist/js/coreui.min.js"></script>
  
 <script>
-class MyUploadAdapter {
+
+ class MyUploadAdapter {
 
     constructor( loader ) {
         this.loader = loader;
@@ -168,6 +172,8 @@ class MyUploadAdapter {
     }/*  */
 
     let Myeditor;
+    let isReadOnly = false;
+
     DecoupledEditor
       .create( document.querySelector( '#editor' ), {
       extraPlugins: [ MyCustomUploadAdapterPlugin ],
@@ -179,6 +185,12 @@ class MyUploadAdapter {
       toolbarContainer.appendChild( newEditor.ui.view.toolbar.element );
       window.editor = newEditor;
       Myeditor = newEditor;
+
+
+      if(isReadOnly)
+      {
+        newEditor.isReadOnly = isReadOnly;
+      }
       //handleStatusChanges( newEditor );
       //handleSaveButton( newEditor );
       //handleBeforeunload( newEditor );
