@@ -7,9 +7,8 @@
 <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/decoupled-document/ckeditor.js"></script>
 
 
-<link type="text/css" href="{{url('w.css')}}"rel="stylesheet" media="screen" />
 
-    <link rel="stylesheet" type="text/css" href="{{ url('w.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url('toolbar_editor.css') }}" />
     <link rel="shortcut icon" href="{{ asset('img/icon.ico') }}">
    
     <!-- Bootstrap 4.1.1 -->
@@ -187,12 +186,18 @@
       Myeditor = newEditor;
 
       
-      if (document.contains(document.getElementById("ccc"))) {
+      if (document.contains(document.getElementById("show"))) {
+
         newEditor.isReadOnly = true;
-        var qqq = document.getElementById("www");
-         Myeditor.setData(qqq.value);
+        var body = document.getElementById("hidden_body_field");
+         Myeditor.setData(body.value);
         toolbarContainer.style.display = 'none';
 
+      }
+      else
+      {
+        var body = document.getElementById("hidden_body_field");
+        Myeditor.setData(body.value);
       }
 
       //handleStatusChanges( newEditor );
@@ -200,8 +205,7 @@
       //handleBeforeunload( newEditor );
       //displayStatus( newEditor );
 
-      var qqq = document.getElementById("www");
-      Myeditor.setData(qqq.value);
+     
 
 
 
@@ -214,7 +218,7 @@
 
     document.querySelector( '#save' ).addEventListener( 'click', () => {
       var editorData = Myeditor.getData();
-      var qqq = document.getElementById("www");
+      var qqq = document.getElementById("hidden_body_field");
       qqq.value = editorData;
       return true;
       } );

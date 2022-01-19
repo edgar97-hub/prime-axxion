@@ -94,7 +94,7 @@
 </div>
 
 <div class="form-group col-sm-6">
-    {!! Form::textarea('body', null, ['id'=>'www','style'=>'display:none','class' => 'form-control']) !!}
+    {!! Form::textarea('body', null, ['id'=>'hidden_body_field','style'=>'display:none','class' => 'form-control']) !!}
 </div>
 
 
@@ -108,7 +108,7 @@
   </div>
 
   <div  id="editor"  class="form-group col-sm-12 col-lg-12">
-      {!! Form::textarea('qqq', null, ['id'=>'editorText','class' => 'form-control']) !!}
+      {!! Form::textarea('body', null, ['id'=>'editorText','class' => 'form-control']) !!}
   </div>
 </div>
 

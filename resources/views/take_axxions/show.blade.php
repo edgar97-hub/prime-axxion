@@ -15,7 +15,7 @@
                          <div class="card">
                              <div class="card-header">
                                  <strong>Detalles</strong>
-                                 <input type="checkbox" name="answer" id="ccc" style = "display:none"/>
+                                 <input type="checkbox" name="answer" id="show" style = "display:none"/>
 
                                   <a href="{{ route('takeAxxions.index') }}" class="btn btn-light">atrás</a>
                              </div>
