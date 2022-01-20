@@ -40,13 +40,14 @@
 <!-- Title Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('title', 'Título:') !!}
-    {!! Form::text('title', null, ['id' => 'title','class' => 'form-control']) !!}
+    {!! Form::text('title', null, ['style'=>'width:23cm','id' => 'title','class' => 'form-control']) !!}
 </div>
 
 <!-- User Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('user_id', 'Usuario creador del blog:',['style'=>'display:none','class' => 'form-control']) !!}
-    {!! Form::number('user_id',  Auth::user()->id, ['id' => 'user','style'=>'display:none','class' => 'form-control']) !!}
+    {!! Form::number('user_id',   Auth::user()->id, ['style'=>'display:none','class' => 'form-control']) !!}
+
 
 <div class="form-group">
     <select  style="display:none" name="user_field_2" id="user_field_2" class="form-control" onchange="getSelectValueUser(this)">
@@ -74,12 +75,12 @@
 <!-- Video Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('video', 'Video 1:') !!}
-    {!! Form::text('video_1', null, ['class' => 'form-control']) !!}
+    {!! Form::text('video_1', null, ['style'=>'width:23cm','class' => 'form-control']) !!}
 
 </div>
 <div class="form-group col-sm-6">
     {!! Form::label('video', 'Video 2:') !!}
-    {!! Form::text('video_2', null, ['class' => 'form-control']) !!}
+    {!! Form::text('video_2', null, ['style'=>'width:23cm','class' => 'form-control']) !!}
 
 </div>
 
@@ -89,7 +90,7 @@
 <!-- Podcast Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('podcast', 'Podcast:') !!}
-    {!! Form::text('podcast', null, ['class' => 'form-control']) !!}
+    {!! Form::text('podcast', null, ['style'=>'width:23cm','class' => 'form-control']) !!}
 
 </div>
 
@@ -132,7 +133,7 @@
 
 <script type="text/javascript">
         var category = document.getElementById("category");
-        var user = document.getElementById("user");
+        //var user = document.getElementById("user");
 
         function getSelectValueCategory(obj)
         {
@@ -140,7 +141,7 @@
         }
         function getSelectValueUser(obj)
         {
-          user.value = obj.options[obj.selectedIndex].getAttribute('data-id');
+          //user.value = obj.options[obj.selectedIndex].getAttribute('data-id');
 
         }
 </script>

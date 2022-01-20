@@ -43,10 +43,10 @@ class TakeAxxion extends Model implements HasMedia
 
 
     public $fillable = [
+        'user_id',
         'category_id',
         'level',
         'number_visits',
-        'user_id',
         'title',
         'short_description',
         'img',

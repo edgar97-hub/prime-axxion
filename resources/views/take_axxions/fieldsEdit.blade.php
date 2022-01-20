@@ -60,7 +60,7 @@
 <!-- Title Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('title', 'Título:') !!}
-    {!! Form::text('title', null, ['class' => 'form-control']) !!}
+    {!! Form::text('title', null, ['style'=>'width:23cm','class' => 'form-control']) !!}
 </div>
 
 <!-- User Id Field -->
@@ -108,18 +108,18 @@
 <!-- Video Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('video', 'Video 1:') !!}
-    {!! Form::text('video_1', null, ['class' => 'form-control']) !!}
+    {!! Form::text('video_1', null, ['style'=>'width:23cm','class' => 'form-control']) !!}
 </div>
 <div class="form-group col-sm-6">
     {!! Form::label('video', 'Video 2:') !!}
-    {!! Form::text('video_2', null, ['class' => 'form-control']) !!}
+    {!! Form::text('video_2', null, ['style'=>'width:23cm','class' => 'form-control']) !!}
 </div>
 <div class="clearfix"></div>
 
 <!-- Podcast Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('podcast', 'Podcast:') !!}
-    {!! Form::text('podcast', null, ['class' => 'form-control']) !!}
+    {!! Form::text('podcast', null, ['style'=>'width:23cm','class' => 'form-control']) !!}
 </div>
 
 <div class="form-group col-sm-6">

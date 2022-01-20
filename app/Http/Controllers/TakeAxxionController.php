@@ -13,6 +13,7 @@ use App\Repositories\MakeImg;
 use App\Models\TakeAxxion;
 use DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -53,6 +54,8 @@ class TakeAxxionController extends AppBaseController
         $levels = $this->takeAxxionRepository->getEnums('take_axxions','level');
         $categories = $this->takeAxxionRepository->getCategories();
         $users = $this->takeAxxionRepository->getUsers();
+        //$userId = Auth::id();
+        //dd($userId);
 
         return view('take_axxions.create',compact('levels','categories','users'));
 
@@ -68,14 +71,16 @@ class TakeAxxionController extends AppBaseController
     public function store(CreateTakeAxxionRequest $request)
     {
         $input = $request->all();
+
         $file_1 = 'img';
-        //$file_2 = 'img_2';
+        $file_2 = 'img_2';
         if ($request->hasFile($file_1)) {
           $filePath = 'img/takeaxxion/';         
           $input = $this->makeFile($request,$filePath,$file_1);
         }
          
         $takeAxxion = $this->takeAxxionRepository->create($input);
+
 
         Flash::success('registro guardado con éxito.');
         return redirect(route('takeAxxions.index'));
@@ -174,11 +179,9 @@ class TakeAxxionController extends AppBaseController
 
             return redirect(route('takeAxxions.index'));
         }
-        $file_1 = 'img_1';
-        $file_2 = 'img_2';
+        $file_1 = 'img';
         $filePath = 'img/takeaxxion/';
         $this->deleteFile($filePath,$takeAxxion,$file_1);
-        $this->deleteFile($filePath,$takeAxxion,$file_2);
         $this->takeAxxionRepository->delete($id);
         Flash::success('registro eliminado con exito.');
 

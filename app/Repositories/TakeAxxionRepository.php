@@ -156,28 +156,35 @@ class TakeAxxionRepository extends BaseRepository
       
       if(!$data->isEmpty())
       {
-        $str = 'https://open.spotify.com/';
-        $index_1 = strlen($str);
-        $index_2 = strlen($data[0]->podcast);
-  
+        $url_1 = 'https://open.spotify.com/';
+        $url_2 = 'https://spotify.com/';
+
+        $strlen_url_1 = strlen($url_1);
+        $strlen_url_2 = strlen($url_2);
+        //$index_1 = strlen($str_1);
+        //$index_1 = strlen($data[0]->podcast);
+        $strlen = strlen($data[0]->podcast);
+   
+
+
+        if(substr($data[0]->podcast,0, $strlen_url_1) == $url_1)
+        {
+          $data[0]->podcast = substr($data[0]->podcast , $strlen_url_1 -1 , $strlen);
+        }
+        if(substr($data[0]->podcast,0, $strlen_url_2) == $url_2)
+        {
+          $data[0]->podcast = substr($data[0]->podcast , $strlen_url_2 -1 , $strlen);
+
+        }
         $data[0]->img = url('/storage/'.$data[0]->img);
         $data[0]->video_1 = $this->parseYtUrl($data[0]->video_1);
         $data[0]->video_2 = $this->parseYtUrl($data[0]->video_2);
-        $data[0]->podcast = substr($data[0]->podcast , $index_1 - 1, $index_2);
+        //$data[0]->podcast = substr($data[0]->podcast , $index_1 - 1, $index_2);
       }
       
       $data = json_decode($data);
 
-      //foreach ($getTakeAxxion as $value) 
-      //{
-        //$value->name_category = $value->get_category->name_category;
-        //$value->name_user = $value->get_user->name;
-      //}
-
-      //dd($getTakeAxxion);
-
      return  $data;
-
     }
     public function getTakeAxxionMostVisits()
     {

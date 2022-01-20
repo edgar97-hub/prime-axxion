@@ -19,8 +19,8 @@ $(document).ready(function () {
     editCards = true;
   }
 
-  var user_id = $('#user_field_2').val();
-  $('#user').val(user_id);
+  //var user_id = $('#user_field_2').val();
+  //$('#user').val(user_id);
   var category_id = $('#category_field_2').val();
   $('#category').val(category_id);
 
