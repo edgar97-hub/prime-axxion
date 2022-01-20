@@ -1,6 +1,13 @@
+<div id = "allMessage" style="display:none"  class="alert alert-danger">
+    <ul id = "message_title" >
+    </ul>
+    <ul id = "message_img" >
+    </ul>
+</div>
+
 <!-- Textitle Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('textitle', 'Campo de titulo:') !!}
+    {!! Form::label('textitle', 'titulo:') !!}
     {!! Form::text('textitle', null, ['id' => 'textitle','class' => 'form-control']) !!}
 </div>
 
@@ -17,11 +24,11 @@
 </div>
 
 <div class="form-group col-sm-6">
-<span id = "message_title" style="color:red"> </span> 
+<span id = "qq" style="color:red"> </span> 
 </div>
 
 <div class="form-group col-sm-6">
-<span id = "message_img" style="color:red"> </span>  
+<span id = "qq" style="color:red"> </span>  
 </div>
 
 

@@ -127,7 +127,7 @@
 </div>
 
 
-<div id="document-editor" >
+<div>
 
   <div id="toolbar-container">
     {!! Form::label('body', 'cuerpo del blog:') !!}

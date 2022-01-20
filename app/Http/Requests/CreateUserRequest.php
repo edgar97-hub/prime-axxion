@@ -25,6 +25,24 @@ class CreateUserRequest extends FormRequest
      */
     public function rules()
     {
-        return User::$rules;
+        $rules = [
+            'name'=> 'required',
+            'email'=> 'required',
+            'password'=> 'required',
+
+        ];
+
+        return $rules;
+    }
+    public function messages()
+    {
+        $messages = [
+            'name.required' => 'El campo nombre es obligatorio',
+            'email.required' => 'El campo correo electrónico es obligatorio',
+            'password.required' => 'El campo contraseña es obligatorio',
+
+        ];
+
+        return $messages;
     }
 }

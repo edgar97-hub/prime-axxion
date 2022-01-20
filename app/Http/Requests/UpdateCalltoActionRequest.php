@@ -36,7 +36,7 @@ class UpdateCalltoActionRequest extends FormRequest
     public function messages()
     {
         $messages = [
-            'title.required' => 'El campo titulo ligero es obligatorio',
+            'title.required' => 'El campo titulo es obligatorio',
         ];
 
         return $messages;

@@ -126,7 +126,7 @@ class TakeAxxionController extends AppBaseController
         $levels = $this->takeAxxionRepository->getEnums('take_axxions','level');
         $categories = $this->takeAxxionRepository->getCategories();
         $users = $this->takeAxxionRepository->getUsers();
-        //dd($users);
+        //dd($takeAxxion);
 
         return view('take_axxions.edit',compact('takeAxxion','levels','categories','users'));
     }

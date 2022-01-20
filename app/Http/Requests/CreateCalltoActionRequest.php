@@ -37,7 +37,7 @@ class CreateCalltoActionRequest extends FormRequest
     {
         $messages = [
             'title.required' => 'El campo titulo es obligatorio',
-            'img.required' => 'El campo video es obligatorio.',
+            'img.required' => 'El campo video es obligatorio',
         ];
 
         return $messages;

@@ -125,21 +125,24 @@ $("#saveCard").click(function() {
   return true;
 }); 
 
-$("#saveSeccionAzul").click(function() {
+//$("#saveSeccionAzul").click(function() {
 
-  title = $('#title').val();
-  if(isEmptyOrSpaces(title)){
-    document.getElementById("message").innerHTML = "El campo título ligero es obligatorio";
+  //title = $('#title').val();
+  //if(isEmptyOrSpaces(title)){
+    //document.getElementById("message").innerHTML = "El campo título ligero es obligatorio";
 
-    return false;
-  }
-  return true;
-}); 
+    //return false;
+  //}
+  //return true;
+//}); 
 
 $("#saveImg").click(function() {
   
   if(!edit)
   {
+    var x = document.getElementById("allMessage");
+    x.style.display = "block";
+    
     //alert("Edit: "+$('#img').get(0).files.length);
     if ($('#img').get(0).files.length === 0) 
     {
@@ -158,6 +161,9 @@ $("#saveSeccionPhotoInstitutional").click(function() {
 
   if(!edit)
   {
+    var x = document.getElementById("allMessage");
+    x.style.display = "block";
+
     title = $('#textitle').val();
     if(isEmptyOrSpaces(title))
     {
@@ -175,6 +181,9 @@ $("#saveSeccionPhotoInstitutional").click(function() {
   }
   else
   {
+    var x = document.getElementById("allMessage");
+    x.style.display = "block";
+
     title = $('#textitle').val();
     if(isEmptyOrSpaces(title))
     {

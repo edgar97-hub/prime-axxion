@@ -25,8 +25,22 @@ class UpdateNosotrosdetalleRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = Nosotrosdetalle::$rules;
-        
+        $rules = [
+            'title'=> 'required',
+            'textcolumn1'=> 'required',
+            'textcolumn2'=> 'required',
+        ];
+
         return $rules;
+    }
+    public function messages()
+    {
+        $messages = [
+            'title.required' => 'El campo título ligero es obligatorio',
+            'textcolumn1.required' => 'El campo breve texto 1 es obligatorio',
+            'textcolumn2.required' => 'El campo breve texto 2 es obligatorio',
+        ];
+
+        return $messages;
     }
 }

@@ -1,6 +1,6 @@
 <!-- Textitle Field -->
 <div class="form-group">
-    {!! Form::label('textitle', 'Campo de titulo:') !!}
+    {!! Form::label('textitle', 'titulo:') !!}
     <p>{{ $img->textitle }}</p>
 </div>
 

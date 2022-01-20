@@ -1,3 +1,8 @@
+<div id = "allMessage" style="display:none"  class="alert alert-danger">
+    <ul id = "message" >
+    </ul>
+</div>
+
 <!-- Img Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('img', 'Img:') !!}
@@ -10,10 +15,7 @@
   
     {!! Form::number('our_id', $img_id, ['class' => 'form-control','style'=>'display:none']) !!}
 </div>
-
-<div class="form-group col-sm-6">
-<span id = "message" style="color:red"> </span>  
-</div>
+ 
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

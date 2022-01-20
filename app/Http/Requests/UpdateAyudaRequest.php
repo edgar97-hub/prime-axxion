@@ -25,8 +25,17 @@ class UpdateAyudaRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = Ayuda::$rules;
-        
+        $rules = [
+            'question'=> 'required',
+        ];
+
         return $rules;
+    }
+    public function messages()
+    {
+        $messages = [
+            'question.required' => 'El campo pregunta es obligatorio',
+        ];
+        return $messages;
     }
 }

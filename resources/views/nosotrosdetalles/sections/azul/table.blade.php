@@ -3,9 +3,9 @@
         <thead>
             <tr>
               
-              <th>Campo de título </th>
-              <th>Campo de texto 1</th>
-              <th>Campo de texto 2</th>
+              <th>título ligero </th>
+              <th>breve texto 1</th>
+              <th>breve texto 2</th>
              
                 <th colspan="3">Acciones</th>
             </tr>

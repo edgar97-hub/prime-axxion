@@ -25,8 +25,20 @@ class UpdateUserRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = User::$rules;
-        
+        $rules = [
+            'name'=> 'required',
+            'email'=> 'required',
+        ];
+
         return $rules;
+    }
+    public function messages()
+    {
+        $messages = [
+            'name.required' => 'El campo nombre es obligatorio',
+            'email.required' => 'El campo correo electrónico es obligatorio',
+        ];
+
+        return $messages;
     }
 }

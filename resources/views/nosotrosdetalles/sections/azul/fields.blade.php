@@ -1,18 +1,18 @@
 <!-- Title Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('title', 'Campo de título ligero:') !!}
+    {!! Form::label('title', 'título ligero:') !!}
     {!! Form::text('title', null, ['id' => 'title','class' => 'form-control']) !!}
 </div>
 
 <!-- Textcolumn1 Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('textcolumn1', 'campo de texto 1 :') !!}
+    {!! Form::label('textcolumn1', 'breve texto 1 :') !!}
     {!! Form::textarea('textcolumn1', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Textcolumn2 Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('textcolumn2', 'campo de texto 2:') !!}
+    {!! Form::label('textcolumn2', 'breve texto 2:') !!}
     {!! Form::textarea('textcolumn2', null, ['class' => 'form-control']) !!}
 </div>
 
