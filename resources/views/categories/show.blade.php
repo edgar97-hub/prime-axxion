@@ -8,8 +8,6 @@
       </li>
       <li class="breadcrumb-item active">Detalles</li>
     </ol>
-
-
      <div class="container-fluid">
           <div class="animated fadeIn">
                  @include('coreui-templates::common.errors')

@@ -11,6 +11,10 @@
         </thead>
         <tbody>
         @foreach($banners as $banner)
+             @php
+              $numberRecords += 1 ;
+            @endphp
+
             <tr>
                 <td>{{ $banner->titulolight }}</td>
             <td>{{ $banner->titulonegrita }}</td>
@@ -28,6 +32,12 @@
                 </td>
             </tr>
         @endforeach
+        @if ($numberRecords >2)
+           <script>
+            var x = document.getElementById("addRecords");
+            x.style.display = "none";
+           </script>
+        @endif
         </tbody>
     </table>
 </div>

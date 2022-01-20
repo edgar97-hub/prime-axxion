@@ -145,7 +145,7 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Guardar', ['id'=>'save','class' => 'btn btn-primary']) !!}
+    {!! Form::submit('Guardar', ['id'=>'saveTakeAxxion','class' => 'btn btn-primary']) !!}
     <a href="{{ route('takeAxxions.index') }}" class="btn btn-secondary">Cancelar</a>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

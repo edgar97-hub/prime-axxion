@@ -25,6 +25,21 @@ class CreatecategoryRequest extends FormRequest
      */
     public function rules()
     {
-        return category::$rules;
+        $rules = [
+            'name_category'=> 'required',
+            'img'=> 'required',
+
+        ];
+
+        return $rules;
+    }
+    public function messages()
+    {
+        $messages = [
+            'name_category.required' => 'El campo categoria es obligatorio',
+            'img.required' => 'El campo img es obligatorio.',
+        ];
+
+        return $messages;
     }
 }

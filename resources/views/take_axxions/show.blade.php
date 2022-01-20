@@ -2,11 +2,13 @@
 
 @section('content')
      <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="{{ route('takeAxxions.index') }}">Take Axxion</a>
-            </li>
-            <li class="breadcrumb-item active">Detalles</li>
-     </ol>
+      <li class="breadcrumb-item">Lista</li>
+      <li class="breadcrumb-item">
+        <a href="#">Take Axxions</a>
+      </li>
+      <li class="breadcrumb-item active">Detalles</li>
+    </ol>
+
      <div class="container-fluid">
           <div class="animated fadeIn">
                  @include('coreui-templates::common.errors')

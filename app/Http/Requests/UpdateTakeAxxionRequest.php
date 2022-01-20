@@ -23,10 +23,23 @@ class UpdateTakeAxxionRequest extends FormRequest
      *
      * @return array
      */
+     
     public function rules()
     {
-        $rules = TakeAxxion::$rules;
-        
+        $rules = [
+            'title'=> 'required',
+            'short_description'=> 'required',
+        ];
+
         return $rules;
+    }
+    public function messages()
+    {
+        $messages = [
+            'title.required' => 'El campo titulo es obligatorio',
+            'short_description.required' => 'El campo breve descripción es obligatorio.',
+        ];
+
+        return $messages;
     }
 }

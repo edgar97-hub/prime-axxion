@@ -7,7 +7,7 @@
 <!-- Img Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('img', 'Img:') !!}
-    {!! Form::file('img') !!}
+    {!! Form::file('img',['id' => 'img']) !!}
 </div>
 <div class="clearfix"></div>
 
@@ -15,7 +15,16 @@
   
     {!! Form::number('our_id', $img_id, ['class' => 'form-control','style'=>'display:none']) !!}
 </div>
-<span id = "message" style="color:red"> </span>  
+
+<div class="form-group col-sm-6">
+<span id = "message_title" style="color:red"> </span> 
+</div>
+
+<div class="form-group col-sm-6">
+<span id = "message_img" style="color:red"> </span>  
+</div>
+
+
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Guardar', ['id'=>'saveSeccionPhotoInstitutional','class' => 'btn btn-primary']) !!}

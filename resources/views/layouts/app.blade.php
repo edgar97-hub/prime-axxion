@@ -216,11 +216,13 @@
       console.error( error );
     } );
 
-    document.querySelector( '#save' ).addEventListener( 'click', () => {
+    document.querySelector( '#saveTakeAxxion' ).addEventListener( 'click', () => {
       var editorData = Myeditor.getData();
-      var qqq = document.getElementById("hidden_body_field");
-      qqq.value = editorData;
+      var hidden_body_field = document.getElementById("hidden_body_field");
+      hidden_body_field.value = editorData;
+
       return true;
+      
       } );
  
 

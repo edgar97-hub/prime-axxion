@@ -25,6 +25,25 @@ class CreateBannerRequest extends FormRequest
      */
     public function rules()
     {
-        return Banner::$rules;
+        $rules = [
+            'titulolight'=> 'required',
+            'titulonegrita'=> 'required',
+            'textogeneral'=> 'required',
+            'img'=> 'required',
+
+        ];
+
+        return $rules;
+    }
+    public function messages()
+    {
+        $messages = [
+            'titulolight.required' => 'El campo titulo ligero es obligatorio',
+            'titulonegrita.required' => 'El campo titulo en negrita es obligatorio.',
+            'textogeneral.required' => 'El campo texto general es obligatorio.',
+            'img.required' => 'El campo img es obligatorio.',
+        ];
+
+        return $messages;
     }
 }

@@ -25,8 +25,19 @@ class UpdatecategoryRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = category::$rules;
-        
+        $rules = [
+            'name_category'=> 'required',
+
+        ];
+
         return $rules;
+    }
+    public function messages()
+    {
+        $messages = [
+            'name_category.required' => 'El campo categoria es obligatorio',
+        ];
+
+        return $messages;
     }
 }

@@ -16,7 +16,7 @@
                          <div class="card-header">
                              <i class="fa fa-align-justify"></i>
                              Banners
-                             <a class="pull-right" href="{{ route('banners.create') }}"><i class="fa fa-plus-square fa-lg"></i></a>
+                             <a id ="addRecords" class="pull-right" href="{{ route('banners.create') }}"><i class="fa fa-plus-square fa-lg"></i></a>
                          </div>
                          <div class="card-body">
                              @include('banners.table')

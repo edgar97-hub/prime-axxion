@@ -25,6 +25,21 @@ class CreateCalltoActionRequest extends FormRequest
      */
     public function rules()
     {
-        return CalltoAction::$rules;
+        $rules = [
+            'title'=> 'required',
+            'img'=> 'required',
+
+        ];
+
+        return $rules;
+    }
+    public function messages()
+    {
+        $messages = [
+            'title.required' => 'El campo titulo es obligatorio',
+            'img.required' => 'El campo video es obligatorio.',
+        ];
+
+        return $messages;
     }
 }

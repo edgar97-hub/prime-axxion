@@ -55,6 +55,7 @@
 
 	width: 20.8cm;
 	box-shadow: 2px 2px 1px rgba(0,0,0,.05);
+
 }
 #editor {
 	border-top-left-radius: 0;
@@ -64,5 +65,9 @@
 	min-height: 15cm;
 	padding: 1cm 1cm 2cm;
 	box-shadow: 2px 2px 1px rgba(0,0,0,.05);
+  overflow-y: scroll;
+  border: 1px solid #abb2b6;			
+
+
 }
  

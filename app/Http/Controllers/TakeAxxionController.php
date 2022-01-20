@@ -68,7 +68,6 @@ class TakeAxxionController extends AppBaseController
     public function store(CreateTakeAxxionRequest $request)
     {
         $input = $request->all();
-
         $file_1 = 'img';
         //$file_2 = 'img_2';
         if ($request->hasFile($file_1)) {

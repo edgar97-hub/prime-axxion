@@ -25,6 +25,22 @@ class CreateTakeAxxionRequest extends FormRequest
      */
     public function rules()
     {
-        return TakeAxxion::$rules;
+        $rules = [
+            'title'=> 'required',
+            'short_description'=> 'required',
+            'img'=> 'required',
+        ];
+
+        return $rules;
+    }
+    public function messages()
+    {
+        $messages = [
+            'title.required' => 'El campo titulo es obligatorio',
+            'short_description.required' => 'El campo breve descripción es obligatorio.',
+            'img.required' => 'El campo img es obligatorio.',
+        ];
+
+        return $messages;
     }
 }

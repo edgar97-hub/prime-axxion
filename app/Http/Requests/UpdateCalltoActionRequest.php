@@ -25,8 +25,20 @@ class UpdateCalltoActionRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = CalltoAction::$rules;
-        
+        $rules = [
+            'title'=> 'required',
+
+
+        ];
+
         return $rules;
+    }
+    public function messages()
+    {
+        $messages = [
+            'title.required' => 'El campo titulo ligero es obligatorio',
+        ];
+
+        return $messages;
     }
 }

@@ -1,3 +1,11 @@
+<div id = "allMessage" style="display:none"  class="alert alert-danger">
+    <ul id = "message_titulolight" >
+    </ul>
+    <ul id = "message_titulonegrita" >
+    </ul>
+    <ul id = "message_img" >
+    </ul>
+</div>
 <!-- Titulolight Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('titulolight', 'Titulo Ligero:') !!}
@@ -7,7 +15,7 @@
 <!-- Titulonegrita Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('titulonegrita', 'Título en negrita:') !!}
-    {!! Form::text('titulonegrita', null, ['class' => 'form-control']) !!}
+    {!! Form::text('titulonegrita', null, ['id' => 'titulonegrita','class' => 'form-control']) !!}
 </div>
 
 <!-- Img Field -->
@@ -16,13 +24,27 @@
     {!! Form::file('img') !!}
 </div>
 <div class="clearfix"></div>
-<span id = "message" style="color:red"> </span>  
+
+<div class="form-group col-sm-6">
+<span id = "message_titulolight" style="color:red"> </span>  
+</div>
+
+<div class="form-group col-sm-6">
+<span id = "message_titulonegrita" style="color:red"> </span>  
+</div>
+
+<div class="form-group col-sm-6">
+<span id = "message_img" style="color:red"> </span>  
+</div>
+
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Guardar', ['id'=>'saveCard','class' => 'btn btn-primary']) !!}
     <a href="{{ route('solutions.getView',2) }}" class="btn btn-secondary">Cancelar</a>
 </div>
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="{{ asset('auto.js') }}"></script>
 
  
 

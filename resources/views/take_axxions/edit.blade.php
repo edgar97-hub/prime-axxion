@@ -4,7 +4,7 @@
     <ol class="breadcrumb">
       <li class="breadcrumb-item">Lista</li>
       <li class="breadcrumb-item">
-        <a href="#">Take Axxion</a>
+        <a href="#">Take Axxions</a>
       </li>
       <li class="breadcrumb-item active">Editar</li>
     </ol>

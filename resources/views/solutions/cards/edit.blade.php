@@ -17,6 +17,8 @@
                           <div class="card-header">
                               <i class="fa fa-edit fa-lg"></i>
                               <strong>Editar</strong>
+                              <input type="checkbox" name="answer" id="editCards" style = "display:none"/>
+
                           </div>
                           <div class="card-body">
                               {!! Form::model($solution, ['route' => ['solutions.updateCard', $solution->id], 'method' => 'put', 'files' => true]) !!}

@@ -20,6 +20,8 @@
                           <div class="card-header">
                               <i class="fa fa-edit fa-lg"></i>
                               <strong>Editar</strong>
+                              <input type="checkbox" name="answer" id="Editar_category" style = "display:none"/>
+
                           </div>
                           <div class="card-body">
                               {!! Form::model($category, ['route' => ['categories.update', $category->id], 'method' => 'patch','files' => true]) !!}
@@ -34,3 +36,5 @@
          </div>
     </div>
 @endsection
+
+ 

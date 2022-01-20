@@ -47,7 +47,7 @@ class category extends Model
      * @var array
      */
     public static $rules = [
-        'name_category' => 'required',
+        //'name_category' => 'required',
         //'img'  => 'required'
     ];
 

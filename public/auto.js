@@ -1,12 +1,24 @@
 var title = "";
-var Card  = "";
-var Edit  = false;
+var card  = "";
+var edit  = false;
+var editCategory  = false;
+var editCards  = false;
+
+
 $(document).ready(function () {
     
    if (document.contains($('#Edit')[0])) {
-    Edit = true;
-
+    edit = true;
   }
+
+  if (document.contains($('#Editar_category')[0])) {
+    editCategory = true;
+  }
+
+  if (document.contains($('#editCards')[0])) {
+    editCards = true;
+  }
+
   var user_id = $('#user_field_2').val();
   $('#user').val(user_id);
   var category_id = $('#category_field_2').val();
@@ -53,20 +65,62 @@ $("#saveTitle").click(function() {
 
   title = $('#title').val();
   if(isEmptyOrSpaces(title)){
-    document.getElementById("message").innerHTML = "El campo de título es obligatorio";
+    var x = document.getElementById("allMessage");
+    x.style.display = "block";
+    document.getElementById("message").innerHTML = "El campo título es obligatorio";
 
     return false;
   }
   return true;
 });
 
+
+
+
 $("#saveCard").click(function() {
 
-  Card = $('#titulolight').val();
-  if(isEmptyOrSpaces(Card)){
-    document.getElementById("message").innerHTML = "El campo de título ligero es obligatorio";
+  titulolight = $('#titulolight').val();
+  titulonegrita = $('#titulonegrita').val();
+  document.getElementById("message_titulolight").innerHTML = "";
+  document.getElementById("message_titulonegrita").innerHTML = "";
+  document.getElementById("message_img").innerHTML = "";
+  
 
-    return false;
+  if(!editCards)
+  {
+    var x = document.getElementById("allMessage");
+    x.style.display = "block";
+
+    if(isEmptyOrSpaces(titulolight)){
+      document.getElementById("message_titulolight").innerHTML = "El campo título ligero es obligatorio";
+    }
+    if(isEmptyOrSpaces(titulonegrita)){
+      document.getElementById("message_titulonegrita").innerHTML = "El campo título en negrita es obligatorio";
+    }
+    if ($('#img').get(0).files.length === 0) 
+      {
+        document.getElementById("message_img").innerHTML = "El campo img es obligatorio";
+    }
+    if(isEmptyOrSpaces(titulolight) || isEmptyOrSpaces(titulonegrita) || ($('#img').get(0).files.length === 0)){
+  
+      return false;
+    }
+  }
+  else
+  {
+    var x = document.getElementById("allMessage");
+    x.style.display = "block";
+    
+    if(isEmptyOrSpaces(titulolight)){
+      document.getElementById("message_titulolight").innerHTML = "El campo título ligero es obligatorio";
+    }
+    if(isEmptyOrSpaces(titulonegrita)){
+      document.getElementById("message_titulonegrita").innerHTML = "El campo título en negrita es obligatorio";
+    }
+    if(isEmptyOrSpaces(titulolight) || isEmptyOrSpaces(titulonegrita)){
+  
+      return false;
+    }
   }
   return true;
 }); 
@@ -75,42 +129,90 @@ $("#saveSeccionAzul").click(function() {
 
   title = $('#title').val();
   if(isEmptyOrSpaces(title)){
-    document.getElementById("message").innerHTML = "El campo de título ligero es obligatorio";
+    document.getElementById("message").innerHTML = "El campo título ligero es obligatorio";
 
     return false;
   }
   return true;
 }); 
 
-
 $("#saveImg").click(function() {
   
-  if(!Edit)
+  if(!edit)
   {
     //alert("Edit: "+$('#img').get(0).files.length);
     if ($('#img').get(0).files.length === 0) 
     {
-      document.getElementById("message").innerHTML = "El campo de img es obligatorio";
+      document.getElementById("message").innerHTML = "El campo img es obligatorio";
     
       return false;
     }
   }
   return true;
 }); 
+
 $("#saveSeccionPhotoInstitutional").click(function() {
 
-  textitle = $('#textitle').val();
-  if(isEmptyOrSpaces(textitle)){
-    document.getElementById("message").innerHTML = "El campo de título es obligatorio";
+  document.getElementById("message_title").innerHTML = "";
+  document.getElementById("message_img").innerHTML = "";
 
-    return false;
+  if(!edit)
+  {
+    title = $('#textitle').val();
+    if(isEmptyOrSpaces(title))
+    {
+      document.getElementById("message_title").innerHTML = "El campo título es obligatorio";
+    }
+    if ($('#img').get(0).files.length === 0) 
+    {
+      document.getElementById("message_img").innerHTML = "El campo img es obligatorio";
+    }
+    if(isEmptyOrSpaces(title) || ($('#img').get(0).files.length === 0)){
+
+      return false;
+    }
+    return true;
+  }
+  else
+  {
+    title = $('#textitle').val();
+    if(isEmptyOrSpaces(title))
+    {
+      document.getElementById("message_title").innerHTML = "El campo título es obligatorio";
+      return false;
+    }
   }
   return true;
 });
 
-//$('#LiteraryGenre').val("w");
+//$("#save_category").click(function() {
 
-//$('#category_field_2').on('change', function() {
-  //alert( this.value );
-//});
+  //document.getElementById("message_nameCategory").innerHTML = "";
+  //document.getElementById("message_img").innerHTML = "";
+
+  //if(!editCategory)
+  //{
+    //title = $('#nameCategory').val();
+    //if(isEmptyOrSpaces(title))
+    //{
+      //document.getElementById("message_nameCategory").innerHTML = "El campo título es obligatorio";
+    //}
+
+    //if ($('#img').get(0).files.length === 0) 
+    //{
+      //document.getElementById("message_img").innerHTML = "El campo img es obligatorio";
+    //}
+
+    //if(isEmptyOrSpaces(title) || ($('#img').get(0).files.length === 0))
+    //{
+      //return false;
+    //}
+    //return true;
+  //}
+  //return true;
+//}); 
+
+
+
+
 

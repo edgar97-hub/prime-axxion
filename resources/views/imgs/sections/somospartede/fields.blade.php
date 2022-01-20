@@ -10,7 +10,11 @@
   
     {!! Form::number('our_id', $img_id, ['class' => 'form-control','style'=>'display:none']) !!}
 </div>
+
+<div class="form-group col-sm-6">
 <span id = "message" style="color:red"> </span>  
+</div>
+
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Guardar', ['id'=>'saveImg','class' => 'btn btn-primary']) !!}

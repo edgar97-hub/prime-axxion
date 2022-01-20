@@ -1,9 +1,16 @@
+<div id = "allMessage" style="display:none"  class="alert alert-danger">
+    <ul id = "message" >
+    </ul>
+</div>
+
 <!-- Title Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('title', 'Titulo:') !!}
     {!! Form::text('title', null, ['id' => 'title','class' => 'form-control']) !!}
 </div>
-<span id = "message" style="color:red"> </span>  
+
+ 
+
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Guardar', ['id'=>'saveTitle', 'class' => 'btn btn-primary']) !!}

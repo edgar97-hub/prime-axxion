@@ -46,8 +46,8 @@ class TakeAxxion extends Model implements HasMedia
         'category_id',
         'level',
         'number_visits',
-        'title',
         'user_id',
+        'title',
         'short_description',
         'img',
         'body',
@@ -78,6 +78,12 @@ class TakeAxxion extends Model implements HasMedia
         //'category_id' => 'required',
         //'user_id' => 'required',
         //'body'=> 'required',
+        //'title'=> 'required',
+        //'short_description'=> 'required',
+        //'img'=> 'required',
+
+
+
     ];
 
     public function getCategory()

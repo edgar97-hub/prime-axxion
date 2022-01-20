@@ -123,6 +123,26 @@ class TakeAxxionRepository extends BaseRepository
     }
     
 
+    public function parseYtUrl($url) 
+    {
+        $pattern = '#^(?:https?://)?';     
+        $pattern .= '(?:www\.)?';        
+        $pattern .= '(?:';                
+        $pattern .=   'youtu\.be/';       
+        $pattern .=   '|youtube\.com';    
+        $pattern .=   '(?:';               
+        $pattern .=     '/embed/';         
+        $pattern .=     '|/v/';            
+        $pattern .=     '|/watch\?v=';     
+        $pattern .=     '|/watch\?.+&v='; 
+        $pattern .=   ')';               
+        $pattern .= ')';                   
+        $pattern .= '([\w-]{11})';         
+        $pattern .= '(?:.+)?$#x';          
+        preg_match($pattern, $url, $matches);
+        return (isset($matches[1])) ? $matches[1] : false;
+    }
+
     public function getRecordTakeAxxion($id)
     {
 
@@ -132,15 +152,20 @@ class TakeAxxionRepository extends BaseRepository
       }])->select('id','category_id','level','number_visits','user_id','title','short_description','img','body','video_1','video_2','podcast','created_at')
       ->where('id', $id)
       ->get();
-      foreach ($data as $value) 
+
+      
+      if(!$data->isEmpty())
       {
-        $value->img = url('/storage/'.$value->img);
-        $value->video_1 = url('/storage/'.$value->video_1);
-        $value->video_2 = url('/storage/'.$value->video_2);
-        $value->podcast = url('/storage/'.$value->podcast);
-        //$value['name_category'];
-        //$value['name_user'];
+        $str = 'https://open.spotify.com/';
+        $index_1 = strlen($str);
+        $index_2 = strlen($data[0]->podcast);
+  
+        $data[0]->img = url('/storage/'.$data[0]->img);
+        $data[0]->video_1 = $this->parseYtUrl($data[0]->video_1);
+        $data[0]->video_2 = $this->parseYtUrl($data[0]->video_2);
+        $data[0]->podcast = substr($data[0]->podcast , $index_1 - 1, $index_2);
       }
+      
       $data = json_decode($data);
 
       //foreach ($getTakeAxxion as $value) 
