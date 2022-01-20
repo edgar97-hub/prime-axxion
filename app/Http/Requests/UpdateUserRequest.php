@@ -28,6 +28,8 @@ class UpdateUserRequest extends FormRequest
         $rules = [
             'name'=> 'required',
             'email'=> 'required',
+            'password'=> 'required',
+
         ];
 
         return $rules;

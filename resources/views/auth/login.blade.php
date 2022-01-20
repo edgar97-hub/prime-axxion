@@ -62,9 +62,12 @@
                                     <button class="btn btn-primary px-4" type="submit">Iniciar</button>
                                 </div>
                                 <div class="col-6 text-right">
-                                    <a class="btn btn-link px-0" href="{{ url('/password/reset') }}">
+                                    <a class="btn btn-link px-0" href="{{ route('forget.password.get') }}">
                                         Olvido su contraseña?
                                     </a>
+
+                                     
+
                                 </div>
                             </div>
                         </form>

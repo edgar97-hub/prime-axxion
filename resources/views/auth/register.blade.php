@@ -81,7 +81,7 @@
                             @endif
                         </div>
                         <button type="submit" class="btn btn-primary btn-block btn-flat">Registrarse</button>
-                        <a href="{{ url('/login') }}" class="text-center">IYa tengo una membresía</a>
+                        <a href="{{ url('/login') }}" class="text-center">Ya tengo una membresía</a>
                     </form>
                 </div>
             </div>

@@ -22,19 +22,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icheck-bootstrap/3.0.1/icheck-bootstrap.min.css"
           integrity="sha512-8vq2g5nHE062j3xor4XxPeZiPjmRDh6wlufQlfC6pdQ/9urJkU07NM0tEREeymP++NczacJ/Q59ul+/K2eYvcg=="
           crossorigin="anonymous"/>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
 
     <!-- /.login-logo -->
+
+ 
+
+
+
     <div class="card">
         <div class="card-body login-card-body">
             <p class="login-box-msg">¿Olvidaste tu contraseña? Aquí puede recuperar fácilmente una nueva contraseña.</p>
@@ -50,9 +47,10 @@
 
             <form action="{{ route('forget.password.post') }}" method="POST">
                 @csrf
+
                 <div class="form-group row">
-                    <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
-                    <div class="col-md-6">
+                    <label  class="col-md-3 col-form-label ">Email</label>
+                    <div class="col-md-8">
                         <input type="text" id="email_address" class="form-control" name="email" required autofocus>
                         @if ($errors->has('email'))
                             <span class="text-danger">{{ $errors->first('email') }}</span>
