@@ -11,7 +11,7 @@
 
 
   @if (count($errors) > 0)
-  <div style="display:none"  class="alert alert-danger">
+  <div class="alert alert-danger">
     <strong>¡Ups!</strong> Hubo algunos problemas con tu entrada.<br><br>
     <ul>
        @foreach ($errors->all() as $error)
@@ -20,9 +20,10 @@
     </ul>
   </div>
 @endif
+
+
 <div class="container-fluid">
           <div class="animated fadeIn">
-                @include('coreui-templates::common.errors')
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">

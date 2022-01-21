@@ -1,8 +1,3 @@
-<div id = "allMessage" style="display:none"  class="alert alert-danger">
-    <ul id = "message" >
-    </ul>
-</div>
-
 <!-- Title Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('title', 'Titulo:') !!}
