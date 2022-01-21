@@ -27,7 +27,7 @@ class UpdateUserRequest extends FormRequest
     {
         $rules = [
             'name'=> 'required',
-            'email'=> 'required',
+            'email'=> 'required|email',
             'password'=> 'required',
 
         ];
