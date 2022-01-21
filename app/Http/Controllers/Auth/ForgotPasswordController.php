@@ -11,6 +11,7 @@ use App\Models\User;
 use Mail; 
 use Hash;
 use Illuminate\Support\Str;
+use Redirect;
 
 class ForgotPasswordController extends Controller
 {
@@ -100,19 +101,25 @@ class ForgotPasswordController extends Controller
           $updatePassword = DB::table('password_resets')
                               ->where([
                                 'email' => $request->email, 
-                                'token' => $request->token
+                              'token' => $request->token
                               ])
                               ->first();
 
-          //if(!$updatePassword){
-            //  return back()->withInput()->with('error', 'Invalid token!');
-          //}
+          //return redirect()->back()->with('success', 'your message,here');  
+          if(!$updatePassword){
+              return Redirect::back()->withErrors(['token_message' => 'token no valido!']); 
 
-          $user = User::where('email', $request->email)
-                      ->update(['password' => Hash::make($request->password)]);
-          DB::table('password_resets')->where(['email'=> $request->email])->delete();
 
-          return redirect('/login')->with('message', 'Tu contraseña ha sido cambiada!');
+          }
+
+          //$user = User::where('email', $request->email)
+                      //->update(['password' => Hash::make($request->password)]);
+          //DB::table('password_resets')->where(['email'=> $request->email])->delete();
+          //return back()->withInput()->with('error', 'Invalid token!');
+          //return redirect()->back()->with('error', 'token no valido!');
+          //return Redirect::back()->withErrors(['Invalid token!', 'message']);
+          //return redirect()->route('login')->with('message', 'Tu contraseña ha sido cambiada!');
+          return redirect('/login')->with('success', 'Tu contraseña ha sido cambiada!');
 
       }
 }

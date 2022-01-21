@@ -36,6 +36,19 @@
 <body class="hold-transition login-page">
 <div class="login-box">
 
+ 
+
+
+
+ 
+
+ 
+
+                   @if ($errors->has('token_message'))
+                     <span class="text-danger">{{ $errors->first('token_message') }}</span>
+                    @endif
+
+
     <div class="card">
         <div class="card-body login-card-body">
             <p class="login-box-msg">

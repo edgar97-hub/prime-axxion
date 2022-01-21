@@ -20,9 +20,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/css/flag-icon.min.css">
 </head>
 <body class="app flex-row align-items-center">
+
+
+  
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
+
+                 @if (Session::has('success'))
+                <div class="alert alert-success" role="alert">
+                {{ Session::get('success') }}
+                </div>
+                @endif
+
             <div class="card-group">
                 <div class="card p-4">
                     <div class="card-body">
