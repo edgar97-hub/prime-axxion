@@ -88,8 +88,7 @@ $("#saveCard").click(function() {
 
   if(!editCards)
   {
-    var x = document.getElementById("allMessage");
-    x.style.display = "block";
+ 
 
     if(isEmptyOrSpaces(titulolight)){
       document.getElementById("message_titulolight").innerHTML = "El campo título ligero es obligatorio";
@@ -103,13 +102,14 @@ $("#saveCard").click(function() {
     }
     if(isEmptyOrSpaces(titulolight) || isEmptyOrSpaces(titulonegrita) || ($('#img').get(0).files.length === 0)){
   
+      var x = document.getElementById("allMessage");
+      x.style.display = "block";
       return false;
     }
   }
   else
   {
-    var x = document.getElementById("allMessage");
-    x.style.display = "block";
+    
     
     if(isEmptyOrSpaces(titulolight)){
       document.getElementById("message_titulolight").innerHTML = "El campo título ligero es obligatorio";
@@ -119,6 +119,8 @@ $("#saveCard").click(function() {
     }
     if(isEmptyOrSpaces(titulolight) || isEmptyOrSpaces(titulonegrita)){
   
+      var x = document.getElementById("allMessage");
+      x.style.display = "block";
       return false;
     }
   }
@@ -140,12 +142,14 @@ $("#saveImg").click(function() {
   
   if(!edit)
   {
-    var x = document.getElementById("allMessage");
-    x.style.display = "block";
+   
     
     //alert("Edit: "+$('#img').get(0).files.length);
     if ($('#img').get(0).files.length === 0) 
     {
+      var x = document.getElementById("allMessage");
+      x.style.display = "block";
+      
       document.getElementById("message_img").innerHTML = "El campo img es obligatorio";
     
       return false;
@@ -161,8 +165,7 @@ $("#saveSeccionPhotoInstitutional").click(function() {
 
   if(!edit)
   {
-    var x = document.getElementById("allMessage");
-    x.style.display = "block";
+    
 
     title = $('#textitle').val();
     if(isEmptyOrSpaces(title))
@@ -175,18 +178,23 @@ $("#saveSeccionPhotoInstitutional").click(function() {
     }
     if(isEmptyOrSpaces(title) || ($('#img').get(0).files.length === 0)){
 
+      var x = document.getElementById("allMessage");
+      x.style.display = "block";
+
       return false;
     }
     return true;
   }
   else
   {
-    var x = document.getElementById("allMessage");
-    x.style.display = "block";
+    
 
     title = $('#textitle').val();
     if(isEmptyOrSpaces(title))
     {
+      var x = document.getElementById("allMessage");
+      x.style.display = "block";
+
       document.getElementById("message_title").innerHTML = "El campo título es obligatorio";
       return false;
     }
