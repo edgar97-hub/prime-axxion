@@ -104,7 +104,6 @@ class ForgotPasswordController extends Controller
                               ])
                               ->first();
 
-                              return back()->withInput()->with('error', 'Invalid token!');
           //if(!$updatePassword){
             //  return back()->withInput()->with('error', 'Invalid token!');
           //}
