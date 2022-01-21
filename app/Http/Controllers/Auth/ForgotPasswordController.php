@@ -108,14 +108,12 @@ class ForgotPasswordController extends Controller
           //return redirect()->back()->with('success', 'your message,here');  
           if(!$updatePassword){
               return Redirect::back()->withErrors(['token_message' => 'token no valido!']); 
-
-
           }
 
           $user = User::where('email', $request->email)
                       ->update(['password' => Hash::make($request->password)]);
-          DB::table('password_resets')->where(['email'=> $request->email])->delete();
-          
+          //DB::table('password_resets')->where(['email'=> $request->email])->delete();
+
           return redirect('/login')->with('success', 'Tu contraseña ha sido cambiada!');
 
       }
