@@ -8,6 +8,15 @@
      </li>
      <li class="breadcrumb-item active">Editar</li>
    </ol>
+
+   <div id = "allMessage" style="display:none"  class="alert alert-danger" >
+    <strong>¡Ups!</strong> Hubo algunos problemas con tu entrada.<br><br>
+    <ul style="list-style-type: none">
+         <li id = "message"></li>
+    </ul>
+  </div>
+
+  
     <div class="container-fluid">
          <div class="animated fadeIn">
              @include('coreui-templates::common.errors')

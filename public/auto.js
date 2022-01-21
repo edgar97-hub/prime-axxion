@@ -146,7 +146,7 @@ $("#saveImg").click(function() {
     //alert("Edit: "+$('#img').get(0).files.length);
     if ($('#img').get(0).files.length === 0) 
     {
-      document.getElementById("message").innerHTML = "El campo img es obligatorio";
+      document.getElementById("message_img").innerHTML = "El campo img es obligatorio";
     
       return false;
     }

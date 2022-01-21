@@ -39,6 +39,9 @@ class UpdateUserRequest extends FormRequest
         $messages = [
             'name.required' => 'El campo nombre es obligatorio',
             'email.required' => 'El campo correo electrónico es obligatorio',
+            'password.required' => 'El campo contraseña es obligatorio',
+
+
         ];
 
         return $messages;

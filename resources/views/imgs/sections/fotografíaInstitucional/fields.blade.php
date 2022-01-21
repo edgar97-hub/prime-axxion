@@ -1,10 +1,3 @@
-<div id = "allMessage" style="display:none"  class="alert alert-danger">
-    <ul id = "message_title" >
-    </ul>
-    <ul id = "message_img" >
-    </ul>
-</div>
-
 <!-- Textitle Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('textitle', 'titulo:') !!}
