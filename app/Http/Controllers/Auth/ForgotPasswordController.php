@@ -105,7 +105,6 @@ class ForgotPasswordController extends Controller
                               ])
                               ->first();
 
-          //return redirect()->back()->with('success', 'your message,here');  
           if(!$updatePassword){
               return Redirect::back()->withErrors(['token_message' => 'token no valido!']); 
           }
