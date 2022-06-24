@@ -51,4 +51,14 @@ trait MakeImg
         unlink(storage_path('/app/public/'.$value[$typeFile]));
       }
     }
+
+    public function deleteFilesCkeditor($filePath,$filename)
+    {
+       
+      if (is_file(storage_path('/app/public/'.$filePath.$filename)))
+      {   
+        unlink(storage_path('/app/public/'.$filePath.$filename));
+      }
+    }
+
 }

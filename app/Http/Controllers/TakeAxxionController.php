@@ -149,11 +149,23 @@ class TakeAxxionController extends AppBaseController
             return redirect(route('takeAxxions.index'));
         }
         $file_1 = 'img';
+
         if ($request->hasFile($file_1)) {
           $filePath = 'img/takeaxxion/';   
           $input = $this->updateFile($request,$filePath,$takeAxxion,$file_1);
         }
+        $file_1 = 'file_names';
+       
+        $file_names = explode(',', $input['file_names']);
          
+        $filePath = 'img/takeaxxion/';   
+
+        foreach ($file_names as $value) 
+        {
+            //dd($filePath.$value);
+            $this->deleteFilesCkeditor($filePath,$value);
+             
+        }
         $takeAxxion = $this->takeAxxionRepository->update($input, $id);
 
         Flash::success('registro actualizado con éxito.');

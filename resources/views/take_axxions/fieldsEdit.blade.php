@@ -19,6 +19,12 @@
       </div>
 </div>
 
+<div class="form-group col-sm-6">
+    {!! Form::text('file_names', null, ['id' => 'file_names','style'=>'display:none;width:23cm', 'class' => 'form-control']) !!}
+
+</div>
+
+
 <!-- Number Visits Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('number_visits', 'Número de visitas:',['style'=>'display:none']) !!}

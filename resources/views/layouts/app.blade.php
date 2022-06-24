@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>{{config('app.name')}}</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-<script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/decoupled-document/ckeditor.js"></script>
+<!-- script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/decoupled-document/ckeditor.js"></script> -->
 
-
+<script src="{{ asset('ckeditor.js') }}"></script>
 
     <link rel="stylesheet" type="text/css" href="{{ url('toolbar_editor.css') }}" />
     <link rel="shortcut icon" href="{{ asset('img/icon.ico') }}">
-   
+
     <!-- Bootstrap 4.1.1 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
@@ -99,9 +99,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@2.1.16/dist/js/coreui.min.js"></script>
- 
-<script>
 
+<script> 
  class MyUploadAdapter {
 
     constructor( loader ) {
@@ -172,6 +171,7 @@
 
     let Myeditor;
     let isReadOnly = false;
+    let isEdit = false;
 
     DecoupledEditor
       .create( document.querySelector( '#editor' ), {
@@ -184,22 +184,127 @@
       toolbarContainer.appendChild( newEditor.ui.view.toolbar.element );
       window.editor = newEditor;
       Myeditor = newEditor;
+  
+ 
+    
+     
+    
+        
 
-      
-      if (document.contains(document.getElementById("show"))) {
+    //for(let child of Myeditor.model.document.getRoot().getChildren()){
+            //alert("child:"+Myeditor.model.document.getRoot().differ);
+
+            //alert("child:"+child.toJSON());
+      //      for(let w of child.getAttributes() )
+        //    {
+              //  alert("child:"+w);
+
+          //  }
+
+        //if(child.is('model:element', 'imageBlock')) {
+             
+            // alert("imageBlock:");
+
+       // }
+
+           //alert("child inside:"+child.getAttribute('src'));
+
+            //const str = child.getAttribute('src');
+            //const Index_1 = str.lastIndexOf('/');
+            //const Index_2 = str.length
+            //const namefile = str.slice(Index_1 + 1, Index_2)
+            //alert("child inside:"+namefile+""+child.index);
+             
+            //var listFiles = new Array();  
+            //listFiles[child.index] = namefile;  
+            //alert("child listFiles:"+listFiles);
+    // }
+
+    //Myeditor.model.document.getRoot()
+     //let root = editorDocument.getRoot();
+     //let children = root.getChildren();
+    // alert("evt:"+Myeditor.model.document.getRoot());
+
+    //for(let child of children){
+      //       alert("evt:");
+        //if(child.is('image')) {
+          //  editorModel.change(writer => {
+            //   writer.remove(child);
+            //});
+        //}
+     //}
+
+  
+
+     
+    if (document.contains(document.getElementById("show"))) {
 
         newEditor.isReadOnly = true;
         var body = document.getElementById("hidden_body_field");
-         Myeditor.setData(body.value);
+            Myeditor.setData(body.value);
         toolbarContainer.style.display = 'none';
 
-      }
-      else
-      {
+    }
+    else
+    {
         var body = document.getElementById("hidden_body_field");
         Myeditor.setData(body.value);
-      }
+        isEdit = true;
 
+
+    }
+
+    if(isEdit)
+    {
+        Myeditor.model.document.on( 'change:data', ( event, data,value ) => {
+        const differ = event.source.differ;
+            const changes = differ.getChanges({
+            includeChangesInGraveyard: true
+        });
+            for (let i = 0; i < changes.length; i++){
+            const change = changes[i]
+            // if image remove exists
+            //alert("hasNoImageRemoved:"+change.type );
+
+            if (change && change.type === 'remove' && (change.name === 'image' || change.name === 'imageBlock' || change.name === 'imageInline')) {
+                //hasNoImageRemoved = false
+                 //alert("hasNoImageRemoved:"+change.type);
+
+                break
+            }
+        }
+
+        const removedNodes = changes.filter(change => (change.type === 'insert' && (change.name === 'image' || change.name === 'imageBlock' || change.name === 'imageInline')))
+        // removed images src
+        const removedImagesSrc = [];
+
+        // removed image nodes
+        const removedImageNodes = []
+        
+        removedNodes.forEach(node => {
+            const removedNode = node.position.nodeAfter
+            removedImageNodes.push(removedNode)
+            removedImagesSrc.push(removedNode.getAttribute('src'))
+
+            
+        })
+        if (removedImagesSrc[0] != undefined ) {
+            var str = removedImagesSrc[0];
+            var Index_1 = str.lastIndexOf('/');
+            var Index_2 = str.length;
+            const namefile = str.slice(Index_1 + 1, Index_2);
+            var file_names = document.getElementById("file_names");
+            file_names.value += namefile+",";
+            //alert("child length:"+removedImagesSrc[0]);
+
+        }
+
+
+    } );
+
+        
+    }
+    
       //handleStatusChanges( newEditor );
       //handleSaveButton( newEditor );
       //handleBeforeunload( newEditor );

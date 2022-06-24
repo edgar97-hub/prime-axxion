@@ -11,7 +11,7 @@
         </thead>
         <tbody>
         @foreach($banners as $banner)
-             @php
+            @php
               $numberRecords += 1 ;
             @endphp
 
